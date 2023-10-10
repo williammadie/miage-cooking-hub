@@ -1,13 +1,13 @@
 .main {
-    /* 
+  /* 
     Ensures page content stays at the right of the navbar and don't go
     below it or under it. 
     */
-    margin-left: 15em;
-    padding: 0em 1em;
+  margin-left: 15em;
+  padding: 0em 1em;
 }
 
 h1 {
-    padding-bottom: 0.25em;
-    border-bottom: solid 2px black;
+  padding-bottom: 0.25em;
+  border-bottom: solid 2px black;
 }
