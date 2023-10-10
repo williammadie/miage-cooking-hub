@@ -1,0 +1,26 @@
+nav {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    display: flex;
+    background: #1A3B22;
+    width: 15em;
+    height: 100em;
+}
+
+nav ul {
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
