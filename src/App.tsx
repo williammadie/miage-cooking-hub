@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import Cocktails from "./pages/Cocktails/Cocktails";
 import Meals from "./pages/Meals/Meals";
 import Navbar from "./components/Navbar/Navbar";
+import React from "react";
 
 function App() {
   return (
