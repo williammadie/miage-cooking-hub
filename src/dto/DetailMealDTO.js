@@ -1,4 +1,4 @@
-class DetailMealDTO {
+export class DetailMealDTO {
     idMeal;
     strMeal;
     strCategory;
@@ -37,7 +37,7 @@ class DetailMealDTO {
     }
 }
 
- class IngredientDTO {
+export class IngredientDTO {
     ingredient;
     measure;
 

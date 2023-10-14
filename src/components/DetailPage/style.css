@@ -1,0 +1,39 @@
+.container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.text {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.image {
+    max-width: 100%;
+}
+
+.link {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-item {
+    font-size: 16px;
+    margin: 4px 0;
+}
