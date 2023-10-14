@@ -16,13 +16,13 @@ jobs:
         uses: actions/checkout@v3
       -
         name: Install Packages
-        run: npm ci
+        run: yarn --frozen-lockfile
       -
         name: Application Build Status
-        run: npm run build
+        run: yarn build
       -
         name: Code Formatting
-        run: npx prettier --write ./src
+        run: yarn prettier --write ./src
       -
         name: Auto Commit Code Formatting
         uses: stefanzweifel/git-auto-commit-action@v4
