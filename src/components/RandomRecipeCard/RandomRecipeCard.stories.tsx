@@ -1,10 +1,9 @@
 import React from "react";
-import RecipeCard, { RandomRecipeCardProps } from "./RandomRecipeCard";
+import RandomRecipeCard, { RandomRecipeCardProps } from "./RandomRecipeCard";
 
 import recipeSampleImg from "../../assets/sample-recipe.jpg";
 import { BrowserRouter } from "react-router-dom";
 import { StoryFn } from "@storybook/react";
-import RandomRecipeCard from "./RandomRecipeCard";
 
 export default {
   component: RandomRecipeCard,
