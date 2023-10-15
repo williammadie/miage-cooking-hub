@@ -5,8 +5,16 @@ import "./style.css";
 import fallbackImg from "../../assets/img-not-found.png";
 import ytLogo from "../../assets/yt-logo.png";
 
+type RandomRecipeCardProps = {
+    title: string;
+    description: string;
+    img: string;
+    category: string;
+    ytLink: string;
+};
 
-export default function RecipeCard({title, description, img, category, ytLink}) {
+
+const RandomRecipeCard: React.FC<RandomRecipeCardProps> = ({title, description, img, category, ytLink}) => {
 
     const [imgSrc, setImgSrc] = useState(img);
 
@@ -40,3 +48,6 @@ export default function RecipeCard({title, description, img, category, ytLink}) 
         </article>
     )
 }
+
+export default RandomRecipeCard;
+export type { RandomRecipeCardProps };

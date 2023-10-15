@@ -1,17 +1,19 @@
 import React from "react";
-import RecipeCard from "./RecipeCard";
+import RecipeCard, { RandomRecipeCardProps } from "./RandomRecipeCard";
 
 import recipeSampleImg from "../../assets/sample-recipe.jpg";
 import { BrowserRouter } from "react-router-dom";
+import { StoryFn } from "@storybook/react";
+import RandomRecipeCard from "./RandomRecipeCard";
 
 export default {
-  component: RecipeCard,
-  title: "component/RecipeCard",
+  component: RandomRecipeCard,
+  title: "component/RandomRecipeCard",
 };
 
-const Template = (args) => <BrowserRouter><RecipeCard {...args} /></BrowserRouter>;
+const Template: StoryFn<RandomRecipeCardProps> = (args: RandomRecipeCardProps) => <BrowserRouter><RandomRecipeCard {...args} /></BrowserRouter>;
 
-export const Default = Template.bind();
+export const Default = Template.bind({});
 
 Default.args = {
     title: "European Breakfast",
@@ -21,7 +23,7 @@ Default.args = {
     ytLink: "https://www.youtube.com/",
 };
 
-export const IncorrectImage = Template.bind();
+export const IncorrectImage = Template.bind({});
 
 IncorrectImage.args = {
     title: "Chicken Couscous",
@@ -31,7 +33,7 @@ IncorrectImage.args = {
     ytLink: "https://www.youtube.com/",
 };
 
-export const NoImage = Template.bind();
+export const NoImage = Template.bind({});
 
 NoImage.args = {
     title: "Chicken Couscous",
@@ -40,7 +42,7 @@ NoImage.args = {
     ytLink: "https://www.youtube.com/",
 };
 
-export const NoLink = Template.bind();
+export const NoLink = Template.bind({});
 
 NoLink.args = {
     title: "Chicken Couscous",
