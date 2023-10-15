@@ -1,9 +1,12 @@
 import React from "react";
-import MealService from "../../services/MealService";
+import ServiceContainer from "../../services/ServiceContainer";
+import IRecipeService from "../../services/IRecipeService";
 
 export default function Home() {
+  const mealService: IRecipeService = ServiceContainer.mealService;
+
   async function getRandomMeal() {
-    const randomMealDto = await MealService.getRandomMeal();
+    const randomMealDto = await mealService.getRandomRecipe();
     console.log(randomMealDto.name);
   }
   getRandomMeal();
