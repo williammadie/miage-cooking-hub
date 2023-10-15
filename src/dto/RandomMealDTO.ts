@@ -7,7 +7,7 @@ export class RandomMealDTO {
   thumbnailUrl;
   youtubeRecipe;
 
-  constructor(data) {
+  constructor(data: any) {
     this.id = data.idMeal;
     this.name = data.strMeal;
     this.description = data.strInstructions;
