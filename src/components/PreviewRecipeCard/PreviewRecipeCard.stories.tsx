@@ -10,31 +10,38 @@ export default {
   title: "component/PreviewRecipeCard",
 };
 
-const Template: StoryFn<PreviewRecipeCardProps> = (args: PreviewRecipeCardProps) => <BrowserRouter><PreviewRecipeCard {...args} /></BrowserRouter>;
+const Template: StoryFn<PreviewRecipeCardProps> = (
+  args: PreviewRecipeCardProps
+) => (
+  <BrowserRouter>
+    <PreviewRecipeCard {...args} />
+  </BrowserRouter>
+);
 
 export const Default = Template.bind({});
 
 Default.args = {
-    title: "European Breakfast",
-    img: recipeSampleImg,
+  title: "European Breakfast",
+  img: recipeSampleImg,
 };
 
 export const IncorrectImage = Template.bind({});
 
 IncorrectImage.args = {
-    title: "Chicken Couscous",
-    img: "",
+  title: "Chicken Couscous",
+  img: "",
 };
 
 export const NoImage = Template.bind({});
 
 NoImage.args = {
-    title: "Chicken Couscous",
-}
+  title: "Chicken Couscous",
+};
 
 export const VeryLongTitle = Template.bind({});
 
 VeryLongTitle.args = {
-    title: "This recipe is unbelievable!!! You won't believe what is inside this recipe! (Second one is incredible)",
-    img: recipeSampleImg,
-}
+  title:
+    "This recipe is unbelievable!!! You won't believe what is inside this recipe! (Second one is incredible)",
+  img: recipeSampleImg,
+};
