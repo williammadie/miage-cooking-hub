@@ -16,7 +16,7 @@ class FullMealMapper {
   static toDtos(meals: any): FullRecipeDTO[] {
     const mealsDtos: FullRecipeDTO[] = [];
     for (let meal of meals) {
-        mealsDtos.push(this.toDto(meal));
+      mealsDtos.push(this.toDto(meal));
     }
     return mealsDtos;
   }

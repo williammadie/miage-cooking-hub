@@ -1,7 +1,7 @@
 import MealService from "./MealService";
 
 const ServiceContainer = {
-    mealService: new MealService()
-}
+  mealService: new MealService(),
+};
 
 export default ServiceContainer;

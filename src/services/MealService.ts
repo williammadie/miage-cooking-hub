@@ -10,9 +10,7 @@ class MealService implements IRecipeService {
   async getRandomRecipe(): Promise<FullRecipeDTO> {
     let response: AxiosResponse | undefined = undefined;
     try {
-      response = await axios.get(
-        MealRoutesAPI.RANDOM_MEAL
-      );
+      response = await axios.get(MealRoutesAPI.RANDOM_MEAL);
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -52,6 +50,6 @@ class MealService implements IRecipeService {
   getRecipeByMainIngredientName(name: string) {
     throw new Error("Method not implemented.");
   }
-};
+}
 
 export default MealService;
