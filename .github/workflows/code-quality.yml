@@ -31,4 +31,4 @@ jobs:
           branch: ${{ github.head_ref }}
       -
         name: Code Linting
-        run: npx eslint ./src
+        run: yarn eslint ./src --max-warnings 0
