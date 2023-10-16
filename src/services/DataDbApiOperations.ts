@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from "axios";
  * This class is responsible for common API calls towards:
  * - TheMealDB
  * - CocktailDB
- * 
+ *
  * As these two APIs share the same author, they also have the same
  * structure and operations can easily be regrouped in a common class.
  */
@@ -13,8 +13,9 @@ class DataDbApiOperations {
     id?: string
   ): Promise<AxiosResponse> {
     let response: AxiosResponse | undefined = undefined;
+    const resourcePath = id === undefined ? resourceUrl : `${resourceUrl}${id}`;
     try {
-      response = await axios.get(`${resourceUrl}${id}`);
+      response = await axios.get(resourcePath);
       console.log(response);
     } catch (error) {
       console.error(error);
