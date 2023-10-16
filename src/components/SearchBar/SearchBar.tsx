@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import fallbackImg from "../../assets/img-not-found.png";
+import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import IRecipeService from "../../services/IRecipeService";
 import ServiceContainer from "../../services/ServiceContainer";
 
@@ -13,12 +14,13 @@ type SearchBarProps = {
 const SearchBar: React.FC<SearchBarProps> = ({ img }) => {
     const mealService: IRecipeService = ServiceContainer.mealService;
     const [searchInput, setSearchInput] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState<PreviewRecipeDTO[]>([]);
     const [imgSrc, setImgSrc] = useState(img);
 
-    const search = (_input: string) => {
+    const search = async (_input: string) => {
         try{            
-            mealService.getRecipesByName(_input)
+            const result = await mealService.getRecipesByName(_input);
+            setSearchResults(result);
         }catch(error){
             console.error("Error:", error);
         }
