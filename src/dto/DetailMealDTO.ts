@@ -1,16 +1,16 @@
 export class DetailMealDTO {
-    idMeal;
-    strMeal;
-    strCategory;
-    strArea;
-    strInstructions;
-    strMealThumb;
-    strTags;
-    strYoutube;
-    strSource;
-    ingredients;
+    idMeal: number;
+    strMeal: string;
+    strCategory: string;
+    strArea: string;
+    strInstructions: string;
+    strMealThumb: string;
+    strTags: string;
+    strYoutube: string;
+    strSource: string;
+    ingredients: IngredientDTO[];
 
-    constructor(data) {
+    constructor(data: any) {
         this.idMeal = data.idMeal;
         this.strMeal = data.strMeal;
         this.strCategory = data.strCategory;
@@ -24,8 +24,8 @@ export class DetailMealDTO {
         this.ingredients = this.extractIngredients(data);
     }
 
-    extractIngredients(data) {
-        const ingredients = [];
+    extractIngredients(data: any): IngredientDTO[] {
+        const ingredients: IngredientDTO[] = [];
         for (let i = 1; i <= 20; i++) {
             const ingredientKey = `strIngredient${i}`;
             const measureKey = `strMeasure${i}`;
@@ -38,10 +38,10 @@ export class DetailMealDTO {
 }
 
 export class IngredientDTO {
-    ingredient;
-    measure;
+    ingredient: string;
+    measure: string;
 
-    constructor(ingredient, measure) {
+    constructor(ingredient: string, measure: string) {
         this.ingredient = ingredient;
         this.measure = measure;
     }

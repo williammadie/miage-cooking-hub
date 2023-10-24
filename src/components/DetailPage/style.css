@@ -15,7 +15,9 @@
 }
 
 .image {
-    max-width: 100%;
+    width: 25em;
+    border-radius: 1.5em;
+    object-fit: cover;
 }
 
 .link {
@@ -28,12 +30,43 @@
     font-weight: bold;
 }
 
-.list {
-    list-style-type: none;
+.list-instruction {
+    list-style-type :  decimal ;
+    padding: 0;
+}
+.list{
     padding: 0;
 }
 
 .list-item {
     font-size: 16px;
     margin: 4px 0;
+}
+
+.content-header{
+    display: flex;
+    lex-wrap: wrap;
+}
+
+.section-list-ingredient{
+    padding : 1em 5em 3em 3em;
+    margin : 2em;
+    border-radius: 1.5em;
+    background-color: rgba(196, 187, 187, 0.2);
+}
+
+.section-image{
+    padding : 1em 3em 1em 1em;
+    margin : 2em;
+}
+
+.video-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 25em;
+    margin : 2em;
+    border-radius: 1.5em ;
+    background-color: rgba(196, 187, 187, 0.2);
 }

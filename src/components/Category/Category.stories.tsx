@@ -1,5 +1,8 @@
 import React from 'react';
-import Category from './Category';
+import Category, {CategoryProps} from './Category';
+import {StoryFn} from "@storybook/react";
+import {BrowserRouter} from "react-router-dom";
+import PreviewRecipeCard from "../PreviewRecipeCard/PreviewRecipeCard";
 
 
 export default {
@@ -7,19 +10,27 @@ export default {
     title: 'Component/Category'
 };
 
-const Template = (args) => <Category {...args} />
+const Template: StoryFn<CategoryProps> = (
+    args: CategoryProps
+) => (
+    <BrowserRouter>
+        <Category {...args} />
+    </BrowserRouter>
+    //j'ai essayé de faire comme toi, mais j'ai des erreurs
+    // Si t'essayes d'utiliser un type ici StoryFn<monType> ça change qq chose ?
+)
 
-export  const Default = Template.bind({});
+export const Default = Template.bind({});
 
 Default.args = {
-    category : "Beef"
+    category: "Beef"
 };
 
 export const Breakfast = Template.bind({});
 
 Breakfast.args = {
     category: "Breakfast"
-  }
+}
 export const Chicken = Template.bind({});
 Chicken.args = {
     category: "Chicken"

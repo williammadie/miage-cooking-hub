@@ -1,5 +1,10 @@
 import React from 'react';
 import './style.css';
+
+export type CategoryProps = {
+    category: string;
+}
+
 const categoryColors = {
     Beef: 'red',
     Breakfast: 'orange',
@@ -27,11 +32,12 @@ const categoryColors = {
     Beer: 'indigo',
     'Soft Drink': 'lime',
 };
-
-const Category = ({ category }) => {
-    const categoryClassName = categoryColors[category] || 'grey';
+const Category: React.FC<CategoryProps> = ({
+    category
+}) =>{
+    const categoryClassName: string = categoryColors[category as keyof typeof categoryColors] || 'grey';//|| 'grey';
     return (
-        <div className={`category-chip ${categoryClassName}`} >
+        <div className={`category-chip ${categoryClassName}`}>
             {category}
         </div>
     );
