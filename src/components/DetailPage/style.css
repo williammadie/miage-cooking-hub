@@ -45,7 +45,7 @@
 
 .content-header{
     display: flex;
-    lex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .section-list-ingredient{

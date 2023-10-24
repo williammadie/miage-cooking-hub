@@ -1,5 +1,5 @@
 import React from 'react';
-import {DetailMealDTO, IngredientDTO} from '../../dto/DetailMealDTO';
+import {DetailMealDTO} from '../../dto/DetailMealDTO';
 import DetailPage, {DetailMealProps} from "./DetailPage";
 import {Meta, StoryFn} from "@storybook/react";
 import {BrowserRouter} from "react-router-dom";

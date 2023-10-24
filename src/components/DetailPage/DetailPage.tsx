@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import "./style.css";
 import Category from '../Category/Category';
 import YouTubeVideo from '../YouTubeVideo/YouTubeVideo';
-import {DetailMealDTO, IngredientDTO} from "../../dto/DetailMealDTO";
+import {IngredientDTO} from "../../dto/DetailMealDTO";
 
 export type DetailMealProps = {
     idMeal: number;

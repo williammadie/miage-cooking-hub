@@ -2,7 +2,7 @@ import React from 'react';
 import Category, {CategoryProps} from './Category';
 import {StoryFn} from "@storybook/react";
 import {BrowserRouter} from "react-router-dom";
-import PreviewRecipeCard from "../PreviewRecipeCard/PreviewRecipeCard";
+
 
 
 export default {
