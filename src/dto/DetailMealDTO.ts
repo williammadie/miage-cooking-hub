@@ -24,7 +24,7 @@ export class DetailMealDTO {
         this.ingredients = this.extractIngredients(data);
     }
 
-    extractIngredients(data: any): IngredientDTO[] {
+    private extractIngredients(data: any): IngredientDTO[] {
         const ingredients: IngredientDTO[] = [];
         for (let i = 1; i <= 20; i++) {
             const ingredientKey = `strIngredient${i}`;

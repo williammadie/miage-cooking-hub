@@ -2,10 +2,21 @@ import React, {Component} from 'react';
 import "./style.css";
 import Category from '../Category/Category';
 import YouTubeVideo from '../YouTubeVideo/YouTubeVideo';
-import {DetailMealDTO} from "../../dto/DetailMealDTO";
+import {DetailMealDTO, IngredientDTO} from "../../dto/DetailMealDTO";
 
-
-const DetailPage : React.FC<DetailMealDTO> = (recipeData: DetailMealDTO) => {
+export type DetailMealProps = {
+    idMeal: number;
+    strMeal: string;
+    strCategory: string;
+    strArea: string;
+    strInstructions: string;
+    strMealThumb: string;
+    strTags: string;
+    strYoutube: string;
+    strSource: string;
+    ingredients: IngredientDTO[];
+};
+const DetailPage : React.FC<DetailMealProps> = (recipeData: DetailMealProps) => {
     function extractVideoIdFromUrl(url: string):string {
 
         const regEx = /(?:\?v=|\/embed\/|\/watch\?v=|\/)([a-zA-Z0-9_-]{11})/;

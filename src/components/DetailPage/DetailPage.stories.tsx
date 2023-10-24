@@ -1,17 +1,19 @@
 import React from 'react';
 import {DetailMealDTO, IngredientDTO} from '../../dto/DetailMealDTO';
-import DetailPage from "./DetailPage";
+import DetailPage, {DetailMealProps} from "./DetailPage";
 import {Meta, StoryFn} from "@storybook/react";
 import {BrowserRouter} from "react-router-dom";
-import PreviewRecipeCard from "../PreviewRecipeCard/PreviewRecipeCard";
+
 
 export default {
     component: DetailPage,
     title: 'component/DetailPage'
 } as Meta;
 
-const Template: StoryFn<DetailMealDTO> = (
-        args :DetailMealDTO
+
+
+const Template: StoryFn<DetailMealProps> = (
+        args :DetailMealProps
 )  => (
     <BrowserRouter>
         <DetailPage {...args} />
