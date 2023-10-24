@@ -6,7 +6,7 @@ import {DetailMealDTO} from "../../dto/DetailMealDTO";
 
 
 const DetailPage : React.FC<DetailMealDTO> = (recipeData: DetailMealDTO) => {
-    function extractVideoIdFromUrl(url: string):string |null {
+    function extractVideoIdFromUrl(url: string):string {
 
         const regEx = /(?:\?v=|\/embed\/|\/watch\?v=|\/)([a-zA-Z0-9_-]{11})/;
 
@@ -15,10 +15,10 @@ const DetailPage : React.FC<DetailMealDTO> = (recipeData: DetailMealDTO) => {
         if (match && match.length > 1) {
             return match[1];
         } else {
-            return null;
+            return "";
         }
     }
-    const videoId = extractVideoIdFromUrl(recipeData.strYoutube);
+    const videoIdd :string  = extractVideoIdFromUrl(recipeData.strYoutube);
 
     const instructions = recipeData.strInstructions.split('\\r\\').map((instruction: any, index: number) => (
         <li key={index} className="text" dangerouslySetInnerHTML={{__html: instruction}}/>
@@ -43,9 +43,9 @@ const DetailPage : React.FC<DetailMealDTO> = (recipeData: DetailMealDTO) => {
                         ))}
                     </ul>
                 </div>
-                {videoId != null  && (
+                {videoIdd && (
                     <div className="video-container">
-                        <YouTubeVideo videoId={videoId.}/>
+                        <YouTubeVideo videoId={videoIdd}/>
                     </div>
                 )}
 

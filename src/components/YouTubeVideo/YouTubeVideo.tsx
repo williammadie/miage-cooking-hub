@@ -2,7 +2,10 @@ import React from 'react';
 import YouTube from "react-youtube";
 import "./style.css"
 
-const YouTubeVideo = (videoId : string) => {
+export type videoIdProps = {
+    videoId: string;
+}
+const YouTubeVideo : React.FC<videoIdProps> = ({videoId}) => {
     const opts = {
         height: '360',
         width: '640',
@@ -11,12 +14,12 @@ const YouTubeVideo = (videoId : string) => {
         },
     };
 
-    const onReady = (event : any) => {
+    const onReady = (event: any) => {
         event.target.playVideo(); // Activer la lecture automatique de la vidéo
     };
 
     return (
-        <YouTube videoId={videoId} opts={opts} onReady={onReady} />
+        <YouTube videoId={videoId} opts={opts} onReady={onReady}/>
     );
 };
 
