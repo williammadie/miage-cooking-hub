@@ -32,6 +32,12 @@
     "build-storybook": "storybook build"
   },
   "eslintConfig": {
+    "rules": {
+      "max-classes-per-file": [
+        "error",
+        1
+      ]
+    },
     "extends": [
       "react-app",
       "react-app/jest",
