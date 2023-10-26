@@ -2,48 +2,48 @@ import React from 'react';
 import "./style.css";
 import Category from '../Category/Category';
 import YouTubeVideo from '../YouTubeVideo/YouTubeVideo';
-import {IngredientDTO} from "../../dto/DetailMealDTO";
+import {IngredientDTO} from "../../dto/IngredientDTO";
 
-export type DetailMealProps = {
-    idMeal: number;
-    strMeal: string;
-    strCategory: string;
-    strArea: string;
-    strInstructions: string;
-    strMealThumb: string;
-    strTags: string;
-    strYoutube: string;
-    strSource: string;
+export type FullRecipe = {
+    id: string;
+    name: string;
+    instruction: string;
+    area: string;
+    category: string;
+    thumbnailUrl: string;
+    youtubeRecipe: string;
+    tags: string[];
+    source: string;
     ingredients: IngredientDTO[];
 };
-const DetailPage : React.FC<DetailMealProps> = (recipeData: DetailMealProps) => {
+const DetailPage : React.FC<FullRecipe> = (recipeData: FullRecipe) => {
     function extractVideoIdFromUrl(url: string):string {
+        const prefix = "https://www.youtube.com/watch?v=";
+        const startIndex = url.indexOf(prefix);
 
-        const regEx = /(?:\?v=|\/embed\/|\/watch\?v=|\/)([a-zA-Z0-9_-]{11})/;
-
-        const match = url.match(regEx);
-
-        if (match && match.length > 1) {
-            return match[1];
+        if (startIndex !== -1) {
+            // Utilisez substring pour obtenir tout ce qui se trouve après le préfixe
+            return  url.substring(startIndex + prefix.length);
         } else {
+            // Si le préfixe n'est pas trouvé, retournez null
             return "";
         }
     }
-    const videoIdd :string  = extractVideoIdFromUrl(recipeData.strYoutube);
+    const videoIdd :string  = extractVideoIdFromUrl(recipeData.youtubeRecipe);
 
-    const instructions = recipeData.strInstructions.split('\\r\\').map((instruction: any, index: number) => (
+    const instructions = recipeData.instruction.split('\\r\\').map((instruction: any, index: number) => (
         <li key={index} className="text" dangerouslySetInnerHTML={{__html: instruction}}/>
     ));
     return (
         <div className="container">
-            <h1 className="title">{recipeData.strMeal}</h1>
+            <h1 className="title">{recipeData.name}</h1>
             <div className="text">Category:</div>
-            <Category category={recipeData.strCategory}/>
-            <p className="text">Area: {recipeData.strArea}</p>
+            <Category category={recipeData.category}/>
+            <p className="text">Area: {recipeData.area}</p>
             <div className="content-header">
                 <div className="section-image">
-                    <img src={recipeData.strMealThumb} alt={recipeData.strMeal} className="image"/>
-                    <p className="text">Tags: {recipeData.strTags}</p>
+                    <img src={recipeData.thumbnailUrl} alt={recipeData.name} className="image"/>
+                    <p className="text">Tags: {recipeData.tags}</p>
                 </div>
                 <div className="section-list-ingredient">
                     <h2 className="subtitle">Ingredients</h2>
@@ -69,7 +69,7 @@ const DetailPage : React.FC<DetailMealProps> = (recipeData: DetailMealProps) => 
 
             <p className="text">
                 Source:{' '}
-                <a href={recipeData.strSource} target="_blank" rel="noopener noreferrer" className="link">
+                <a href={recipeData.source} target="_blank" rel="noopener noreferrer" className="link">
                     Read More
                 </a>
             </p>

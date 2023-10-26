@@ -46,6 +46,7 @@
 .content-header{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .section-list-ingredient{
@@ -65,7 +66,9 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    width: 25em;
+    z-index: 1;
+    width: 30em;
+    height: 25em;
     margin : 2em;
     border-radius: 1.5em ;
     background-color: rgba(196, 187, 187, 0.2);
