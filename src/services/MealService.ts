@@ -1,45 +1,50 @@
 import { AxiosResponse } from "axios";
-import IRecipeService from "./IRecipeService";
 import FullRecipeDTO from "../dto/FullRecipeDTO";
 import PreviewRecipeDTO from "../dto/PreviewRecipeDTO";
-import MealRoutesAPI from "./MealRoutesAPI";
 import FullMealMapper from "../mappers/FullMealMapper";
 import PreviewMealMapper from "../mappers/PreviewMealMapper";
-import DataDbApiOperations from "./DataDbApiOperations";
+import { retrieveFullRecipe, retrieveRecipes } from "./DataDbService";
+import {
+  buildURL,
+  DATA_DB_PREFIX,
+  DATA_DB_ROUTES,
+} from "../constants/RouteBuilder";
 
-class MealService extends DataDbApiOperations implements IRecipeService {
-  async getRandomRecipe(): Promise<FullRecipeDTO> {
-    const response: AxiosResponse = await MealService.retrieveFullRecipe(
-      MealRoutesAPI.RANDOM_MEAL
+const FIRST_ELEMENT: number = 0;
+
+const MealService = {
+  getRandomRecipe: async function (): Promise<FullRecipeDTO> {
+    const response: AxiosResponse = await retrieveFullRecipe(
+      buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RANDOM_RECIPE)
     );
-    return FullMealMapper.toDto(response.data.meals[0]);
-  }
+    return FullMealMapper.toDto(response.data.meals[FIRST_ELEMENT]);
+  },
 
-  async getFullRecipeById(id: string): Promise<FullRecipeDTO> {
-    const response: AxiosResponse = await MealService.retrieveFullRecipe(
-      MealRoutesAPI.MEAL_BY_ID,
+  getFullRecipeById: async function (id: string): Promise<FullRecipeDTO> {
+    const response: AxiosResponse = await retrieveFullRecipe(
+      buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RECIPE_BY_ID),
       id
     );
-    return FullMealMapper.toDto(response.data.meals[0]);
-  }
+    return FullMealMapper.toDto(response.data.meals[FIRST_ELEMENT]);
+  },
 
-  async getRecipesByName(name: string): Promise<PreviewRecipeDTO[]> {
-    const response: AxiosResponse = await MealService.retrieveRecipes(
-      MealRoutesAPI.MEAL_BY_NAME,
+  getRecipesByName: async function (name: string): Promise<PreviewRecipeDTO[]> {
+    const response: AxiosResponse = await retrieveRecipes(
+      buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RECIPE_BY_NAME),
       name
     );
     return PreviewMealMapper.toDtos(response.data.meals);
-  }
+  },
 
-  async getRecipesByMainIngredientName(
+  getRecipesByMainIngredientName: async function (
     name: string
   ): Promise<PreviewRecipeDTO[]> {
-    const response: AxiosResponse = await MealService.retrieveRecipes(
-      MealRoutesAPI.MEAL_BY_MAIN_INGREDIENT,
+    const response: AxiosResponse = await retrieveRecipes(
+      buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RECIPE_BY_MAIN_INGREDIENT),
       name
     );
     return PreviewMealMapper.toDtos(response.data.meals);
-  }
-}
+  },
+};
 
 export default MealService;

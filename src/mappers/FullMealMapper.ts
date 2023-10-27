@@ -1,25 +1,28 @@
 import FullRecipeDTO from "../dto/FullRecipeDTO";
 
-class FullMealMapper {
-  static toDto(meal: any): FullRecipeDTO {
-    return new FullRecipeDTO(
-      meal.idMeal,
-      meal.strMeal,
-      meal.strInstructions,
-      meal.strArea,
-      meal.strCategory,
-      meal.strMealThumb,
-      meal.strYoutube
-    );
-  }
+const FullMealMapper = {
+  toDto: function (meal: any): FullRecipeDTO {
+    return {
+      id: meal.idMeal,
+      name: meal.strMeal,
+      description: meal.strInstructions,
+      area: meal.strArea,
+      category: meal.strCategory,
+      thumbnailUrl: meal.strMealThumb,
+      youtubeRecipe: meal.strYoutube,
+    };
+  },
 
-  static toDtos(meals: any): FullRecipeDTO[] {
+  toDtos: function (meals: any): FullRecipeDTO[] {
     const mealsDtos: FullRecipeDTO[] = [];
-    for (let meal of meals) {
-      mealsDtos.push(this.toDto(meal));
+
+    if (meals === null) return mealsDtos;
+
+    for (const meal of meals) {
+      mealsDtos.push(FullMealMapper.toDto(meal));
     }
     return mealsDtos;
-  }
-}
+  },
+};
 
 export default FullMealMapper;

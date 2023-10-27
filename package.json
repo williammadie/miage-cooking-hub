@@ -36,6 +36,33 @@
       "max-classes-per-file": [
         "error",
         1
+      ],
+      "no-duplicate-imports": [
+        "error"
+      ],
+      "eqeqeq": [
+        "error"
+      ],
+      "no-implicit-coercion": [
+        "error"
+      ],
+      "no-implicit-globals": [
+        "error"
+      ],
+      "no-magic-numbers": [
+        "error"
+      ],
+      "no-nested-ternary": [
+        "error"
+      ],
+      "no-redeclare": [
+        "error"
+      ],
+      "no-var": [
+        "error"
+      ],
+      "prefer-const": [
+        "error"
       ]
     },
     "extends": [
