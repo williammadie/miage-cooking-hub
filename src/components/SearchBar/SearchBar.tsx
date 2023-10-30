@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import fallbackImg from "../../assets/img-not-found.png";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import IRecipeService from "../../services/IRecipeService";
@@ -7,24 +7,23 @@ import ServiceContainer from "../../services/ServiceContainer";
 import "./style.css";
 
 type SearchBarProps = {
+    receiveMeals: (meals: any) => void;
     img: string;
-}
+  };
 
 
-const SearchBar: React.FC<SearchBarProps> = ({ img }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals ,img }) => {
     const mealService: IRecipeService = ServiceContainer.mealService;
     const [searchInput, setSearchInput] = useState("");
     const [searchResults, setSearchResults] = useState<PreviewRecipeDTO[]>([]);
     const [imgSrc, setImgSrc] = useState(img);
-
-    const search = async (_input: string) => {
-        try{            
-            const result = await mealService.getRecipesByName(_input);
-            setSearchResults(result);
-        }catch(error){
-            console.error("Error:", error);
+    
+    const _handleKeyDown = (e: { key: string; }) => {
+        if (e.key === 'Enter') {
+          console.log('do validate');
         }
-    };
+        //need to fix enter key search
+      }
 
     return (
         <form>
@@ -32,13 +31,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ img }) => {
                 type="search"
                 placeholder="Search here"
                 value={searchInput}
-                onChange={(s) => setSearchInput(s.target.value.toLowerCase())} />
-            <button onClick={() => search(searchInput)}>
-                {/* <ul>
-                    {searchResults.map((result) => (
-                        <li>{result.name}</li>
-                    ))} //search suggestion
-                </ul> */}
+                onChange={(s) => setSearchInput(s.target.value)}
+                onKeyDown={_handleKeyDown}
+                 />
+            <button type="button" onClick={() => receiveMeals(searchInput)}>
                 <img
                     src={imgSrc ? imgSrc : fallbackImg}
                     onError={() => setImgSrc(fallbackImg)}

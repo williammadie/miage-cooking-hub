@@ -42,6 +42,7 @@ input{
     text-align: center;
     font-size: 1.2em;
     transition: all 1s;
+    visibility: visible;
 }
 
 form:hover{
@@ -54,4 +55,9 @@ form:hover input{
 form:hover .magnifier-img{
     background: white;
     color: #1A3B22;
+}
+
+button{
+     visibility: hidden; 
+
 }
