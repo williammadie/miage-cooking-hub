@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
-import IRecipeService from "../../services/IRecipeService";
-import ServiceContainer from "../../services/ServiceContainer";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
+import MealService from "../../services/MealService";
+
 import "./style.css";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 export default function Meals() {
-  const mealService: IRecipeService = ServiceContainer.mealService;
   const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
   const [searchInput, setSearchInput] = useState("chicken");
 
   useEffect(() => {
     async function fetchMealsbyName() {
-      const mealsData: PreviewRecipeDTO[] = await mealService.getRecipesByName(
+      const mealsData: PreviewRecipeDTO[] = await MealService.getRecipesByName(
         searchInput
       );
       setMeals(mealsData);
-      console.log(meals.length);
     }
 
     fetchMealsbyName();
-  }, [mealService, meals.length, searchInput]);
+  }, [meals.length, searchInput]);
 
   return (
     <section className="main">
@@ -30,7 +28,6 @@ export default function Meals() {
         <div className="search-bar">
           <SearchBar
             receiveMeals={(searchInput) => setSearchInput(searchInput)}
-            img="../assets/magnifying-glass.png"
           />
         </div>
       </div>

@@ -2,7 +2,9 @@ import React from "react";
 import "./style.css";
 import Category from "../Category/Category";
 import YouTubeVideo from "../YouTubeVideo/YouTubeVideo";
-import { IngredientDTO } from "../../dto/IngredientDTO";
+import IngredientDTO from "../../dto/IngredientDTO";
+
+const NOT_FOUND_IN_STR: number = -1;
 
 export type FullRecipe = {
   id: string;
@@ -21,7 +23,7 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
     const prefix = "https://www.youtube.com/watch?v=";
     const startIndex = url.indexOf(prefix);
 
-    if (startIndex !== -1) {
+    if (startIndex !== NOT_FOUND_IN_STR) {
       // Utilisez substring pour obtenir tout ce qui se trouve après le préfixe
       return url.substring(startIndex + prefix.length);
     } else {

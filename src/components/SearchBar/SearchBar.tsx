@@ -5,7 +5,6 @@ import "./style.css";
 
 type SearchBarProps = {
   receiveMeals: (meals: any) => void;
-  img: string;
 };
 
 const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals }) => {

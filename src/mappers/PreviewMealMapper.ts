@@ -1,17 +1,24 @@
 import PreviewRecipeDTO from "../dto/PreviewRecipeDTO";
 
-class FullMealMapper {
-  static toDto(meal: any): PreviewRecipeDTO {
-    return new PreviewRecipeDTO(meal.idMeal, meal.strMeal, meal.strMealThumb);
-  }
+const PreviewMealMapper = {
+  toDto: function (meal: any): PreviewRecipeDTO {
+    return {
+      id: meal.idMeal,
+      name: meal.strMeal,
+      thumbnailUrl: meal.strMealThumb,
+    };
+  },
 
-  static toDtos(meals: any): PreviewRecipeDTO[] {
+  toDtos: function (meals: any): PreviewRecipeDTO[] {
     const mealsDtos: PreviewRecipeDTO[] = [];
-    for (let meal of meals) {
-      mealsDtos.push(this.toDto(meal));
+
+    if (meals === null) return mealsDtos;
+
+    for (const meal of meals) {
+      mealsDtos.push(PreviewMealMapper.toDto(meal));
     }
     return mealsDtos;
-  }
-}
+  },
+};
 
-export default FullMealMapper;
+export default PreviewMealMapper;
