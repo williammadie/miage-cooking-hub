@@ -4,6 +4,7 @@ import MealService from "./MealService";
 import MealRoutesAPI from "./MealRoutesAPI";
 import FullRecipeDTO from "../dto/FullRecipeDTO";
 import PreviewRecipeDTO from "../dto/PreviewRecipeDTO";
+import { IngredientDTO } from "../dto/IngredientDTO";
 
 describe("MealService", () => {
   const mock = new MockAdapter(axios);
@@ -26,13 +27,20 @@ describe("MealService", () => {
           strMealThumb:
             "https://www.themealdb.com/images/media/meals/xrysxr1483568462.jpg",
           strYoutube: "https://www.youtube.com/watch?v=oJvbsVSblfk",
+          strTags: "Snack,Chocolate",
+          strIngredient1: "Chocolate Chips",
+          strIngredient2: "Heavy Cream",
+          strIngredient3: "Condensed Milk",
+          strMeasure1: "2 cups",
+          strMeasure2: "2 tbs",
+          strMeasure3: "1 - 14 ounce can",
         },
       ],
     });
     let result: FullRecipeDTO = await mealService.getRandomRecipe();
     expect(result.id).toBe("52787");
     expect(result.name).toBe("Hot Chocolate Fudge");
-    expect(result.description).toBe(
+    expect(result.instruction).toBe(
       "Line an 8-inch-square baking pan with wax paper or foil, and coat with non-stick spray.\r\nIn a microwave-safe bowl, combine the dark chocolate chips, heavy cream and half of the sweetened condensed milk. Microwave the dark chocolate mixture in 20-second intervals, stirring in between each interval, until the chocolate is melted.\r\nAdd the vanilla extract to the dark chocolate mixture and stir well until smooth.\r\nTransfer the dark chocolate mixture into the prepared pan and spread into an even layer.\r\nIn a separate bowl, combine the white chocolate chips with the remaining half of the sweetened condensed milk. Microwave the white chocolate mixture in 20-second intervals, stirring in between each interval, until the chocolate is melted.\r\nEvenly spread the white chocolate mixture on top of dark chocolate layer.\r\nTop the chocolate layers with the Mallow Bits or miniature marshmallows, and gently press them down.\r\nRefrigerate for 4 hours, or until set.\r\nRemove the fudge and wax paper from the pan. Carefully peel all of the wax paper from the fudge.\r\nCut the fudge into bite-sized pieces and serve."
     );
     expect(result.area).toBe("American");
@@ -43,6 +51,12 @@ describe("MealService", () => {
     expect(result.youtubeRecipe).toBe(
       "https://www.youtube.com/watch?v=oJvbsVSblfk"
     );
+    expect(result.tags).toStrictEqual(["Snack", "Chocolate"]);
+    expect(result.ingredients).toStrictEqual([
+      new IngredientDTO("Chocolate Chips", "2 cups"),
+      new IngredientDTO("Heavy Cream", "2 tbs"),
+      new IngredientDTO("Condensed Milk", "1 - 14 ounce can"),
+    ]);
   });
 
   it("should get a full recipe by ID", async () => {
@@ -58,13 +72,20 @@ describe("MealService", () => {
           strMealThumb:
             "https://www.themealdb.com/images/media/meals/xrysxr1483568462.jpg",
           strYoutube: "https://www.youtube.com/watch?v=oJvbsVSblfk",
+          strTags: "Snack,Chocolate",
+          strIngredient1: "Chocolate Chips",
+          strIngredient2: "Heavy Cream",
+          strIngredient3: "Condensed Milk",
+          strMeasure1: "2 cups",
+          strMeasure2: "2 tbs",
+          strMeasure3: "1 - 14 ounce can",
         },
       ],
     });
     let result: FullRecipeDTO = await mealService.getFullRecipeById("52787");
     expect(result.id).toBe("52787");
     expect(result.name).toBe("Hot Chocolate Fudge");
-    expect(result.description).toBe(
+    expect(result.instruction).toBe(
       "Line an 8-inch-square baking pan with wax paper or foil, and coat with non-stick spray.\r\nIn a microwave-safe bowl, combine the dark chocolate chips, heavy cream and half of the sweetened condensed milk. Microwave the dark chocolate mixture in 20-second intervals, stirring in between each interval, until the chocolate is melted.\r\nAdd the vanilla extract to the dark chocolate mixture and stir well until smooth.\r\nTransfer the dark chocolate mixture into the prepared pan and spread into an even layer.\r\nIn a separate bowl, combine the white chocolate chips with the remaining half of the sweetened condensed milk. Microwave the white chocolate mixture in 20-second intervals, stirring in between each interval, until the chocolate is melted.\r\nEvenly spread the white chocolate mixture on top of dark chocolate layer.\r\nTop the chocolate layers with the Mallow Bits or miniature marshmallows, and gently press them down.\r\nRefrigerate for 4 hours, or until set.\r\nRemove the fudge and wax paper from the pan. Carefully peel all of the wax paper from the fudge.\r\nCut the fudge into bite-sized pieces and serve."
     );
     expect(result.area).toBe("American");
@@ -75,6 +96,12 @@ describe("MealService", () => {
     expect(result.youtubeRecipe).toBe(
       "https://www.youtube.com/watch?v=oJvbsVSblfk"
     );
+    expect(result.tags).toStrictEqual(["Snack", "Chocolate"]);
+    expect(result.ingredients).toStrictEqual([
+      new IngredientDTO("Chocolate Chips", "2 cups"),
+      new IngredientDTO("Heavy Cream", "2 tbs"),
+      new IngredientDTO("Condensed Milk", "1 - 14 ounce can"),
+    ]);
   });
 
   it("should get recipes by name", async () => {

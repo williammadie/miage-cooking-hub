@@ -9,7 +9,10 @@ class FullMealMapper {
       meal.strArea,
       meal.strCategory,
       meal.strMealThumb,
-      meal.strYoutube
+      meal.strYoutube,
+      meal.strTags !== null ? meal.strTags.split(",") : [],
+      meal.strSource,
+      meal
     );
   }
 
