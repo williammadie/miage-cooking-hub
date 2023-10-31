@@ -4,6 +4,7 @@ import MealService from "./MealService";
 import MealRoutesAPI from "./MealRoutesAPI";
 import FullRecipeDTO from "../dto/FullRecipeDTO";
 import PreviewRecipeDTO from "../dto/PreviewRecipeDTO";
+import { IngredientDTO } from "../dto/IngredientDTO";
 
 describe("MealService", () => {
   const mock = new MockAdapter(axios);
@@ -26,6 +27,13 @@ describe("MealService", () => {
           strMealThumb:
             "https://www.themealdb.com/images/media/meals/xrysxr1483568462.jpg",
           strYoutube: "https://www.youtube.com/watch?v=oJvbsVSblfk",
+          strTags: "Snack,Chocolate",
+          strIngredient1: "Chocolate Chips",
+          strIngredient2: "Heavy Cream",
+          strIngredient3: "Condensed Milk",
+          strMeasure1: "2 cups",
+          strMeasure2: "2 tbs",
+          strMeasure3: "1 - 14 ounce can",
         },
       ],
     });
@@ -43,6 +51,12 @@ describe("MealService", () => {
     expect(result.youtubeRecipe).toBe(
       "https://www.youtube.com/watch?v=oJvbsVSblfk"
     );
+    expect(result.tags).toStrictEqual(["Snack", "Chocolate"]);
+    expect(result.ingredients).toStrictEqual([
+      new IngredientDTO("Chocolate Chips", "2 cups"),
+      new IngredientDTO("Heavy Cream", "2 tbs"),
+      new IngredientDTO("Condensed Milk", "1 - 14 ounce can"),
+    ]);
   });
 
   it("should get a full recipe by ID", async () => {
@@ -58,6 +72,13 @@ describe("MealService", () => {
           strMealThumb:
             "https://www.themealdb.com/images/media/meals/xrysxr1483568462.jpg",
           strYoutube: "https://www.youtube.com/watch?v=oJvbsVSblfk",
+          strTags: "Snack,Chocolate",
+          strIngredient1: "Chocolate Chips",
+          strIngredient2: "Heavy Cream",
+          strIngredient3: "Condensed Milk",
+          strMeasure1: "2 cups",
+          strMeasure2: "2 tbs",
+          strMeasure3: "1 - 14 ounce can",
         },
       ],
     });
@@ -75,6 +96,12 @@ describe("MealService", () => {
     expect(result.youtubeRecipe).toBe(
       "https://www.youtube.com/watch?v=oJvbsVSblfk"
     );
+    expect(result.tags).toStrictEqual(["Snack", "Chocolate"]);
+    expect(result.ingredients).toStrictEqual([
+      new IngredientDTO("Chocolate Chips", "2 cups"),
+      new IngredientDTO("Heavy Cream", "2 tbs"),
+      new IngredientDTO("Condensed Milk", "1 - 14 ounce can"),
+    ]);
   });
 
   it("should get recipes by name", async () => {
