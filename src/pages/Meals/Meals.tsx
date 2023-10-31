@@ -28,7 +28,10 @@ export default function Meals() {
       <div className="title">
         <h1>Meals Page</h1>
         <div className="search-bar">
-          <SearchBar receiveMeals={searchInput=>setSearchInput(searchInput)}  img="../assets/magnifying-glass.png"/>
+          <SearchBar
+            receiveMeals={(searchInput) => setSearchInput(searchInput)}
+            img="../assets/magnifying-glass.png"
+          />
         </div>
       </div>
       <section className="search-results">

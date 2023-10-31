@@ -9,9 +9,7 @@ export default {
   title: "component/SearchBar",
 };
 
-const Template: StoryFn<SearchBarProps> = (
-  args: SearchBarProps
-) => (
+const Template: StoryFn<SearchBarProps> = (args: SearchBarProps) => (
   <BrowserRouter>
     <SearchBar {...args} />
   </BrowserRouter>
@@ -20,5 +18,7 @@ const Template: StoryFn<SearchBarProps> = (
 export const Default = Template.bind({});
 
 Default.args = {
-    receiveMeals: () => {console.log("hello world!");}
+  receiveMeals: () => {
+    console.log("hello world!");
+  },
 };

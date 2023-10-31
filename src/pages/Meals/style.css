@@ -6,11 +6,10 @@
 
 .title {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
 }
 
-.search-bar{
+.search-bar {
   margin-top: 45px;
-
 }
