@@ -1,15 +1,18 @@
-import FullRecipeDTO from "../dto/FullRecipeDTO";
+import FullRecipeDTO, { Utils } from "../dto/FullRecipeDTO";
 
 const FullMealMapper = {
   toDto: function (meal: any): FullRecipeDTO {
     return {
       id: meal.idMeal,
       name: meal.strMeal,
-      description: meal.strInstructions,
+      instructions: meal.strInstructions,
       area: meal.strArea,
       category: meal.strCategory,
       thumbnailUrl: meal.strMealThumb,
       youtubeRecipe: meal.strYoutube,
+      tags: meal.strTags !== null ? meal.strTags.split(",") : [],
+      source: meal.strSource,
+      ingredients: Utils.extractIngredients(meal),
     };
   },
 

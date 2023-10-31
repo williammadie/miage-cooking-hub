@@ -1,6 +1,6 @@
 import PreviewRecipeDTO from "../dto/PreviewRecipeDTO";
 
-const PreviewCocktailMapper = {
+const PreviewDrinkMapper = {
   toDto: function (drink: any): PreviewRecipeDTO {
     return {
       id: drink.idDrink,
@@ -15,10 +15,10 @@ const PreviewCocktailMapper = {
     if (drinks === null) return drinksDtos;
 
     for (const drink of drinks) {
-      drinksDtos.push(PreviewCocktailMapper.toDto(drink));
+      drinksDtos.push(PreviewDrinkMapper.toDto(drink));
     }
     return drinksDtos;
   },
 };
 
-export default PreviewCocktailMapper;
+export default PreviewDrinkMapper;

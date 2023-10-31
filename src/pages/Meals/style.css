@@ -3,3 +3,13 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  margin-top: 45px;
+}

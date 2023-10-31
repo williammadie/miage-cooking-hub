@@ -4,7 +4,7 @@
  * - CocktailDB
  *
  * As these two APIs share the same author, they also have the same
- * structure and operations can easily be regrouped in a common class.
+ * structure and operations can easily be regrouped in a common file.
  */
 
 import axios, { AxiosResponse } from "axios";

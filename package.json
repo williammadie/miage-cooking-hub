@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "react-youtube": "^10.1.0",
     "typescript": "5.1.6",
     "web-vitals": "^2.1.4"
   },
@@ -86,6 +87,7 @@
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-syntax-import-assertions": "^7.22.5",
     "@babel/plugin-transform-react-jsx": "^7.22.15",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-typescript": "^7.23.2",

@@ -4,25 +4,33 @@ import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeC
 import MealService from "../../services/MealService";
 
 import "./style.css";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 export default function Meals() {
   const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
+  const [searchInput, setSearchInput] = useState("chicken");
 
   useEffect(() => {
     async function fetchMealsbyName() {
       const mealsData: PreviewRecipeDTO[] = await MealService.getRecipesByName(
-        "chicken"
+        searchInput
       );
       setMeals(mealsData);
-      console.log(meals.length);
     }
 
     fetchMealsbyName();
-  }, [meals.length]);
+  }, [meals.length, searchInput]);
 
   return (
     <section className="main">
-      <h1>Meals Page</h1>
+      <div className="title">
+        <h1>Meals Page</h1>
+        <div className="search-bar">
+          <SearchBar
+            receiveMeals={(searchInput) => setSearchInput(searchInput)}
+          />
+        </div>
+      </div>
       <section className="search-results">
         {meals.map((item) => (
           <PreviewRecipeCard
