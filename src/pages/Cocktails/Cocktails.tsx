@@ -9,12 +9,10 @@ export default function Cocktails() {
   const [cocktails, setCocktails] = useState<PreviewRecipeDTO[]>([]);
   const [searchInput, setSearchInput] = useState("martini");
 
-
   useEffect(() => {
     async function fetchCocktailsbyName() {
-      const cocktailsData: PreviewRecipeDTO[] = await CocktailService.getRecipesByName(
-        searchInput
-      );
+      const cocktailsData: PreviewRecipeDTO[] =
+        await CocktailService.getRecipesByName(searchInput);
       setCocktails(cocktailsData);
     }
 

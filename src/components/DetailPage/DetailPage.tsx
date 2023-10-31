@@ -4,7 +4,7 @@ import Category from "../Category/Category";
 import YouTubeVideo from "../YouTubeVideo/YouTubeVideo";
 import IngredientDTO from "../../dto/IngredientDTO";
 
-const NOT_FOUND_IN_STR: number = -1
+const NOT_FOUND_IN_STR: number = -1;
 
 export type FullRecipe = {
   id: string;
