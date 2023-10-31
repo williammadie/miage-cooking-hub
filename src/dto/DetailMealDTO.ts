@@ -1,3 +1,5 @@
+import { IngredientDTO } from "./IngredientDTO";
+
 export class DetailMealDTO {
     idMeal: number;
     strMeal: string;
@@ -34,15 +36,5 @@ export class DetailMealDTO {
             }
         }
         return ingredients;
-    }
-}
-
-export class IngredientDTO {
-    ingredient: string;
-    measure: string;
-
-    constructor(ingredient: string, measure: string) {
-        this.ingredient = ingredient;
-        this.measure = measure;
     }
 }
