@@ -1,8 +1,7 @@
-import {IngredientDTO} from "./IngredientDTO";
+import { IngredientDTO } from "./IngredientDTO";
 
 class FullRecipeDTO {
-  static  NUMBER_INGREDIENT = 20; // Max ingredient = strIngredient20
-
+  static NUMBER_INGREDIENT = 20; // Max ingredient = strIngredient20
 
   id: string;
   name: string;
@@ -40,11 +39,13 @@ class FullRecipeDTO {
   }
   private extractIngredients(data: any): IngredientDTO[] {
     const ingredients: IngredientDTO[] = [];
-    for (let i = 1; i <= FullRecipeDTO.NUMBER_INGREDIENT ; i++) {
+    for (let i = 1; i <= FullRecipeDTO.NUMBER_INGREDIENT; i++) {
       const ingredientKey = `strIngredient${i}`;
       const measureKey = `strMeasure${i}`;
       if (data[ingredientKey]) {
-        ingredients.push(new IngredientDTO(data[ingredientKey], data[measureKey]));
+        ingredients.push(
+          new IngredientDTO(data[ingredientKey], data[measureKey])
+        );
       }
     }
     return ingredients;
