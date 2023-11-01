@@ -1,26 +1,26 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import DetailPage, {FullRecipe} from "../../components/DetailPage/DetailPage";
-import ServiceContainer from "../../services/ServiceContainer";
+import DetailPage from "../../components/DetailPage/DetailPage";
+import MealService from "../../services/MealService";
+import FullRecipeDTO from "../../dto/FullRecipeDTO";
 
 
 export default function Meal() {
     const id: string = "" + useParams().id;
-    const mealService = ServiceContainer.mealService;
-    const [meal, setMeal] = useState<FullRecipe>();
+    const [meal, setMeal] = useState<FullRecipeDTO>();
     const [loading, setLoading] = useState<boolean>(true);
 
 
     useEffect(() => {
         async function fetchMealsById() {
-            const mealData = await mealService.getFullRecipeById(id);
+            const mealData = await MealService.getFullRecipeById(id);
             setMeal(mealData);
             setLoading(false);
         }
 
         fetchMealsById();
 
-    }, [id, mealService]);
+    }, [id]);
 
     if(loading)
     {
@@ -47,7 +47,7 @@ export default function Meal() {
         <section className="main">
             <DetailPage id={meal.id}
                         name={meal.name}
-                        instruction={meal.instruction}
+                        instruction={meal.instructions}
                         area={meal.area}
                         category={meal.category}
                         thumbnailUrl={meal.thumbnailUrl}
