@@ -6,7 +6,7 @@ import FullRecipeDTO from "../../dto/FullRecipeDTO";
 
 
 export default function Meal() {
-    const id: string = "" + useParams().id;
+    const id: string = String(useParams().id);
     const [meal, setMeal] = useState<FullRecipeDTO>();
     const [loading, setLoading] = useState<boolean>(true);
 
