@@ -1,5 +1,5 @@
 import "./App.css";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Cocktails from "./pages/Cocktails/Cocktails";
 import Meals from "./pages/Meals/Meals";
@@ -9,18 +9,18 @@ import Meal from "./pages/Meal/Meal";
 import Cocktail from "./pages/Cocktail/Cocktail";
 
 function App() {
-    return (
-        <Router>
-            <Navbar/>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/meals" element={<Meals/>}/>
-                <Route path="/cocktails" element={<Cocktails/>}/>
-                <Route path="/meal/:id" element={<Meal/>}/>
-                <Route path="/cocktail/:id" element={<Cocktail/>}/>
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/meals" element={<Meals />} />
+        <Route path="/cocktails" element={<Cocktails />} />
+        <Route path="/meal/:id" element={<Meal />} />
+        <Route path="/cocktail/:id" element={<Cocktail />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
