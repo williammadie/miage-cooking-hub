@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import DetailPage from "../../components/DetailPage/DetailPage";
+import { useParams, useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
+import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
 import MealService from "../../services/MealService";
 import FullRecipeDTO from "../../dto/FullRecipeDTO";
+
+import "./style.css";
 
 export default function Meal() {
   const id: string = String(useParams().id);
   const [meal, setMeal] = useState<FullRecipeDTO>();
   const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchMealById() {
@@ -22,7 +26,9 @@ export default function Meal() {
   if (loading) {
     return (
       <section className="main">
-        <div>Loading...</div>;
+        <div className="loading-wrapper">
+          <CircularProgress />
+        </div>
       </section>
     );
   }
@@ -30,7 +36,7 @@ export default function Meal() {
   if (!meal) {
     return (
       <section className="main">
-        <div>No recipes found for this ID.</div>
+        <div>Nothing found for recipe with id {id}.</div>
       </section>
     );
   }
@@ -40,7 +46,7 @@ export default function Meal() {
       <DetailPage
         id={meal.id}
         name={meal.name}
-        instruction={meal.instructions}
+        instructions={meal.instructions}
         area={meal.area}
         category={meal.category}
         thumbnailUrl={meal.thumbnailUrl}
@@ -48,6 +54,7 @@ export default function Meal() {
         tags={meal.tags}
         source={meal.source}
         ingredients={meal.ingredients}
+        goBackAction={() => navigate("/meals")}
       ></DetailPage>
     </section>
   );

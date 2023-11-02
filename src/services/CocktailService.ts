@@ -20,11 +20,16 @@ const CocktailService = {
     return FullDrinkMapper.toDto(response.data.drinks[FIRST_ELEMENT]);
   },
 
-  getFullRecipeById: async function (id: string): Promise<FullRecipeDTO> {
+  getFullRecipeById: async function (
+    id: string
+  ): Promise<FullRecipeDTO | undefined> {
     const response: AxiosResponse = await retrieveFullRecipe(
       buildURL(DATA_DB_PREFIX.COCKTAIL, DATA_DB_ROUTES.RECIPE_BY_ID),
       id
     );
+
+    if (!response.data.drinks) return undefined;
+
     return FullDrinkMapper.toDto(response.data.drinks[FIRST_ELEMENT]);
   },
 
