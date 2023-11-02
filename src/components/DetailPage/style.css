@@ -74,14 +74,13 @@
   background-color: rgba(196, 187, 187, 0.2);
 }
 
-.goBackButton{
+.goBackButton {
   visibility: visible;
   border: 0;
   background: none;
-
 }
-.goBackButton img{
-  width : 3em;
+.goBackButton img {
+  width: 3em;
   transition: transform 0.3s ease;
 }
 .goBackButton img:hover {

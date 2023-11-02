@@ -1,4 +1,4 @@
 export enum RecipeType {
-    Meal = "meal",
-    Cocktail = "cocktail",
+  Meal = "meal",
+  Cocktail = "cocktail",
 }

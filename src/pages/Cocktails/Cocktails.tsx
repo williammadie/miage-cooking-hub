@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import CocktailService from "../../services/CocktailService";
 import "./style.css";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import {RecipeType} from "../../constants/RecipeTypes";
+import { RecipeType } from "../../constants/RecipeTypes";
 
 export default function Cocktails() {
   const [cocktails, setCocktails] = useState<PreviewRecipeDTO[]>([]);
