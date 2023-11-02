@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import DetailPage from "../../components/DetailPage/DetailPage";
+import { useParams, useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
+import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
 import FullRecipeDTO from "../../dto/FullRecipeDTO";
 import CocktailService from "../../services/CocktailService";
-import { RecipeType } from "../../constants/RecipeTypes";
+
+import "./style.css";
 
 export default function Cocktail() {
   const id: string = String(useParams().id);
   const [drink, setDrink] = useState<FullRecipeDTO>();
   const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchDrinkById() {
@@ -24,7 +27,9 @@ export default function Cocktail() {
     // Afficher un message de chargement tant que les données sont en cours de récupération
     return (
       <section className="main">
-        <div>Chargement en cours...</div>;
+        <div className="loading-wrapper">
+          <CircularProgress />
+        </div>
       </section>
     );
   }
@@ -33,7 +38,7 @@ export default function Cocktail() {
     // Gérer le cas où aucune donnée n'est trouvée pour cet ID
     return (
       <section className="main">
-        <div>Aucune recette trouvée pour cet ID.</div>
+        <div>Nothing found for recipe with id {id}.</div>
       </section>
     );
   }
@@ -44,7 +49,7 @@ export default function Cocktail() {
       <DetailPage
         id={drink.id}
         name={drink.name}
-        instruction={drink.instructions}
+        instructions={drink.instructions}
         area={drink.area}
         category={drink.category}
         thumbnailUrl={drink.thumbnailUrl}
@@ -52,7 +57,7 @@ export default function Cocktail() {
         tags={drink.tags}
         source={drink.source}
         ingredients={drink.ingredients}
-        type={RecipeType.Cocktail}
+        goBackAction={() => navigate("/cocktails")}
       ></DetailPage>
     </section>
   );

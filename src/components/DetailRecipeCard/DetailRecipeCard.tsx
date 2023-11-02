@@ -1,10 +1,8 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import "./style.css";
 import Category from "../Category/Category";
 import YouTubeVideo from "../YouTubeVideo/YouTubeVideo";
 import IngredientDTO from "../../dto/IngredientDTO";
-import { useNavigate } from "react-router-dom";
-import { RecipeType } from "../../constants/RecipeTypes";
 import goBackIcon from "../../assets/goBackIcon.png";
 
 const NOT_FOUND_IN_STR: number = -1;
@@ -12,7 +10,7 @@ const NOT_FOUND_IN_STR: number = -1;
 export type FullRecipe = {
   id: string;
   name: string;
-  instruction: string;
+  instructions: string;
   area: string;
   category: string;
   thumbnailUrl: string;
@@ -20,14 +18,13 @@ export type FullRecipe = {
   tags: string[];
   source: string;
   ingredients: IngredientDTO[];
-  type: RecipeType;
+  goBackAction: MouseEventHandler
 };
 const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
-  const navigate = useNavigate();
   const videoId: string | null = recipeData.youtubeRecipe
     ? extractVideoIdFromUrl(recipeData.youtubeRecipe)
     : null;
-  const instructions = recipeData.instruction
+  const instructions = recipeData.instructions
     .split("\\r\\")
     .map((instruction: any, index: number) => (
       <li
@@ -49,19 +46,10 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
       return "";
     }
   }
-  function goBack() {
-    if (recipeData.type === RecipeType.Meal) {
-      navigate(`/meals`);
-    } else if (recipeData.type === RecipeType.Cocktail) {
-      navigate(`/cocktails`);
-    } else {
-      navigate(`/`);
-    }
-  }
 
   return (
     <div className="container">
-      <button onClick={goBack} className={"goBackButton"}>
+      <button onClick={recipeData.goBackAction} className={"goBackButton"}>
         <img src={goBackIcon} alt={"back button"} />
       </button>
       <h1 className="title">{recipeData.name}</h1>

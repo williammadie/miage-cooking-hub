@@ -1,5 +1,5 @@
 import React from "react";
-import DetailPage, { FullRecipe } from "./DetailPage";
+import DetailPage, { FullRecipe } from "./DetailRecipeCard";
 import { Meta, StoryFn } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 import FullMealMapper from "../../mappers/FullMealMapper";
