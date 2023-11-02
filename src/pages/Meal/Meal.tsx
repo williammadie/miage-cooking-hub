@@ -10,13 +10,13 @@ export default function Meal() {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    async function fetchMealsById() {
+    async function fetchMealById() {
       const mealData = await MealService.getFullRecipeById(id);
       setMeal(mealData);
       setLoading(false);
     }
 
-    fetchMealsById();
+    fetchMealById();
   }, [id]);
 
   if (loading) {
