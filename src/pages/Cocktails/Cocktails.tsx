@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import CocktailService from "../../services/CocktailService";
 import "./style.css";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import {RecipeType} from "../../constants/RecipeTypes";
 
 export default function Cocktails() {
   const [cocktails, setCocktails] = useState<PreviewRecipeDTO[]>([]);
@@ -32,8 +33,10 @@ export default function Cocktails() {
       <section className="search-results">
         {cocktails.map((item) => (
           <PreviewRecipeCard
+            id={item.id}
             title={item.name}
             img={item.thumbnailUrl}
+            type={RecipeType.Cocktail}
           ></PreviewRecipeCard>
         ))}
       </section>

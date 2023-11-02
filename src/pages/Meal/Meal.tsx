@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import DetailPage from "../../components/DetailPage/DetailPage";
 import MealService from "../../services/MealService";
 import FullRecipeDTO from "../../dto/FullRecipeDTO";
+import {RecipeType} from "../../constants/RecipeTypes";
 
 export default function Meal() {
   const id: string = String(useParams().id);
@@ -51,6 +52,7 @@ export default function Meal() {
         tags={meal.tags}
         source={meal.source}
         ingredients={meal.ingredients}
+        type={RecipeType.Meal}
       ></DetailPage>
     </section>
   );

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
 import MealService from "../../services/MealService";
 
 import "./style.css";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import {RecipeType} from "../../constants/RecipeTypes";
 
 export default function Meals() {
   const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
@@ -34,8 +35,10 @@ export default function Meals() {
       <section className="search-results">
         {meals.map((item) => (
           <PreviewRecipeCard
+            id={item.id}
             title={item.name}
             img={item.thumbnailUrl}
+            type={RecipeType.Meal}
           ></PreviewRecipeCard>
         ))}
       </section>
