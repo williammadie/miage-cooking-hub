@@ -10,7 +10,7 @@ const FullMealMapper = {
       category: meal.strCategory,
       thumbnailUrl: meal.strMealThumb,
       youtubeRecipe: meal.strYoutube,
-      tags: meal.strTags !== null ? meal.strTags.split(",") : [],
+      tags: meal.strTags ? meal.strTags.split(",") : [],
       source: meal.strSource,
       ingredients: Utils.extractIngredients(meal),
     };
