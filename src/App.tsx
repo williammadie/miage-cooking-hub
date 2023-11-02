@@ -5,6 +5,8 @@ import Cocktails from "./pages/Cocktails/Cocktails";
 import Meals from "./pages/Meals/Meals";
 import Navbar from "./components/Navbar/Navbar";
 import React from "react";
+import Meal from "./pages/Meal/Meal";
+import Cocktail from "./pages/Cocktail/Cocktail";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/meals" element={<Meals />} />
         <Route path="/cocktails" element={<Cocktails />} />
+        <Route path="/meal/:id" element={<Meal />} />
+        <Route path="/cocktail/:id" element={<Cocktail />} />
       </Routes>
     </Router>
   );
