@@ -24,7 +24,6 @@ export default function Meal() {
   }, [id]);
 
   if (loading) {
-    // Afficher un message de chargement tant que les données sont en cours de récupération
     return (
       <section className="main">
         <div className="loading-wrapper">
@@ -35,7 +34,6 @@ export default function Meal() {
   }
 
   if (!meal) {
-    // Gérer le cas où aucune donnée n'est trouvée pour cet ID
     return (
       <section className="main">
         <div>Nothing found for recipe with id {id}.</div>
@@ -43,7 +41,6 @@ export default function Meal() {
     );
   }
 
-  // Les données sont prêtes, affichez-les
   return (
     <section className="main">
       <DetailPage

@@ -19,7 +19,6 @@ export default function Cocktail() {
       setDrink(drinkData);
       setLoading(false);
     }
-
     fetchDrinkById();
   }, [id]);
 
