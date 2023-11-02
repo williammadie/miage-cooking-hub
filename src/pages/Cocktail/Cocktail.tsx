@@ -20,7 +20,7 @@ export default function Cocktail() {
   }, [id]);
 
   if (loading) {
-   return (
+    return (
       <section className="main">
         <div>Loading...</div>;
       </section>
