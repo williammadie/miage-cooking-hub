@@ -24,7 +24,7 @@ export default function Cocktails() {
 
     fetchCocktailsbyName();
   }, [cocktails.length, searchInput]);
-  
+
   if (isLoading) {
     return (
       <section className="main">
@@ -32,7 +32,7 @@ export default function Cocktails() {
           <CircularProgress />
         </div>
       </section>
-    )
+    );
   } else {
     return (
       <section className="main">

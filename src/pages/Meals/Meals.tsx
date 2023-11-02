@@ -25,7 +25,7 @@ export default function Meals() {
 
     fetchMealsbyName();
   }, [meals.length, searchInput]);
-  
+
   if (isLoading) {
     return (
       <section className="main">
@@ -33,7 +33,7 @@ export default function Meals() {
           <CircularProgress />
         </div>
       </section>
-    )
+    );
   } else {
     return (
       <section className="main">
@@ -57,5 +57,4 @@ export default function Meals() {
       </section>
     );
   }
-  
 }

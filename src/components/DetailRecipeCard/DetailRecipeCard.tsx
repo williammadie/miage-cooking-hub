@@ -18,7 +18,7 @@ export type FullRecipe = {
   tags: string[];
   source: string;
   ingredients: IngredientDTO[];
-  goBackAction: MouseEventHandler
+  goBackAction: MouseEventHandler;
 };
 const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
   const videoId: string | null = recipeData.youtubeRecipe
