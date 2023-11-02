@@ -20,8 +20,7 @@ export default function Cocktail() {
   }, [id]);
 
   if (loading) {
-    // Afficher un message de chargement tant que les données sont en cours de récupération
-    return (
+   return (
       <section className="main">
         <div>Loading...</div>;
       </section>
@@ -29,7 +28,6 @@ export default function Cocktail() {
   }
 
   if (!drink) {
-    // Gérer le cas où aucune donnée n'est trouvée pour cet ID
     return (
       <section className="main">
         <div>No recipes found for this ID.</div>
@@ -37,7 +35,6 @@ export default function Cocktail() {
     );
   }
 
-  // Les données sont prêtes, affichez-les
   return (
     <section className="main">
       <DetailPage
