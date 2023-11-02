@@ -20,7 +20,7 @@ export default function Meal() {
   }, [id]);
 
   if (loading) {
-     return (
+    return (
       <section className="main">
         <div>Loading...</div>;
       </section>
