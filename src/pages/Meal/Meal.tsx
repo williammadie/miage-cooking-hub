@@ -20,24 +20,21 @@ export default function Meal() {
   }, [id]);
 
   if (loading) {
-    // Afficher un message de chargement tant que les données sont en cours de récupération
-    return (
+     return (
       <section className="main">
-        <div>Chargement en cours...</div>;
+        <div>Loading...</div>;
       </section>
     );
   }
 
   if (!meal) {
-    // Gérer le cas où aucune donnée n'est trouvée pour cet ID
     return (
       <section className="main">
-        <div>Aucune recette trouvée pour cet ID.</div>
+        <div>No recipes found for this ID.</div>
       </section>
     );
   }
 
-  // Les données sont prêtes, affichez-les
   return (
     <section className="main">
       <DetailPage
