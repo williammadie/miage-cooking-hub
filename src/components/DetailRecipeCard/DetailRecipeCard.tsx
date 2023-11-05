@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React, {MouseEventHandler, useState} from "react";
 import "./style.css";
 import Category from "../Category/Category";
 import YouTubeVideo from "../YouTubeVideo/YouTubeVideo";
@@ -6,6 +6,7 @@ import IngredientDTO from "../../dto/IngredientDTO";
 import goBackIcon from "../../assets/goBackIcon.png";
 
 const NOT_FOUND_IN_STR: number = -1;
+const INDEX_UN : number = 1;
 
 export type FullRecipe = {
   id: string;
@@ -24,15 +25,8 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
   const videoId: string | null = recipeData.youtubeRecipe
     ? extractVideoIdFromUrl(recipeData.youtubeRecipe)
     : null;
-  const instructions = recipeData.instructions
-    .split("\\r\\")
-    .map((instruction: any, index: number) => (
-      <li
-        key={index}
-        className="text"
-        dangerouslySetInnerHTML={{ __html: instruction }}
-      />
-    ));
+  const instructions = recipeData.instructions.split("\r\n");
+    const [barredItems, setBarredItems] = useState<number[]>([]);
 
   function extractVideoIdFromUrl(url: string): string {
     const prefix = "https://www.youtube.com/watch?v=";
@@ -47,12 +41,22 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
     }
   }
 
-  return (
+
+    const toggleBarredItem = (index: number) => {
+        if (barredItems.includes(index)) {
+            setBarredItems(barredItems.filter((item) => item !== index));
+        } else {
+            setBarredItems([...barredItems, index]);
+        }
+    };
+
+
+    return (
     <div className="container">
       <button onClick={recipeData.goBackAction} className={"goBackButton"}>
         <img src={goBackIcon} alt={"back button"} />
       </button>
-      <h1 className="title">{recipeData.name}</h1>
+      <h1 className="title primaryColor">{recipeData.name}</h1>
       <div className="text">Category:</div>
       <Category category={recipeData.category} />
       <p className="text">Area: {recipeData.area}</p>
@@ -66,7 +70,7 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
           <p className="text">Tags: {recipeData.tags}</p>
         </div>
         <div className="section-list-ingredient">
-          <h2 className="subtitle">Ingredients</h2>
+          <h2 className="subtitle primaryColor">Ingredients</h2>
           <ul className="list">
             {recipeData.ingredients.map((ingredient, index) => (
               <li
@@ -82,9 +86,17 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
           </div>
         )}
       </div>
-      <div className="text">Instructions:</div>
-      <div className="list-instruction">{instructions}</div>
-
+      <h2 className={"instruction primaryColor"}>Instructions:</h2>
+        <div className="list-instruction">
+            <ul>
+                {instructions.map((instruction: any, index: number) => (
+                    <li key={index} className={`text ${barredItems.includes(index) ? 'barred-text' : ''}`} onClick={() => toggleBarredItem(index)}>
+                        <p className={"index primaryColor"}>{index + INDEX_UN}</p>
+                        <p dangerouslySetInnerHTML={{ __html: instruction }} />
+                    </li>
+                ))}
+            </ul>
+        </div>
       <p className="text">
         Source:{" "}
         <a

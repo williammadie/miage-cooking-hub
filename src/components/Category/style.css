@@ -1,9 +1,10 @@
 .category-chip {
-  padding: 8px 12px;
+  padding: 0.3em 0.6em;
   border-radius: 16px;
   display: inline-block;
   font-weight: bold;
   color: white;
+  font-size: 0.9em;
 }
 
 .red {
@@ -29,7 +30,7 @@
   background: rgb(173, 142, 36);
   background: linear-gradient(
     0deg,
-    rgba(173, 142, 36, 1) 0%,
+    rgb(208, 174, 38) 0%,
     rgba(244, 220, 30, 1) 90%
   );
 }
@@ -39,7 +40,7 @@
   background: linear-gradient(
     0deg,
     rgba(36, 173, 102, 1) 0%,
-    rgba(117, 244, 30, 1) 100%
+    rgb(108, 204, 44) 100%
   );
 }
 
@@ -48,7 +49,7 @@
   background: linear-gradient(
     0deg,
     rgba(47, 81, 181, 1) 0%,
-    rgba(43, 128, 236, 1) 100%
+    rgb(36, 109, 203) 100%
   );
 }
 
@@ -57,7 +58,7 @@
   background: linear-gradient(
     0deg,
     rgba(168, 47, 181, 1) 0%,
-    rgba(156, 43, 236, 1) 100%
+    rgb(196, 82, 222) 100%
   );
 }
 
@@ -66,7 +67,7 @@
   background: linear-gradient(
     0deg,
     rgba(190, 42, 167, 0.8463979341736695) 0%,
-    rgba(186, 100, 180, 1) 100%
+    rgb(187, 72, 180) 100%
   );
 }
 
@@ -83,8 +84,8 @@
   background: rgb(42, 190, 134);
   background: linear-gradient(
     0deg,
-    rgba(42, 190, 134, 0.8463979341736695) 0%,
-    rgba(100, 186, 168, 1) 100%
+    rgba(31, 154, 107, 0.84) 0%,
+    rgb(78, 164, 147) 100%
   );
 }
 
@@ -92,7 +93,7 @@
   background: rgb(89, 42, 190);
   background: linear-gradient(
     0deg,
-    rgba(89, 42, 190, 0.8463979341736695) 0%,
+    rgba(112, 83, 187, 0.84) 0%,
     rgba(101, 100, 186, 1) 100%
   );
 }
@@ -101,8 +102,8 @@
   background: rgb(122, 187, 46);
   background: linear-gradient(
     0deg,
-    rgba(122, 187, 46, 1) 0%,
-    rgba(113, 186, 100, 1) 100%
+    rgb(93, 133, 43) 0%,
+    rgb(88, 134, 77) 100%
   );
 }
 
@@ -110,8 +111,8 @@
   background: rgb(219, 217, 48);
   background: linear-gradient(
     0deg,
-    rgba(219, 217, 48, 1) 0%,
-    rgba(187, 119, 50, 1) 100%
+    rgb(219, 205, 48) 0%,
+    rgb(187, 144, 50) 100%
   );
 }
 
