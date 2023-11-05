@@ -19,8 +19,8 @@ export default function Meals() {
   useEffect(() => {
     async function fetchMealsbyName() {
       try {
-        const mealsData: PreviewRecipeDTO[] = 
-        await MealService.getRecipesByName(searchInput);
+        const mealsData: PreviewRecipeDTO[] =
+          await MealService.getRecipesByName(searchInput);
         setMeals(mealsData);
         setIsLoading(false);
       } catch (err) {
@@ -45,28 +45,30 @@ export default function Meals() {
       </section>
     );
   }
-  
-  const failureInfoMsg = cannotReachAPI ? "Service unavailable at the moment :(": "No meal found";
+
+  const failureInfoMsg = cannotReachAPI
+    ? "Service unavailable at the moment :("
+    : "No meal found";
   let searchResults = (
-      <section className="no-meal-found">
-        <p>{failureInfoMsg}</p>
-      </section>
-  )
+    <section className="no-meal-found">
+      <p>{failureInfoMsg}</p>
+    </section>
+  );
 
   if (meals.length > 0) {
     searchResults = (
-    <section className="search-results">
-      {meals.map((item) => (
-        <PreviewRecipeCard
-          title={item.name}
-          img={item.thumbnailUrl}
-          onClickAction={() => navigate(`/meal/${item.id}`)}
-        ></PreviewRecipeCard>
-      ))}
-    </section>
-    )
+      <section className="search-results">
+        {meals.map((item) => (
+          <PreviewRecipeCard
+            title={item.name}
+            img={item.thumbnailUrl}
+            onClickAction={() => navigate(`/meal/${item.id}`)}
+          ></PreviewRecipeCard>
+        ))}
+      </section>
+    );
   }
-  
+
   return (
     <section className="main">
       <div className="title">

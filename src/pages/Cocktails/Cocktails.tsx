@@ -18,7 +18,7 @@ export default function Cocktails() {
     async function fetchCocktailsbyName() {
       try {
         const cocktailsData: PreviewRecipeDTO[] =
-        await CocktailService.getRecipesByName(searchInput);
+          await CocktailService.getRecipesByName(searchInput);
         setCocktails(cocktailsData);
         setIsLoading(false);
       } catch (err) {
@@ -43,12 +43,14 @@ export default function Cocktails() {
       </section>
     );
   }
-  
-  const failureInfoMsg = cannotReachAPI ? "Service unavailable at the moment :(": "No cocktail found";
+
+  const failureInfoMsg = cannotReachAPI
+    ? "Service unavailable at the moment :("
+    : "No cocktail found";
   let searchResults = (
-      <section className="no-meal-found">
-        <p>{failureInfoMsg}</p>
-      </section>
+    <section className="no-meal-found">
+      <p>{failureInfoMsg}</p>
+    </section>
   );
 
   if (cocktails.length > 0) {
@@ -64,7 +66,7 @@ export default function Cocktails() {
       </section>
     );
   }
-  
+
   return (
     <section className="main">
       <div className="title">

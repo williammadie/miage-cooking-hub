@@ -17,7 +17,6 @@ export default function Home() {
         setCannotReachAPI(true);
         setIsLoading(false);
       } else {
-
       }
     }
   }
@@ -33,12 +32,14 @@ export default function Home() {
     );
   }
 
-  const failureInfoMsg = cannotReachAPI ? "Service unavailable at the moment :(": "No meal found";
+  const failureInfoMsg = cannotReachAPI
+    ? "Service unavailable at the moment :("
+    : "No meal found";
   const searchResults = (
-      <section className="no-meal-found">
-        <p>{failureInfoMsg}</p>
-      </section>
-  )
+    <section className="no-meal-found">
+      <p>{failureInfoMsg}</p>
+    </section>
+  );
 
   // TODO: add the case where the recipes are found.
   // this should add the results in searchResults variable
