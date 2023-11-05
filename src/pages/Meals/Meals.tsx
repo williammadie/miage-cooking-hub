@@ -38,7 +38,7 @@ export default function Meals() {
     return (
       <section className="main">
         <div className="title">
-          <h1 className={"primaryColor"}>Meals Page</h1>
+          <h1 className={"title-1 primaryColor"}>Meals Page</h1>
           <div className="search-bar">
             <SearchBar
               receiveMeals={(searchInput) => setSearchInput(searchInput)}

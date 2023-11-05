@@ -56,7 +56,7 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
             <button onClick={recipeData.goBackAction} className={"goBackButton"}>
                 <img src={goBackIcon} alt={"back button"}/>
             </button>
-            <h1 className="title primaryColor">{recipeData.name}</h1>
+            <h1 className="title-1 primaryColor">{recipeData.name}</h1>
             {/*<div className="text">Category:</div>*/}
             <Category category={recipeData.category}/>
            {/* <p className="text">Tags: {recipeData.tags}</p>

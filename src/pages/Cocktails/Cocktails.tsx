@@ -37,7 +37,7 @@ export default function Cocktails() {
     return (
       <section className="main">
         <div className="title">
-          <h1 className={"primaryColor"}>Cocktails Page</h1>
+          <h1 className={"title-1 primaryColor"}>Cocktails Page</h1>
           <div className="search-bar">
             <SearchBar
               receiveMeals={(searchInput) => setSearchInput(searchInput)}
