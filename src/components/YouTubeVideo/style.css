@@ -1,0 +1,10 @@
+.youtube-container iframe {
+    width: 100%; /* Set the width of the iframe */
+    height: 100%; /*!* Set the height of the iframe based on the aspect ratio */
+    border-radius: 1.5em;
+}
+
+.youtube-container{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}

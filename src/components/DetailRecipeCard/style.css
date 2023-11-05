@@ -5,7 +5,8 @@
 }
 
 .title {
-  font-size: 24px;
+
+  font-size: 2.5em;
   font-weight: bold;
 }
 
@@ -15,9 +16,9 @@
 }
 
 .image {
-  width: 25em;
-  border-radius: 1.5em;
+  height: 100%;
   object-fit: cover;
+  border-radius: 1.5em 0 0 1.5em;
 }
 
 .link {
@@ -66,7 +67,15 @@
 }
 
 .list {
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 90%;
+  column-gap: 2em;
+}
+.list li{
+  margin-right: 2em;
+
 }
 
 .list-item {
@@ -78,31 +87,32 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center
+
+}
+.image-ingredient{
+  height: 25em;
+  max-height: 25em;
+  display: flex;
+  background-color: rgba(196, 187, 187, 0.2);
+  border-radius: 1.5em;
+  overflow: hidden;
 }
 
 .section-list-ingredient {
-  padding: 1em 5em 3em 3em;
-  margin: 2em;
-  border-radius: 1.5em;
-  background-color: rgba(196, 187, 187, 0.2);
+  margin: 1em;
 }
 
-.section-image {
-  padding: 1em 3em 1em 1em;
-  margin: 2em;
-}
 
+.video{
+  width: 40em;
+}
 .video-container {
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
-  z-index: 1;
-  width: 20em;
-  height: auto;
   margin: 2em;
-  border-radius: 1.5em;
-  background-color: rgba(196, 187, 187, 0.2);
 }
 
 .goBackButton {
