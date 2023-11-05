@@ -51,7 +51,12 @@
         "error"
       ],
       "no-magic-numbers": [
-        "error"
+        "error",
+        {
+          "ignore": [
+            1
+          ]
+        }
       ],
       "no-nested-ternary": [
         "error"

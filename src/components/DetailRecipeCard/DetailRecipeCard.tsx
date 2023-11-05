@@ -6,7 +6,6 @@ import IngredientDTO from "../../dto/IngredientDTO";
 import goBackIcon from "../../assets/goBackIcon.png";
 
 const NOT_FOUND_IN_STR: number = -1;
-const INDEX_UN: number = 1;
 
 export type FullRecipe = {
   id: string;
@@ -100,7 +99,7 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
               }`}
               onClick={() => toggleBarredItem(index)}
             >
-              <p className={"index primaryColor"}>{index + INDEX_UN}</p>
+              <p className={"index primaryColor"}>{index + 1}</p>
               <p dangerouslySetInnerHTML={{ __html: instruction }} />
             </li>
           ))}
