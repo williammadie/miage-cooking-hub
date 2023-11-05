@@ -6,9 +6,7 @@ form {
   transition: all 1s;
   width: 50px;
   height: 50px;
-  background: linear-gradient(
-          0.5deg, #6b3167, #4b1248
-  );
+  background: linear-gradient(0.5deg, #6b3167, #4b1248);
   box-sizing: border-box;
   border-radius: 25px;
   border: 4px solid rgba(75, 18, 72, 0.7);
@@ -28,9 +26,7 @@ input {
   color: aliceblue;
   border-radius: 20px;
   padding: 0 20px;
-  background: linear-gradient(
-          0.5deg, #6b3167, #4b1248
-  );
+  background: linear-gradient(0.5deg, #6b3167, #4b1248);
 }
 .magnifier-img {
   box-sizing: border-box;

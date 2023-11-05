@@ -37,7 +37,7 @@
   background-color: rgba(196, 187, 187, 0.2);
 }
 
-.list-instruction li{
+.list-instruction li {
   color: #4a4a4b;
   list-style: none;
   display: flex;
@@ -51,16 +51,16 @@
   cursor: pointer;
 }
 
-.list-instruction ul{
+.list-instruction ul {
   margin-left: 0;
-  margin-right: 2em ;
+  margin-right: 2em;
 }
-.barred-text{
+.barred-text {
   text-decoration: line-through;
   background-color: rgba(155, 155, 155, 0.18);
 }
 
-.index{
+.index {
   font-size: 1.5em;
   font-weight: bold;
   margin: 0.2em 0.8em 0.2em 0.2em;
@@ -73,9 +73,8 @@
   max-height: 90%;
   column-gap: 2em;
 }
-.list li{
+.list li {
   margin-right: 2em;
-
 }
 
 .list-item {
@@ -87,10 +86,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center
-
+  align-items: center;
 }
-.image-ingredient{
+.image-ingredient {
   height: 25em;
   max-height: 25em;
   display: flex;
@@ -103,8 +101,7 @@
   margin: 1em;
 }
 
-
-.video{
+.video {
   width: 40em;
 }
 .video-container {
@@ -129,7 +126,6 @@
   cursor: pointer;
 }
 
-
-.instruction{
+.instruction {
   margin-left: 2em;
 }

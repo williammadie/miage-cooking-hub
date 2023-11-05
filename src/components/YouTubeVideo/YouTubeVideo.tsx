@@ -7,10 +7,9 @@ export type videoIdProps = {
 };
 const YouTubeVideo: React.FC<videoIdProps> = ({ videoId }) => {
   const opts = {
-
-    playerVars: {// C'est ici que vous définissez le border-radius
+    playerVars: {
+      // C'est ici que vous définissez le border-radius
       "z-index": "1",
-
     },
   };
 
@@ -18,7 +17,13 @@ const YouTubeVideo: React.FC<videoIdProps> = ({ videoId }) => {
         event.target.playVideo(); // Activer la lecture automatique de la vidéo
     };*/
 
-  return <YouTube className={"youtube-container"} videoId={videoId} opts={opts} /*onReady={onReady}*/ />;
+  return (
+    <YouTube
+      className={"youtube-container"}
+      videoId={videoId}
+      opts={opts} /*onReady={onReady}*/
+    />
+  );
 };
 
 export default YouTubeVideo;

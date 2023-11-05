@@ -100,11 +100,7 @@
 
 .lime {
   background: rgb(122, 187, 46);
-  background: linear-gradient(
-    0deg,
-    rgb(93, 133, 43) 0%,
-    rgb(88, 134, 77) 100%
-  );
+  background: linear-gradient(0deg, rgb(93, 133, 43) 0%, rgb(88, 134, 77) 100%);
 }
 
 .amber {
