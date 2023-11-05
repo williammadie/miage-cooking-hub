@@ -1,7 +1,8 @@
 .search-results {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  align-content: flex-start;
+  justify-content: center;
 }
 
 .title {
@@ -12,4 +13,11 @@
 
 .search-bar {
   margin-top: 45px;
+}
+
+.no-meal-found {
+  display: flex;
+  justify-content: center;
+  height: 75vh;
+  align-items: center;
 }
