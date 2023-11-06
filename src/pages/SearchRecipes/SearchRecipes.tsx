@@ -14,8 +14,8 @@ import CocktailService from "../../services/CocktailService";
 const NB_SKELETON_LOADER = 18;
 type SearchRecipesProps = {
   recipeType: RecipeType;
-}
-const SearchRecipes: React.FC<SearchRecipesProps> = ({recipeType}) => {
+};
+const SearchRecipes: React.FC<SearchRecipesProps> = ({ recipeType }) => {
   let detailedResourcePrefix: string;
   let searchService: any;
   if (recipeType === RecipeType.Meal) {
@@ -74,7 +74,9 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({recipeType}) => {
             key={item.id}
             title={item.name}
             img={item.thumbnailUrl}
-            onClickAction={() => navigate(`/${detailedResourcePrefix}/${item.id}`)}
+            onClickAction={() =>
+              navigate(`/${detailedResourcePrefix}/${item.id}`)
+            }
           ></PreviewRecipeCard>
         ))}
       </section>
@@ -93,7 +95,9 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({recipeType}) => {
   return (
     <section className="main">
       <div className="title">
-        <h1 className={"title-1 primaryColor"}>{detailedResourcePrefix}s Page</h1>
+        <h1 className={"title-1 primaryColor"}>
+          {detailedResourcePrefix}s Page
+        </h1>
         <div className="search-bar">
           <SearchBar
             receiveMeals={(searchInput) => setSearchInput(searchInput)}
@@ -104,6 +108,6 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({recipeType}) => {
       {searchResults}
     </section>
   );
-}
+};
 
 export default SearchRecipes;

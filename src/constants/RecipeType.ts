@@ -1,6 +1,6 @@
 enum RecipeType {
-    Meal,
-    Cocktail
+  Meal,
+  Cocktail,
 }
 
 export const RECIPE_DETAILS = {
