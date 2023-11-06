@@ -1,26 +1,42 @@
 import React, { useEffect, useState } from "react";
-import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
-import CocktailService from "../../services/CocktailService";
+import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
+import MealService from "../../services/MealService";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@mui/material";
+
+import "./style.css";
 import NoResultFoundError from "../../errors/NoResultFoundError";
+import RecipeType from "../../constants/RecipeType";
+import CocktailService from "../../services/CocktailService";
 
 const NB_SKELETON_LOADER = 18;
-export default function Cocktails() {
-  const [cocktails, setCocktails] = useState<PreviewRecipeDTO[]>([]);
-  const [searchInput, setSearchInput] = useState("martini");
+type SearchRecipesProps = {
+  recipeType: RecipeType;
+}
+const SearchRecipes: React.FC<SearchRecipesProps> = ({recipeType}) => {
+  let detailedResourcePrefix: string;
+  let searchService: any;
+  if (recipeType === RecipeType.Meal) {
+    detailedResourcePrefix = "meal";
+    searchService = MealService;
+  } else {
+    detailedResourcePrefix = "cocktail";
+    searchService = CocktailService;
+  }
+  const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
+  const [searchInput, setSearchInput] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [cannotReachAPI, setCannotReachAPI] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchCocktailsByName() {
+    async function fetchMealsByName() {
       try {
-        const cocktailsData: PreviewRecipeDTO[] =
-          await CocktailService.getRecipesByName(searchInput);
-        setCocktails(cocktailsData);
+        const mealsData: PreviewRecipeDTO[] =
+          await searchService.getRecipesByName(searchInput);
+        setMeals(mealsData);
         setIsLoading(false);
       } catch (err) {
         if (err instanceof NoResultFoundError) {
@@ -32,31 +48,33 @@ export default function Cocktails() {
       }
     }
 
-    fetchCocktailsByName();
-  }, [cocktails.length, searchInput]);
+    fetchMealsByName();
+  }, [meals.length, searchInput, searchService]);
 
   let searchResults;
   if (isLoading) {
     searchResults = (
       <section className={"search-results"}>
-        {Array.from({ length: NB_SKELETON_LOADER }, (_) => (
+        {Array.from({ length: NB_SKELETON_LOADER }, (_, index) => (
           <Skeleton
             style={{ margin: 10, borderRadius: 15 }}
             variant="rounded"
             width={400}
             height={100}
+            key={index}
           />
         ))}
       </section>
     );
-  } else if (cocktails.length > 0) {
+  } else if (meals.length > 0) {
     searchResults = (
       <section className="search-results">
-        {cocktails.map((item) => (
+        {meals.map((item) => (
           <PreviewRecipeCard
+            key={item.id}
             title={item.name}
             img={item.thumbnailUrl}
-            onClickAction={() => navigate(`/cocktail/${item.id}`)}
+            onClickAction={() => navigate(`/${detailedResourcePrefix}/${item.id}`)}
           ></PreviewRecipeCard>
         ))}
       </section>
@@ -64,9 +82,9 @@ export default function Cocktails() {
   } else {
     const failureInfoMsg = cannotReachAPI
       ? "Service unavailable at the moment :("
-      : "No cocktail found";
+      : "No recipe found";
     searchResults = (
-      <section className="no-meal-found">
+      <section className="no-recipe-found">
         <p>{failureInfoMsg}</p>
       </section>
     );
@@ -75,10 +93,11 @@ export default function Cocktails() {
   return (
     <section className="main">
       <div className="title">
-        <h1 className={"title-1 primaryColor"}>Cocktails Page</h1>
+        <h1 className={"title-1 primaryColor"}>{detailedResourcePrefix}s Page</h1>
         <div className="search-bar">
           <SearchBar
             receiveMeals={(searchInput) => setSearchInput(searchInput)}
+            key={recipeType}
           />
         </div>
       </div>
@@ -86,3 +105,5 @@ export default function Cocktails() {
     </section>
   );
 }
+
+export default SearchRecipes;
