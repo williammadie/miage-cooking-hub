@@ -8,6 +8,7 @@
  */
 
 import axios, { AxiosResponse } from "axios";
+import NoResultFoundError from "../errors/NoResultFoundError";
 
 export async function retrieveFullRecipe(
   resourceUrl: string,
@@ -23,7 +24,7 @@ export async function retrieveFullRecipe(
   }
 
   if (response === undefined)
-    throw Error(`No Response from url ${resourceUrl}`);
+    throw new NoResultFoundError(`No Response from url ${resourceUrl}`);
 
   return response;
 }
@@ -41,7 +42,7 @@ export async function retrieveRecipes(
   }
 
   if (response === undefined)
-    throw Error(`No Response from url ${resourceUrl}`);
+    throw new NoResultFoundError(`No Response from url ${resourceUrl}`);
 
   return response;
 }
