@@ -100,7 +100,7 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
               onClick={() => toggleBarredItem(index)}
             >
               <p className={"index primaryColor"}>{index + 1}</p>
-              <p>{ instruction }</p>
+              <p>{instruction}</p>
             </li>
           ))}
         </ul>

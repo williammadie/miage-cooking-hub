@@ -4,11 +4,12 @@ import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeC
 import MealService from "../../services/MealService";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
-import { CircularProgress } from "@mui/material";
+import { Skeleton } from "@mui/material";
 
 import "./style.css";
 import NoResultFoundError from "../../errors/NoResultFoundError";
 
+const NB_SKELETON_LOADER = 18;
 export default function Meals() {
   const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
   const [searchInput, setSearchInput] = useState("chicken");
@@ -17,7 +18,7 @@ export default function Meals() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchMealsbyName() {
+    async function fetchMealsByName() {
       try {
         const mealsData: PreviewRecipeDTO[] =
           await MealService.getRecipesByName(searchInput);
@@ -33,29 +34,24 @@ export default function Meals() {
       }
     }
 
-    fetchMealsbyName();
+    fetchMealsByName();
   }, [meals.length, searchInput]);
 
+  let searchResults;
   if (isLoading) {
-    return (
-      <section className="main">
-        <div className="loading-wrapper">
-          <CircularProgress />
-        </div>
+    searchResults = (
+      <section className={"search-results"}>
+        {Array.from({ length: NB_SKELETON_LOADER }, (_) => (
+          <Skeleton
+            style={{ margin: 10, borderRadius: 15 }}
+            variant="rounded"
+            width={400}
+            height={100}
+          />
+        ))}
       </section>
     );
-  }
-
-  const failureInfoMsg = cannotReachAPI
-    ? "Service unavailable at the moment :("
-    : "No meal found";
-  let searchResults = (
-    <section className="no-meal-found">
-      <p>{failureInfoMsg}</p>
-    </section>
-  );
-
-  if (meals.length > 0) {
+  } else if (meals.length > 0) {
     searchResults = (
       <section className="search-results">
         {meals.map((item) => (
@@ -65,6 +61,15 @@ export default function Meals() {
             onClickAction={() => navigate(`/meal/${item.id}`)}
           ></PreviewRecipeCard>
         ))}
+      </section>
+    );
+  } else {
+    const failureInfoMsg = cannotReachAPI
+      ? "Service unavailable at the moment :("
+      : "No meal found";
+    searchResults = (
+      <section className="no-meal-found">
+        <p>{failureInfoMsg}</p>
       </section>
     );
   }

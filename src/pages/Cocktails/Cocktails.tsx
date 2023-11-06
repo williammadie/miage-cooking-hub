@@ -4,9 +4,10 @@ import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import CocktailService from "../../services/CocktailService";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
-import { CircularProgress } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import NoResultFoundError from "../../errors/NoResultFoundError";
 
+const NB_SKELETON_LOADER = 18;
 export default function Cocktails() {
   const [cocktails, setCocktails] = useState<PreviewRecipeDTO[]>([]);
   const [searchInput, setSearchInput] = useState("martini");
@@ -15,7 +16,7 @@ export default function Cocktails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchCocktailsbyName() {
+    async function fetchCocktailsByName() {
       try {
         const cocktailsData: PreviewRecipeDTO[] =
           await CocktailService.getRecipesByName(searchInput);
@@ -31,29 +32,24 @@ export default function Cocktails() {
       }
     }
 
-    fetchCocktailsbyName();
+    fetchCocktailsByName();
   }, [cocktails.length, searchInput]);
 
+  let searchResults;
   if (isLoading) {
-    return (
-      <section className="main">
-        <div className="loading-wrapper">
-          <CircularProgress />
-        </div>
+    searchResults = (
+      <section className={"search-results"}>
+        {Array.from({ length: NB_SKELETON_LOADER }, (_) => (
+          <Skeleton
+            style={{ margin: 10, borderRadius: 15 }}
+            variant="rounded"
+            width={400}
+            height={100}
+          />
+        ))}
       </section>
     );
-  }
-
-  const failureInfoMsg = cannotReachAPI
-    ? "Service unavailable at the moment :("
-    : "No cocktail found";
-  let searchResults = (
-    <section className="no-meal-found">
-      <p>{failureInfoMsg}</p>
-    </section>
-  );
-
-  if (cocktails.length > 0) {
+  } else if (cocktails.length > 0) {
     searchResults = (
       <section className="search-results">
         {cocktails.map((item) => (
@@ -63,6 +59,15 @@ export default function Cocktails() {
             onClickAction={() => navigate(`/cocktail/${item.id}`)}
           ></PreviewRecipeCard>
         ))}
+      </section>
+    );
+  } else {
+    const failureInfoMsg = cannotReachAPI
+      ? "Service unavailable at the moment :("
+      : "No cocktail found";
+    searchResults = (
+      <section className="no-meal-found">
+        <p>{failureInfoMsg}</p>
       </section>
     );
   }
