@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <section className="main">
       <div className="title">
-        <h1>Home Page</h1>
+        <h1 className={"title-1 primaryColor"}>Home Page</h1>
       </div>
       {searchResults}
     </section>

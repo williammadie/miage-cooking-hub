@@ -5,7 +5,7 @@ nav {
   left: 0;
   overflow-x: hidden;
   display: flex;
-  background: #1a3b22;
+  background: linear-gradient(60deg, rgb(240, 194, 123), rgb(75, 18, 72));
   width: 15em;
   height: 100em;
 }

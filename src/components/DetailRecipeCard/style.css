@@ -4,8 +4,8 @@
   background-color: #f4f4f4;
 }
 
-.title {
-  font-size: 24px;
+.title-1 {
+  font-size: 2em;
   font-weight: bold;
 }
 
@@ -15,9 +15,9 @@
 }
 
 .image {
-  width: 25em;
-  border-radius: 1.5em;
+  height: 100%;
   object-fit: cover;
+  border-radius: 1.5em 0 0 1.5em;
 }
 
 .link {
@@ -31,11 +31,49 @@
 }
 
 .list-instruction {
-  list-style-type: decimal;
-  padding: 0;
+  padding: 1em;
+  border-radius: 1.5em;
+  background-color: rgba(196, 187, 187, 0.2);
 }
+
+.list-instruction li {
+  color: #4a4a4b;
+  list-style: none;
+  display: flex;
+  padding: 0.5em;
+  border-radius: 0.8em;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.list-instruction li:hover {
+  transform: scale(1.025);
+  box-shadow: 7px 10px 18px -4px rgba(70, 68, 68, 0.4);
+  cursor: pointer;
+}
+
+.list-instruction ul {
+  margin-left: 0;
+  margin-right: 2em;
+}
+.barred-text {
+  text-decoration: line-through;
+  background-color: rgba(155, 155, 155, 0.18);
+}
+
+.index {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0.2em 0.8em 0.2em 0.2em;
+}
+
 .list {
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 90%;
+  column-gap: 2em;
+}
+.list li {
+  margin-right: 2em;
 }
 
 .list-item {
@@ -47,31 +85,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
+}
+.image-ingredient {
+  height: 25em;
+  max-height: 25em;
+  display: flex;
+  background-color: rgba(196, 187, 187, 0.2);
+  border-radius: 1.5em;
+  overflow: hidden;
 }
 
 .section-list-ingredient {
-  padding: 1em 5em 3em 3em;
-  margin: 2em;
-  border-radius: 1.5em;
-  background-color: rgba(196, 187, 187, 0.2);
+  margin: 1em;
 }
 
-.section-image {
-  padding: 1em 3em 1em 1em;
-  margin: 2em;
+.video {
+  width: 40em;
 }
-
 .video-container {
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
-  z-index: 1;
-  width: 30em;
-  height: 25em;
   margin: 2em;
-  border-radius: 1.5em;
-  background-color: rgba(196, 187, 187, 0.2);
 }
 
 .goBackButton {
@@ -86,4 +123,8 @@
 .goBackButton img:hover {
   transform: translateX(-10px);
   cursor: pointer;
+}
+
+.instruction {
+  margin-left: 2em;
 }

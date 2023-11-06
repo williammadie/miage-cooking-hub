@@ -6,13 +6,13 @@
   padding: 0;
   margin: 10px;
   display: flex;
-  transition: transform 0.4s, box-shadow 0.4s; /* Ajoute une transition pour une animation fluide */
+  transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .preview-recipe-card:hover {
-  transform: scale(1.05); /* Grossissement de 10% au survol */
-  box-shadow: 7px 10px 24px -4px rgba(0, 0, 0, 0.7); /* Changement d'ombre au survol */
-  cursor: pointer; /* Changement de curseur au survol */
+  transform: scale(1.05);
+  box-shadow: 7px 10px 24px -4px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
 }
 
 .preview-recipe-img {

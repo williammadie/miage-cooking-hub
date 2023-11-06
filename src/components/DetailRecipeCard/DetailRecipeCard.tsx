@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React, { MouseEventHandler, useState } from "react";
 import "./style.css";
 import Category from "../Category/Category";
 import YouTubeVideo from "../YouTubeVideo/YouTubeVideo";
@@ -25,14 +25,9 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
     ? extractVideoIdFromUrl(recipeData.youtubeRecipe)
     : null;
   const instructions = recipeData.instructions
-    .split("\\r\\")
-    .map((instruction: any, index: number) => (
-      <li
-        key={index}
-        className="text"
-        dangerouslySetInnerHTML={{ __html: instruction }}
-      />
-    ));
+    .split("\r\n")
+    .filter((instruction) => instruction !== "");
+  const [barredItems, setBarredItems] = useState<number[]>([]);
 
   function extractVideoIdFromUrl(url: string): string {
     const prefix = "https://www.youtube.com/watch?v=";
@@ -47,44 +42,69 @@ const DetailPage: React.FC<FullRecipe> = (recipeData: FullRecipe) => {
     }
   }
 
+  const toggleBarredItem = (index: number) => {
+    if (barredItems.includes(index)) {
+      setBarredItems(barredItems.filter((item) => item !== index));
+    } else {
+      setBarredItems([...barredItems, index]);
+    }
+  };
+
   return (
     <div className="container">
       <button onClick={recipeData.goBackAction} className={"goBackButton"}>
         <img src={goBackIcon} alt={"back button"} />
       </button>
-      <h1 className="title">{recipeData.name}</h1>
-      <div className="text">Category:</div>
+      <h1 className="title primaryColor">{recipeData.name}</h1>
+      {/*<div className="text">Category:</div>*/}
       <Category category={recipeData.category} />
-      <p className="text">Area: {recipeData.area}</p>
+      {/* <p className="text">Tags: {recipeData.tags}</p>
+            <p className="text">Area: {recipeData.area}</p>*/}
       <div className="content-header">
-        <div className="section-image">
+        <div className={"image-ingredient"}>
           <img
             src={recipeData.thumbnailUrl}
             alt={recipeData.name}
             className="image"
           />
-          <p className="text">Tags: {recipeData.tags}</p>
-        </div>
-        <div className="section-list-ingredient">
-          <h2 className="subtitle">Ingredients</h2>
-          <ul className="list">
-            {recipeData.ingredients.map((ingredient, index) => (
-              <li
-                key={index}
-                className="list-item"
-              >{`${ingredient.ingredient} : ${ingredient.measure}`}</li>
-            ))}
-          </ul>
+          <div className="section-list-ingredient">
+            <h2 className="subtitle primaryColor">Ingredients</h2>
+            <ul className="list">
+              {recipeData.ingredients.map((ingredient, index) => (
+                <li
+                  key={index}
+                  className="list-item"
+                >{`${ingredient.ingredient} : ${ingredient.measure}`}</li>
+              ))}
+            </ul>
+          </div>
         </div>
         {videoId && (
           <div className="video-container">
-            <YouTubeVideo videoId={videoId} />
+            <div className={"video"}>
+              <YouTubeVideo videoId={videoId} />
+            </div>
           </div>
         )}
       </div>
-      <div className="text">Instructions:</div>
-      <div className="list-instruction">{instructions}</div>
 
+      <h2 className={"instruction primaryColor"}>Instructions:</h2>
+      <div className="list-instruction">
+        <ul>
+          {instructions.map((instruction: any, index: number) => (
+            <li
+              key={index}
+              className={`text ${
+                barredItems.includes(index) ? "barred-text" : ""
+              }`}
+              onClick={() => toggleBarredItem(index)}
+            >
+              <p className={"index primaryColor"}>{index + 1}</p>
+              <p dangerouslySetInnerHTML={{ __html: instruction }} />
+            </li>
+          ))}
+        </ul>
+      </div>
       <p className="text">
         Source:{" "}
         <a
