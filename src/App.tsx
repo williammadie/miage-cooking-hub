@@ -18,7 +18,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/meals"
-          element={<SearchRecipes recipeType={RecipeType.Meal} searchService={MealService}/>}
+          element={
+            <SearchRecipes
+              recipeType={RecipeType.Meal}
+              searchService={MealService}
+            />
+          }
           key={RecipeType.Meal}
         />
         <Route

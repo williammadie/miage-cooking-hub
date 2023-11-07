@@ -14,7 +14,10 @@ type SearchRecipesProps = {
   recipeType: RecipeType;
   searchService: any;
 };
-const SearchRecipes: React.FC<SearchRecipesProps> = ({ recipeType, searchService }) => {
+const SearchRecipes: React.FC<SearchRecipesProps> = ({
+  recipeType,
+  searchService,
+}) => {
   const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
   const [searchInput, setSearchInput] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -64,9 +67,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({ recipeType, searchService
             key={item.id}
             title={item.name}
             img={item.thumbnailUrl}
-            onClickAction={() =>
-              navigate(`/${recipeType}/${item.id}`)
-            }
+            onClickAction={() => navigate(`/${recipeType}/${item.id}`)}
           ></PreviewRecipeCard>
         ))}
       </section>
@@ -85,9 +86,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({ recipeType, searchService
   return (
     <section className="main">
       <div className="title">
-        <h1 className={"title-1 primaryColor"}>
-          {recipeType}s Page
-        </h1>
+        <h1 className={"title-1 primaryColor"}>{recipeType}s Page</h1>
         <div className="search-bar">
           <SearchBar
             receiveMeals={(searchInput) => setSearchInput(searchInput)}
