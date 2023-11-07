@@ -5,9 +5,10 @@ import "./style.css";
 
 type SearchBarProps = {
   receiveMeals: (meals: any) => void;
+  savedSearchQuery: string;
 };
 
-const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals, savedSearchQuery }) => {
   const [searchInput, setSearchInput] = useState("");
 
   return (
@@ -15,6 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals }) => {
       onSubmit={(e) => {
         e.preventDefault();
         receiveMeals(searchInput);
+        window.sessionStorage.setItem(savedSearchQuery, JSON.stringify({searchQuery: searchInput}));
       }}
     >
       <input
