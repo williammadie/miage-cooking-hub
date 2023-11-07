@@ -36,7 +36,7 @@ export default function Home() {
     ? "Service unavailable at the moment :("
     : "No meal found";
   const searchResults = (
-    <section className="no-meal-found">
+    <section className="no-recipe-found">
       <p>{failureInfoMsg}</p>
     </section>
   );

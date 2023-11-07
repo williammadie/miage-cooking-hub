@@ -18,7 +18,6 @@ export async function retrieveFullRecipe(
   const resourcePath = id === undefined ? resourceUrl : `${resourceUrl}${id}`;
   try {
     response = await axios.get(resourcePath);
-    console.log(response);
   } catch (error) {
     console.error(error);
   }
@@ -36,7 +35,6 @@ export async function retrieveRecipes(
   let response: AxiosResponse | undefined = undefined;
   try {
     response = await axios.get(`${resourceUrl}${name}`);
-    console.log(response);
   } catch (error) {
     console.error(error);
   }
