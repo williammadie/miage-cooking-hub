@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
-import MealService from "../../services/MealService";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@mui/material";
@@ -9,22 +8,13 @@ import { Skeleton } from "@mui/material";
 import "./style.css";
 import NoResultFoundError from "../../errors/NoResultFoundError";
 import RecipeType from "../../constants/RecipeType";
-import CocktailService from "../../services/CocktailService";
 
 const NB_SKELETON_LOADER = 18;
 type SearchRecipesProps = {
   recipeType: RecipeType;
+  searchService: any;
 };
-const SearchRecipes: React.FC<SearchRecipesProps> = ({ recipeType }) => {
-  let detailedResourcePrefix: string;
-  let searchService: any;
-  if (recipeType === RecipeType.Meal) {
-    detailedResourcePrefix = "meal";
-    searchService = MealService;
-  } else {
-    detailedResourcePrefix = "cocktail";
-    searchService = CocktailService;
-  }
+const SearchRecipes: React.FC<SearchRecipesProps> = ({ recipeType, searchService }) => {
   const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
   const [searchInput, setSearchInput] = useState("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -75,7 +65,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({ recipeType }) => {
             title={item.name}
             img={item.thumbnailUrl}
             onClickAction={() =>
-              navigate(`/${detailedResourcePrefix}/${item.id}`)
+              navigate(`/${recipeType}/${item.id}`)
             }
           ></PreviewRecipeCard>
         ))}
@@ -96,7 +86,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({ recipeType }) => {
     <section className="main">
       <div className="title">
         <h1 className={"title-1 primaryColor"}>
-          {detailedResourcePrefix}s Page
+          {recipeType}s Page
         </h1>
         <div className="search-bar">
           <SearchBar

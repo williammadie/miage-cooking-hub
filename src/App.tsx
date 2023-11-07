@@ -7,6 +7,8 @@ import React from "react";
 import Meal from "./pages/Meal/Meal";
 import Cocktail from "./pages/Cocktail/Cocktail";
 import RecipeType from "./constants/RecipeType";
+import MealService from "./services/MealService";
+import CocktailService from "./services/CocktailService";
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/meals"
-          element={<SearchRecipes recipeType={RecipeType.Meal} />}
+          element={<SearchRecipes recipeType={RecipeType.Meal} searchService={MealService}/>}
           key={RecipeType.Meal}
         />
         <Route
@@ -24,6 +26,7 @@ function App() {
           element={
             <SearchRecipes
               recipeType={RecipeType.Cocktail}
+              searchService={CocktailService}
               key={RecipeType.Cocktail}
             />
           }

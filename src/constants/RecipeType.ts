@@ -1,11 +1,6 @@
 enum RecipeType {
-  Meal,
-  Cocktail,
+  Meal = "meal",
+  Cocktail = "cocktail",
 }
-
-export const RECIPE_DETAILS = {
-  MEAL: "themealdb",
-  COCKTAIL: "thecocktaildb",
-};
 
 export default RecipeType;
