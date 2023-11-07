@@ -7,8 +7,6 @@ import React from "react";
 import Meal from "./pages/Meal/Meal";
 import Cocktail from "./pages/Cocktail/Cocktail";
 import RecipeType from "./constants/RecipeType";
-import MealService from "./services/MealService";
-import CocktailService from "./services/CocktailService";
 
 function App() {
   return (
@@ -21,7 +19,6 @@ function App() {
           element={
             <SearchRecipes
               recipeType={RecipeType.Meal}
-              searchService={MealService}
             />
           }
           key={RecipeType.Meal}
@@ -31,7 +28,6 @@ function App() {
           element={
             <SearchRecipes
               recipeType={RecipeType.Cocktail}
-              searchService={CocktailService}
               key={RecipeType.Cocktail}
             />
           }
