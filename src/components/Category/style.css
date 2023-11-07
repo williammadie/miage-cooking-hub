@@ -1,0 +1,131 @@
+.category-chip {
+  padding: 0.3em 0.6em;
+  border-radius: 16px;
+  display: inline-block;
+  font-weight: bold;
+  color: white;
+  font-size: 0.9em;
+}
+
+.red {
+  background: rgb(173, 36, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(173, 36, 36, 1) 0%,
+    rgba(244, 44, 30, 1) 55%,
+    rgba(232, 159, 139, 1) 100%
+  );
+}
+
+.orange {
+  background: rgb(173, 84, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(173, 84, 36, 1) 0%,
+    rgba(244, 127, 30, 1) 90%
+  );
+}
+
+.yellow {
+  background: rgb(173, 142, 36);
+  background: linear-gradient(
+    0deg,
+    rgb(208, 174, 38) 0%,
+    rgba(244, 220, 30, 1) 90%
+  );
+}
+
+.green {
+  background: rgb(36, 173, 102);
+  background: linear-gradient(
+    0deg,
+    rgba(36, 173, 102, 1) 0%,
+    rgb(108, 204, 44) 100%
+  );
+}
+
+.blue {
+  background: rgb(47, 81, 181);
+  background: linear-gradient(
+    0deg,
+    rgba(47, 81, 181, 1) 0%,
+    rgb(36, 109, 203) 100%
+  );
+}
+
+.purple {
+  background: rgb(168, 47, 181);
+  background: linear-gradient(
+    0deg,
+    rgba(168, 47, 181, 1) 0%,
+    rgb(196, 82, 222) 100%
+  );
+}
+
+.pink {
+  background: rgb(190, 42, 167);
+  background: linear-gradient(
+    0deg,
+    rgba(190, 42, 167, 0.8463979341736695) 0%,
+    rgb(187, 72, 180) 100%
+  );
+}
+
+.teal {
+  background: rgb(42, 187, 190);
+  background: linear-gradient(
+    0deg,
+    rgba(42, 187, 190, 0.8463979341736695) 0%,
+    rgba(100, 184, 186, 1) 100%
+  );
+}
+
+.cyan {
+  background: rgb(42, 190, 134);
+  background: linear-gradient(
+    0deg,
+    rgba(31, 154, 107, 0.84) 0%,
+    rgb(78, 164, 147) 100%
+  );
+}
+
+.indigo {
+  background: rgb(89, 42, 190);
+  background: linear-gradient(
+    0deg,
+    rgba(112, 83, 187, 0.84) 0%,
+    rgba(101, 100, 186, 1) 100%
+  );
+}
+
+.lime {
+  background: rgb(122, 187, 46);
+  background: linear-gradient(0deg, rgb(93, 133, 43) 0%, rgb(88, 134, 77) 100%);
+}
+
+.amber {
+  background: rgb(219, 217, 48);
+  background: linear-gradient(
+    0deg,
+    rgb(219, 205, 48) 0%,
+    rgb(187, 144, 50) 100%
+  );
+}
+
+.brown {
+  background: rgb(167, 135, 18);
+  background: linear-gradient(
+    0deg,
+    rgba(167, 135, 18, 1) 0%,
+    rgba(163, 95, 26, 1) 100%
+  );
+}
+
+.grey {
+  background: rgb(56, 57, 66);
+  background: linear-gradient(
+    0deg,
+    rgba(56, 57, 66, 1) 0%,
+    rgba(128, 126, 129, 1) 100%
+  );
+}

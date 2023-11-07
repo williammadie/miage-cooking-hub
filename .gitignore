@@ -24,3 +24,10 @@ yarn-error.log*
 
 # IDE settings
 .vscode
+/.idea/.gitignore
+/.idea/miage-cooking-hub.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/package-lock.json
+/.idea/rcb-settings.xml
+/.idea/vcs.xml
