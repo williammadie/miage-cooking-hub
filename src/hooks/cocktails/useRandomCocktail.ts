@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-  DATA_DB_PREFIX,
-  DATA_DB_ROUTES,
-  buildURL,
-} from "../constants/RouteBuilder";
 import { AxiosResponse } from "axios";
-import { retrieveFullRecipe } from "../services/DataDbService";
-import FullDrinkMapper from "../mappers/FullDrinkMapper";
-import FullRecipeDTO from "../dto/FullRecipeDTO";
+import FullRecipeDTO from "../../dto/FullRecipeDTO";
+import FullDrinkMapper from "../../mappers/FullDrinkMapper";
+import { retrieveFullRecipe } from "../../services/DataDbService";
+import { DATA_DB_PREFIX, DATA_DB_ROUTES, buildURL } from "../../constants/RouteBuilder";
 
 export const useRandomCocktail = () => {
   const [data, setData] = useState<FullRecipeDTO | null>(null);

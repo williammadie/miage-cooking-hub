@@ -1,12 +1,13 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import SearchRecipes from "./pages/SearchRecipes/SearchRecipes";
 import Navbar from "./components/Navbar/Navbar";
 import React from "react";
 import Meal from "./pages/Meal/Meal";
 import Cocktail from "./pages/Cocktail/Cocktail";
 import RecipeType from "./constants/RecipeType";
+import Cocktails from "./pages/Cocktails/Cocktails";
+import Meals from "./pages/Meals/Meals";
 
 function App() {
   return (
@@ -17,19 +18,14 @@ function App() {
         <Route
           path="/meals"
           element={
-            <SearchRecipes
-              recipeType={RecipeType.Meal}
-            />
+            <Meals/>
           }
           key={RecipeType.Meal}
         />
         <Route
           path="/cocktails"
           element={
-            <SearchRecipes
-              recipeType={RecipeType.Cocktail}
-              key={RecipeType.Cocktail}
-            />
+            <Cocktails/>
           }
         />
         <Route path="/meal/:id" element={<Meal />} />
