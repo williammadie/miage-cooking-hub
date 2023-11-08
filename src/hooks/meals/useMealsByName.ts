@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
+import { retrieveRecipes } from "../../services/DataDbService";
 import {
   DATA_DB_PREFIX,
   DATA_DB_ROUTES,
   buildURL,
-} from "../constants/RouteBuilder";
+} from "../../constants/RouteBuilder";
+import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import { AxiosResponse } from "axios";
-import { retrieveRecipes } from "../services/DataDbService";
-import PreviewDrinkMapper from "../mappers/PreviewDrinkMapper";
-import PreviewRecipeDTO from "../dto/PreviewRecipeDTO";
+import PreviewMealMapper from "../../mappers/PreviewMealMapper";
 
-export const useCocktailsByName = (name: string) => {
+export const useMealsByName = (name: string) => {
   const [data, setData] = useState<PreviewRecipeDTO[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<unknown | null>(null);
@@ -19,10 +19,10 @@ export const useCocktailsByName = (name: string) => {
 
     try {
       const response: AxiosResponse = await retrieveRecipes(
-        buildURL(DATA_DB_PREFIX.COCKTAIL, DATA_DB_ROUTES.RECIPE_BY_NAME),
+        buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RECIPE_BY_NAME),
         name
       );
-      setData(PreviewDrinkMapper.toDtos(response.data.drinks));
+      setData(PreviewMealMapper.toDtos(response.data.meals));
     } catch (err) {
       setError(err);
     }

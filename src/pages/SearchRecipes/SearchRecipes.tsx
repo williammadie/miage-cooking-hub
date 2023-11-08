@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
-import SearchBar from "../../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@mui/material";
 
 import "./style.css";
 import RecipeType from "../../constants/RecipeType";
-import { useCocktailsByName } from "../../hooks/useCocktailsByName";
+import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 
 const NB_SKELETON_LOADER = 18;
 type SearchRecipesProps = {
   recipeType: RecipeType;
+  data: PreviewRecipeDTO[] | null;
+  isLoading: boolean;
+  error: unknown;
 };
+
 const SearchRecipes: React.FC<SearchRecipesProps> = ({
   recipeType,
+  data,
+  isLoading,
+  error
 }) => {
-  const [searchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
-  const {data, isLoading, error} = useCocktailsByName(searchInput);
 
   let searchResults;
   if (isLoading) {
@@ -60,18 +64,9 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   }
 
   return (
-    <section className="main">
-      <div className="title">
-        <h1 className={"title-1 primaryColor"}>{recipeType}s Page</h1>
-        <div className="search-bar">
-          <SearchBar
-            receiveMeals={(searchInput) => setSearchInput(searchInput)}
-            key={recipeType}
-          />
-        </div>
-      </div>
-      {searchResults}
-    </section>
+    <>
+    {searchResults}
+    </>
   );
 };
 
