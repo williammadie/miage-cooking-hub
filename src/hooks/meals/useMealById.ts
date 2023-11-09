@@ -5,7 +5,7 @@ import {
   buildURL,
 } from "../../constants/RouteBuilder";
 import { AxiosResponse } from "axios";
-import { retrieveFullRecipe } from "../../services/DataDbService";
+import { retrieveFullRecipe } from "../../api/datadb";
 import FullRecipeDTO from "../../dto/FullRecipeDTO";
 import FullMealMapper from "../../mappers/FullMealMapper";
 
@@ -26,6 +26,8 @@ export const useMealById = (id: string) => {
     } catch (err) {
       setError(err);
     }
+
+    setIsLoading(false);
   };
 
   useEffect(() => {

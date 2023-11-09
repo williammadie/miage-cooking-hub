@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { retrieveRecipes } from "../../services/DataDbService";
+import { retrieveRecipes } from "../../api/datadb";
 import {
   DATA_DB_PREFIX,
   DATA_DB_ROUTES,

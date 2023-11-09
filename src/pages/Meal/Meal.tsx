@@ -1,31 +1,19 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
-import MealService from "../../services/MealService";
-import FullRecipeDTO from "../../dto/FullRecipeDTO";
 
 import "./style.css";
+import { useMealById } from "../../hooks/meals/useMealById";
 import {DarkModeContext} from "../../context/DarkModeContext";
 
 export default function Meal() {
   const id: string = String(useParams().id);
-  const [meal, setMeal] = useState<FullRecipeDTO>();
-  const [loading, setLoading] = useState<boolean>(true);
+  const {data, isLoading, error} = useMealById(id);
   const navigate = useNavigate();
   const {darkMode} = useContext(DarkModeContext);
 
-  useEffect(() => {
-    async function fetchMealById() {
-      const mealData = await MealService.getFullRecipeById(id);
-      setMeal(mealData);
-      setLoading(false);
-    }
-
-    fetchMealById();
-  }, [id]);
-
-  if (loading) {
+  if (isLoading) {
     return (
       <section className={`main ${darkMode ?'background-dark ' : "" }`}>
         <div className="loading-wrapper">
@@ -35,7 +23,7 @@ export default function Meal() {
     );
   }
 
-  if (!meal) {
+  if (!data || error) {
     return (
       <section className={`main ${darkMode ?'background-dark ' : "" }`}>
         <div>Nothing found for recipe with id {id}.</div>
@@ -46,16 +34,16 @@ export default function Meal() {
   return (
     <section className={`main ${darkMode ?'background-dark ' : "" }`}>
       <DetailPage
-        id={meal.id}
-        name={meal.name}
-        instructions={meal.instructions}
-        area={meal.area}
-        category={meal.category}
-        thumbnailUrl={meal.thumbnailUrl}
-        youtubeRecipe={meal.youtubeRecipe}
-        tags={meal.tags}
-        source={meal.source}
-        ingredients={meal.ingredients}
+        id={data.id}
+        name={data.name}
+        instructions={data.instructions}
+        area={data.area}
+        category={data.category}
+        thumbnailUrl={data.thumbnailUrl}
+        youtubeRecipe={data.youtubeRecipe}
+        tags={data.tags}
+        source={data.source}
+        ingredients={data.ingredients}
         goBackAction={() => navigate("/meals")}
       ></DetailPage>
     </section>

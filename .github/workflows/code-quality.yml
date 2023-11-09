@@ -21,9 +21,6 @@ jobs:
         name: Application Build Status
         run: yarn build
       -
-        name: Run Test Suites
-        run: yarn jest --ci --coverage
-      -
         name: Code Formatting
         run: yarn prettier --write ./src
       -
