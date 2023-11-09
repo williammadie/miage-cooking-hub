@@ -9,7 +9,7 @@ import {DarkModeContext} from "../../context/DarkModeContext";
 
 export default function Cocktail() {
   const id: string = String(useParams().id);
-  const {data, isLoading, error} = useCocktailById(id);
+  const { data, isLoading, error } = useCocktailById(id);
   const navigate = useNavigate();
   const {darkMode} = useContext(DarkModeContext);
 

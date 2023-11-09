@@ -15,19 +15,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/meals"
-          element={
-            <Meals/>
-          }
-          key={RecipeType.Meal}
-        />
-        <Route
-          path="/cocktails"
-          element={
-            <Cocktails/>
-          }
-        />
+        <Route path="/meals" element={<Meals />} key={RecipeType.Meal} />
+        <Route path="/cocktails" element={<Cocktails />} />
         <Route path="/meal/:id" element={<Meal />} />
         <Route path="/cocktail/:id" element={<Cocktail />} />
       </Routes>

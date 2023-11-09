@@ -19,7 +19,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   recipeType,
   data,
   isLoading,
-  error
+  error,
 }) => {
   const navigate = useNavigate();
 
@@ -62,11 +62,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
     );
   }
 
-  return (
-    <>
-    {searchResults}
-    </>
-  );
+  return <>{searchResults}</>;
 };
 
 export default SearchRecipes;
