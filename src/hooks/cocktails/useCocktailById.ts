@@ -5,7 +5,7 @@ import {
   buildURL,
 } from "../../constants/RouteBuilder";
 import { AxiosResponse } from "axios";
-import { retrieveFullRecipe } from "../../services/DataDbService";
+import { retrieveFullRecipe } from "../../api/datadb";
 import FullDrinkMapper from "../../mappers/FullDrinkMapper";
 import FullRecipeDTO from "../../dto/FullRecipeDTO";
 
@@ -26,6 +26,8 @@ export const useCocktailById = (id: string) => {
     } catch (err) {
       setError(err);
     }
+
+    setIsLoading(false);
   };
 
   useEffect(() => {

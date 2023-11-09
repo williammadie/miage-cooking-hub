@@ -1,28 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
-import FullRecipeDTO from "../../dto/FullRecipeDTO";
-import CocktailService from "../../services/CocktailService";
 
 import "./style.css";
+import { useCocktailById } from "../../hooks/cocktails/useCocktailById";
 
 export default function Cocktail() {
   const id: string = String(useParams().id);
-  const [drink, setDrink] = useState<FullRecipeDTO>();
-  const [loading, setLoading] = useState<boolean>(true);
+  const {data, isLoading, error} = useCocktailById(id);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function fetchDrinkById() {
-      const drinkData = await CocktailService.getFullRecipeById(id);
-      setDrink(drinkData);
-      setLoading(false);
-    }
-    fetchDrinkById();
-  }, [id]);
-
-  if (loading) {
+  if (isLoading) {
     // Afficher un message de chargement tant que les données sont en cours de récupération
     return (
       <section className="main">
@@ -33,7 +22,7 @@ export default function Cocktail() {
     );
   }
 
-  if (!drink) {
+  if (!data || error) {
     // Gérer le cas où aucune donnée n'est trouvée pour cet ID
     return (
       <section className="main">
@@ -46,16 +35,16 @@ export default function Cocktail() {
   return (
     <section className="main">
       <DetailPage
-        id={drink.id}
-        name={drink.name}
-        instructions={drink.instructions}
-        area={drink.area}
-        category={drink.category}
-        thumbnailUrl={drink.thumbnailUrl}
-        youtubeRecipe={drink.youtubeRecipe}
-        tags={drink.tags}
-        source={drink.source}
-        ingredients={drink.ingredients}
+        id={data.id}
+        name={data.name}
+        instructions={data.instructions}
+        area={data.area}
+        category={data.category}
+        thumbnailUrl={data.thumbnailUrl}
+        youtubeRecipe={data.youtubeRecipe}
+        tags={data.tags}
+        source={data.source}
+        ingredients={data.ingredients}
         goBackAction={() => navigate("/cocktails")}
       ></DetailPage>
     </section>

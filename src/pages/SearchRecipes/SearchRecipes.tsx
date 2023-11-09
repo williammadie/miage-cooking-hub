@@ -52,7 +52,6 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
       </section>
     );
   } else {
-    console.error(error);
     const failureInfoMsg = error
       ? "Service unavailable at the moment :("
       : "No recipe found";

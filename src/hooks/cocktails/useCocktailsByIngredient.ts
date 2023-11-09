@@ -6,7 +6,7 @@ import {
 } from "../../constants/RouteBuilder";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import { AxiosResponse } from "axios";
-import { retrieveRecipes } from "../../services/DataDbService";
+import { retrieveRecipes } from "../../api/datadb";
 import PreviewDrinkMapper from "../../mappers/PreviewDrinkMapper";
 
 export const useCocktailsByIngredient = (name: string) => {

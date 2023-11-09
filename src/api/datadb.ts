@@ -1,5 +1,5 @@
 /**
- * This file is responsible for common API calls towards:
+ * This file holds utilities responsible for common API calls towards:
  * - TheMealDB
  * - CocktailDB
  *
@@ -19,7 +19,9 @@ export async function retrieveFullRecipe(
   try {
     response = await axios.get(resourcePath);
   } catch (error) {
-    console.error(error);
+    throw new NoResultFoundError(
+      `Unexpected error while calling ${resourceUrl}`
+    );
   }
 
   if (response === undefined)
@@ -36,7 +38,9 @@ export async function retrieveRecipes(
   try {
     response = await axios.get(`${resourceUrl}${name}`);
   } catch (error) {
-    console.error(error);
+    throw new NoResultFoundError(
+      `Unexpected error while calling ${resourceUrl}`
+    );
   }
 
   if (response === undefined)

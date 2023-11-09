@@ -6,7 +6,7 @@ import {
 } from "../../constants/RouteBuilder";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import { AxiosResponse } from "axios";
-import { retrieveRecipes } from "../../services/DataDbService";
+import { retrieveRecipes } from "../../api/datadb";
 import PreviewMealMapper from "../../mappers/PreviewMealMapper";
 
 export const useMealsByIngredient = (name: string) => {
@@ -19,10 +19,7 @@ export const useMealsByIngredient = (name: string) => {
 
     try {
       const response: AxiosResponse = await retrieveRecipes(
-        buildURL(
-          DATA_DB_PREFIX.MEAL,
-          DATA_DB_ROUTES.RECIPE_BY_MAIN_INGREDIENT
-        ),
+        buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RECIPE_BY_MAIN_INGREDIENT),
         name
       );
       setData(PreviewMealMapper.toDtos(response.data.meals));
