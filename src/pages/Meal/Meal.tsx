@@ -8,7 +8,7 @@ import { useMealById } from "../../hooks/meals/useMealById";
 
 export default function Meal() {
   const id: string = String(useParams().id);
-  const {data, isLoading, error} = useMealById(id);
+  const { data, isLoading, error } = useMealById(id);
   const navigate = useNavigate();
 
   if (isLoading) {

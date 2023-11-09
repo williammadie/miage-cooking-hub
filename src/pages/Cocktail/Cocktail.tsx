@@ -8,7 +8,7 @@ import { useCocktailById } from "../../hooks/cocktails/useCocktailById";
 
 export default function Cocktail() {
   const id: string = String(useParams().id);
-  const {data, isLoading, error} = useCocktailById(id);
+  const { data, isLoading, error } = useCocktailById(id);
   const navigate = useNavigate();
 
   if (isLoading) {

@@ -4,7 +4,7 @@ import { useRandomMeal } from "../../hooks/meals/useRandomMeal";
 import RandomRecipeCard from "../../components/RandomRecipeCard/RandomRecipeCard";
 
 export default function Home() {
-  const {data, isLoading, error} = useRandomMeal();
+  const { data, isLoading, error } = useRandomMeal();
 
   if (isLoading) {
     return (
@@ -18,9 +18,9 @@ export default function Home() {
 
   let searchResults;
   if (!data || error) {
-      const failureInfoMsg = error
-    ? "Service unavailable at the moment :("
-    : "No meal found";
+    const failureInfoMsg = error
+      ? "Service unavailable at the moment :("
+      : "No meal found";
     searchResults = (
       <section className="no-recipe-found">
         <p>{failureInfoMsg}</p>
@@ -29,15 +29,16 @@ export default function Home() {
   }
 
   if (data) {
-    searchResults = 
-    <RandomRecipeCard 
-    title={data.name}
-    description={data.instructions}
-    img={data.thumbnailUrl}
-    category={data.category}
-    ytLink={data.youtubeRecipe} />
+    searchResults = (
+      <RandomRecipeCard
+        title={data.name}
+        description={data.instructions}
+        img={data.thumbnailUrl}
+        category={data.category}
+        ytLink={data.youtubeRecipe}
+      />
+    );
   }
-  
 
   // TODO: add the case where the recipes are found.
   // this should add the results in searchResults variable
