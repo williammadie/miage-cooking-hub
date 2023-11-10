@@ -19,7 +19,11 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   searchService,
 }) => {
   const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
-  const [searchInput, setSearchInput] = useState("");
+  const storedSearchQuery: string | null =
+    window.sessionStorage.getItem(recipeType);
+  const searchQuery = storedSearchQuery ? storedSearchQuery : "";
+
+  const [searchInput, setSearchInput] = useState(searchQuery);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [cannotReachAPI, setCannotReachAPI] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -90,6 +94,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
         <div className="search-bar">
           <SearchBar
             receiveMeals={(searchInput) => setSearchInput(searchInput)}
+            savedSearchQuery={recipeType}
             key={recipeType}
           />
         </div>
