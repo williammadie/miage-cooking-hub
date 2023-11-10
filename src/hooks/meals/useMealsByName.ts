@@ -11,12 +11,10 @@ import PreviewMealMapper from "../../mappers/PreviewMealMapper";
 
 export const useMealsByName = (name: string) => {
   const [data, setData] = useState<PreviewRecipeDTO[] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
 
   const fetchData = async (name: string) => {
-    setIsLoading(true);
-
     try {
       const response: AxiosResponse = await retrieveRecipes(
         buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RECIPE_BY_NAME),

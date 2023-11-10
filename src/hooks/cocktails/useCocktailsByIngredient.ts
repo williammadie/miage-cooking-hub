@@ -11,12 +11,10 @@ import PreviewDrinkMapper from "../../mappers/PreviewDrinkMapper";
 
 export const useCocktailsByIngredient = (name: string) => {
   const [data, setData] = useState<PreviewRecipeDTO[] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
 
   const fetchData = async (name: string) => {
-    setIsLoading(true);
-
     try {
       const response: AxiosResponse = await retrieveRecipes(
         buildURL(
