@@ -6,9 +6,13 @@ import {DarkModeContext} from "../../context/DarkModeContext";
 
 type SearchBarProps = {
   receiveMeals: (meals: any) => void;
+  savedSearchQuery: string;
 };
 
-const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  receiveMeals,
+  savedSearchQuery,
+}) => {
   const [searchInput, setSearchInput] = useState("");
   const {darkMode} = useContext(DarkModeContext);
   return (
@@ -16,6 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals }) => {
       onSubmit={(e) => {
         e.preventDefault();
         receiveMeals(searchInput);
+        window.sessionStorage.setItem(savedSearchQuery, searchInput);
       }}
     >
       <input
