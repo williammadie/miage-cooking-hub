@@ -7,7 +7,10 @@ import { useMealsByName } from "../../hooks/meals/useMealsByName";
 import "./style.css";
 
 const Cocktails: React.FC<{}> = () => {
-  const [searchInput, setSearchInput] = useState("");
+  const storedSearchQuery: string | null =
+    window.sessionStorage.getItem(RecipeType.Meal);
+  const savedQuery = storedSearchQuery ? storedSearchQuery : "";
+  const [searchInput, setSearchInput] = useState(savedQuery);
   const { data, isLoading, error } = useMealsByName(searchInput);
 
   return (
@@ -17,8 +20,7 @@ const Cocktails: React.FC<{}> = () => {
         <div className="search-bar">
           <SearchBar
             receiveMeals={(searchInput) => setSearchInput(searchInput)}
-            key={RecipeType.Meal}
-          />
+            key={RecipeType.Meal} savedSearchQuery={RecipeType.Meal} />
         </div>
       </div>
       <SearchRecipes

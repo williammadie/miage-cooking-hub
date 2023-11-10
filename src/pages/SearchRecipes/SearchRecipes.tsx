@@ -22,7 +22,6 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   error,
 }) => {
   const navigate = useNavigate();
-
   let searchResults;
   if (isLoading) {
     searchResults = (
