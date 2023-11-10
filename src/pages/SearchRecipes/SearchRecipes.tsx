@@ -1,53 +1,27 @@
-import React, { useEffect, useState } from "react";
-import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
+import React from "react";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
-import SearchBar from "../../components/SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@mui/material";
 
 import "./style.css";
-import NoResultFoundError from "../../errors/NoResultFoundError";
 import RecipeType from "../../constants/RecipeType";
+import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 
 const NB_SKELETON_LOADER = 18;
 type SearchRecipesProps = {
   recipeType: RecipeType;
-  searchService: any;
+  data: PreviewRecipeDTO[] | null;
+  isLoading: boolean;
+  error: unknown;
 };
+
 const SearchRecipes: React.FC<SearchRecipesProps> = ({
   recipeType,
-  searchService,
+  data,
+  isLoading,
+  error,
 }) => {
-  const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
-  const storedSearchQuery: string | null =
-    window.sessionStorage.getItem(recipeType);
-  const searchQuery = storedSearchQuery ? storedSearchQuery : "";
-
-  const [searchInput, setSearchInput] = useState(searchQuery);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [cannotReachAPI, setCannotReachAPI] = useState<boolean>(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    async function fetchMealsByName() {
-      try {
-        const mealsData: PreviewRecipeDTO[] =
-          await searchService.getRecipesByName(searchInput);
-        setMeals(mealsData);
-        setIsLoading(false);
-      } catch (err) {
-        if (err instanceof NoResultFoundError) {
-          setCannotReachAPI(true);
-          setIsLoading(false);
-        } else {
-          throw err;
-        }
-      }
-    }
-
-    fetchMealsByName();
-  }, [meals.length, searchInput, searchService]);
-
   let searchResults;
   if (isLoading) {
     searchResults = (
@@ -63,10 +37,10 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
         ))}
       </section>
     );
-  } else if (meals.length > 0) {
+  } else if (data) {
     searchResults = (
       <section className="search-results">
-        {meals.map((item) => (
+        {data.map((item) => (
           <PreviewRecipeCard
             key={item.id}
             title={item.name}
@@ -77,7 +51,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
       </section>
     );
   } else {
-    const failureInfoMsg = cannotReachAPI
+    const failureInfoMsg = error
       ? "Service unavailable at the moment :("
       : "No recipe found";
     searchResults = (
@@ -87,21 +61,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
     );
   }
 
-  return (
-    <section className="main">
-      <div className="title">
-        <h1 className={"title-1 primaryColor"}>{recipeType}s Page</h1>
-        <div className="search-bar">
-          <SearchBar
-            receiveMeals={(searchInput) => setSearchInput(searchInput)}
-            savedSearchQuery={recipeType}
-            key={recipeType}
-          />
-        </div>
-      </div>
-      {searchResults}
-    </section>
-  );
+  return <>{searchResults}</>;
 };
 
 export default SearchRecipes;

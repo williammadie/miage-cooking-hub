@@ -1,26 +1,10 @@
-import React, { useState } from "react";
-import MealService from "../../services/MealService";
-import NoResultFoundError from "../../errors/NoResultFoundError";
+import React from "react";
 import { CircularProgress } from "@mui/material";
+import { useRandomMeal } from "../../hooks/meals/useRandomMeal";
+import RandomRecipeCard from "../../components/RandomRecipeCard/RandomRecipeCard";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [cannotReachAPI, setCannotReachAPI] = useState<boolean>(false);
-
-  async function getRandomMeal() {
-    try {
-      const randomMealDto = await MealService.getRandomRecipe();
-      setIsLoading(false);
-      console.log(randomMealDto.name);
-    } catch (err) {
-      if (err instanceof NoResultFoundError) {
-        setCannotReachAPI(true);
-        setIsLoading(false);
-      } else {
-      }
-    }
-  }
-  getRandomMeal();
+  const { data, isLoading, error } = useRandomMeal();
 
   if (isLoading) {
     return (
@@ -32,14 +16,29 @@ export default function Home() {
     );
   }
 
-  const failureInfoMsg = cannotReachAPI
-    ? "Service unavailable at the moment :("
-    : "No meal found";
-  const searchResults = (
-    <section className="no-recipe-found">
-      <p>{failureInfoMsg}</p>
-    </section>
-  );
+  let searchResults;
+  if (!data || error) {
+    const failureInfoMsg = error
+      ? "Service unavailable at the moment :("
+      : "No meal found";
+    searchResults = (
+      <section className="no-recipe-found">
+        <p>{failureInfoMsg}</p>
+      </section>
+    );
+  }
+
+  if (data) {
+    searchResults = (
+      <RandomRecipeCard
+        title={data.name}
+        description={data.instructions}
+        img={data.thumbnailUrl}
+        category={data.category}
+        ytLink={data.youtubeRecipe}
+      />
+    );
+  }
 
   // TODO: add the case where the recipes are found.
   // this should add the results in searchResults variable
