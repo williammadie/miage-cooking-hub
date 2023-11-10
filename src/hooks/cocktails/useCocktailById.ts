@@ -11,12 +11,10 @@ import FullRecipeDTO from "../../dto/FullRecipeDTO";
 
 export const useCocktailById = (id: string) => {
   const [data, setData] = useState<FullRecipeDTO | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
 
   const fetchData = async (id: string) => {
-    setIsLoading(true);
-
     try {
       const response: AxiosResponse = await retrieveFullRecipe(
         buildURL(DATA_DB_PREFIX.COCKTAIL, DATA_DB_ROUTES.RECIPE_BY_ID),
