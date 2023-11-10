@@ -20,7 +20,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
 }) => {
   const [meals, setMeals] = useState<PreviewRecipeDTO[]>([]);
   const storedSearchQuery: string | null = window.sessionStorage.getItem(recipeType);
-  const {searchQuery} = storedSearchQuery ? JSON.parse(storedSearchQuery): {searchQuery: ""};
+  const searchQuery = storedSearchQuery ? storedSearchQuery: "";
   
   const [searchInput, setSearchInput] = useState(searchQuery);
   const [isLoading, setIsLoading] = useState<boolean>(true);

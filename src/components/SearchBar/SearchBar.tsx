@@ -16,7 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals, savedSearchQuery })
       onSubmit={(e) => {
         e.preventDefault();
         receiveMeals(searchInput);
-        window.sessionStorage.setItem(savedSearchQuery, JSON.stringify({searchQuery: searchInput}));
+        window.sessionStorage.setItem(savedSearchQuery, searchInput);
       }}
     >
       <input
