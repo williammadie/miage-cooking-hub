@@ -8,7 +8,10 @@ type SearchBarProps = {
   savedSearchQuery: string;
 };
 
-const SearchBar: React.FC<SearchBarProps> = ({ receiveMeals, savedSearchQuery }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  receiveMeals,
+  savedSearchQuery,
+}) => {
   const [searchInput, setSearchInput] = useState("");
 
   return (
