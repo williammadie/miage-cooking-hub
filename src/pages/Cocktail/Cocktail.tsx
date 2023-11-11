@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
@@ -6,12 +6,14 @@ import FullRecipeDTO from "../../dto/FullRecipeDTO";
 import CocktailService from "../../services/CocktailService";
 
 import "./style.css";
+import {DarkModeContext} from "../../context/DarkModeContext";
 
 export default function Cocktail() {
   const id: string = String(useParams().id);
   const [drink, setDrink] = useState<FullRecipeDTO>();
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
+  const {darkMode} = useContext(DarkModeContext);
 
   useEffect(() => {
     async function fetchDrinkById() {
@@ -25,7 +27,7 @@ export default function Cocktail() {
   if (loading) {
     // Afficher un message de chargement tant que les données sont en cours de récupération
     return (
-      <section className="main">
+      <section className={`main ${darkMode ?'background-dark ' : "" }`}>
         <div className="loading-wrapper">
           <CircularProgress />
         </div>
@@ -36,7 +38,7 @@ export default function Cocktail() {
   if (!drink) {
     // Gérer le cas où aucune donnée n'est trouvée pour cet ID
     return (
-      <section className="main">
+      <section className={`main ${darkMode ?'background-dark ' : "" }`}>
         <div>Nothing found for recipe with id {id}.</div>
       </section>
     );
@@ -44,7 +46,7 @@ export default function Cocktail() {
 
   // Les données sont prêtes, affichez-les
   return (
-    <section className="main">
+    <section className={`main ${darkMode ?'background-dark ' : "" }`}>
       <DetailPage
         id={drink.id}
         name={drink.name}

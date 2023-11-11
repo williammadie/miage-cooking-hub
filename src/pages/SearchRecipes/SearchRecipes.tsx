@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -8,6 +8,7 @@ import { Skeleton } from "@mui/material";
 import "./style.css";
 import NoResultFoundError from "../../errors/NoResultFoundError";
 import RecipeType from "../../constants/RecipeType";
+import {DarkModeContext} from "../../context/DarkModeContext";
 
 const NB_SKELETON_LOADER = 18;
 type SearchRecipesProps = {
@@ -23,7 +24,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [cannotReachAPI, setCannotReachAPI] = useState<boolean>(false);
   const navigate = useNavigate();
-
+  const {darkMode} = useContext(DarkModeContext);
   useEffect(() => {
     async function fetchMealsByName() {
       try {
@@ -84,9 +85,9 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   }
 
   return (
-    <section className="main">
+    <section className={`main ${darkMode ? 'background-dark' : ''}`}>
       <div className="title">
-        <h1 className={"title-1 primaryColor"}>{recipeType}s Page</h1>
+        <h1 className={`title-1 ${darkMode ?'primary-color-dark ' : "primary-color" }`}>{recipeType}s Page</h1>
         <div className="search-bar">
           <SearchBar
             receiveMeals={(searchInput) => setSearchInput(searchInput)}

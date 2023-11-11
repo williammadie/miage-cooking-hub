@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import MealService from "../../services/MealService";
 import NoResultFoundError from "../../errors/NoResultFoundError";
 import { CircularProgress } from "@mui/material";
+import {DarkModeContext} from "../../context/DarkModeContext";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [cannotReachAPI, setCannotReachAPI] = useState<boolean>(false);
-
+  const {darkMode} = useContext(DarkModeContext);
   async function getRandomMeal() {
     try {
       const randomMealDto = await MealService.getRandomRecipe();
@@ -24,7 +25,7 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <section className="main">
+      <section className={`main ${darkMode ?'background-dark ' : "" }`}>
         <div className="loading-wrapper">
           <CircularProgress />
         </div>
@@ -45,9 +46,9 @@ export default function Home() {
   // this should add the results in searchResults variable
 
   return (
-    <section className="main">
+    <section className={`main ${darkMode ?'background-dark ' : "" }`}>
       <div className="title">
-        <h1 className={"title-1 primaryColor"}>Home Page</h1>
+        <h1 className={"title-1 primary-color"}>Home Page</h1>
       </div>
       {searchResults}
     </section>

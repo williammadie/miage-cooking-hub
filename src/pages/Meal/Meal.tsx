@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
@@ -6,12 +6,14 @@ import MealService from "../../services/MealService";
 import FullRecipeDTO from "../../dto/FullRecipeDTO";
 
 import "./style.css";
+import {DarkModeContext} from "../../context/DarkModeContext";
 
 export default function Meal() {
   const id: string = String(useParams().id);
   const [meal, setMeal] = useState<FullRecipeDTO>();
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
+  const {darkMode} = useContext(DarkModeContext);
 
   useEffect(() => {
     async function fetchMealById() {
@@ -25,7 +27,7 @@ export default function Meal() {
 
   if (loading) {
     return (
-      <section className="main">
+      <section className={`main ${darkMode ?'background-dark ' : "" }`}>
         <div className="loading-wrapper">
           <CircularProgress />
         </div>
@@ -35,14 +37,14 @@ export default function Meal() {
 
   if (!meal) {
     return (
-      <section className="main">
+      <section className={`main ${darkMode ?'background-dark ' : "" }`}>
         <div>Nothing found for recipe with id {id}.</div>
       </section>
     );
   }
 
   return (
-    <section className="main">
+    <section className={`main ${darkMode ?'background-dark ' : "" }`}>
       <DetailPage
         id={meal.id}
         name={meal.name}

@@ -1,6 +1,7 @@
-import React, { MouseEventHandler, useState } from "react";
+import React, {MouseEventHandler, useContext, useState} from "react";
 import "./style.css";
 import fallbackImg from "../../assets/img-not-found.png";
+import {DarkModeContext} from "../../context/DarkModeContext";
 
 type PreviewRecipeCardProps = {
   title: string;
@@ -14,9 +15,10 @@ const PreviewRecipeCard: React.FC<PreviewRecipeCardProps> = ({
   onClickAction,
 }) => {
   const [imgSrc, setImgSrc] = useState(img);
+  const {darkMode} = useContext(DarkModeContext);
 
   return (
-    <article className="preview-recipe-card" onClick={onClickAction}>
+    <article className={`preview-recipe-card ${darkMode ?'second-background-dark' : 'background-light'}`} onClick={onClickAction}>
       <section className="preview-recipe-img-wrapper">
         <img
           src={imgSrc ? imgSrc : fallbackImg}
@@ -26,7 +28,7 @@ const PreviewRecipeCard: React.FC<PreviewRecipeCardProps> = ({
         />
       </section>
       <section className="preview-recipe-title">
-        <h2>{title}</h2>
+        <h2 className={` ${darkMode ?'color-font-light ' : "color-font-dark" }`}>{title}</h2>
       </section>
     </article>
   );
