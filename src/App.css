@@ -3,8 +3,8 @@
     Ensures page content stays at the right of the navbar and don't go
     below it or under it. 
     */
-  margin-left: 15em;
-  padding: 0em 1em;
+  margin-left: 13em;
+  padding: 0 1em;
 }
 .primary-color {
   background: linear-gradient(-3deg, #f0c27b, #7c1f77);
