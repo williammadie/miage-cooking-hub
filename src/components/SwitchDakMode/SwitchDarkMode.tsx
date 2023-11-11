@@ -11,13 +11,11 @@ const SwitchDarkMode: React.FC<any> = () => {
         width: 62,
         height: 34,
         padding: 7,
-        transition: 'transform 0.5s',
 
         '& .MuiSwitch-switchBase': {
             margin: 1,
             padding: 0,
             transform: 'translateX(6px)',
-            transition: 'transform 0.5s',
 
             '&.Mui-checked': {
                 color: '#fff',
@@ -30,7 +28,7 @@ const SwitchDarkMode: React.FC<any> = () => {
                 '& + .MuiSwitch-track': {
                     opacity: 1,
                     backgroundColor: darkMode ? '#8796A5' : '#aab4be',
-                    transition: 'background-color 0.5s',
+                    // transition: 'background-color 0.5s',
                 },
             },
         },

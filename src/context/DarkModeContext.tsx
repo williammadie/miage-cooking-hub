@@ -5,11 +5,14 @@ interface DarkModeProviderProps {
 }
 
 const DarkModeContext = createContext<any>(null);
-
+const keyDarkModeParams = "darkMode";
 function DarkModeProvider({children}: DarkModeProviderProps) {
-    const [darkMode, setDarkMode] = useState<boolean>(false);
+    const storedValue = window.localStorage.getItem(keyDarkModeParams);
+    const darkModeParams: boolean = storedValue === "true";
+    const [darkMode, setDarkMode] = useState<boolean>(darkModeParams);
 
     const toggleDarkMode = () => {
+        window.localStorage.setItem(keyDarkModeParams,String(!darkMode));
         setDarkMode( !darkMode);
     };
 
