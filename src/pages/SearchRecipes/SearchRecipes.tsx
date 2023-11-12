@@ -6,7 +6,6 @@ import { Skeleton } from "@mui/material";
 
 import "./style.css";
 import RecipeType from "../../constants/RecipeType";
-import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 
 const NB_SKELETON_LOADER = 18;
 type SearchRecipesProps = {
