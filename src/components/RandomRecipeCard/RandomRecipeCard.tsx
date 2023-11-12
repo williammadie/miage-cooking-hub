@@ -1,10 +1,10 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
 import fallbackImg from "../../assets/img-not-found.png";
 import ytLogo from "../../assets/yt-logo.png";
-import {DarkModeContext} from "../../context/DarkModeContext";
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 type RandomRecipeCardProps = {
   title: string;
@@ -22,9 +22,11 @@ const RandomRecipeCard: React.FC<RandomRecipeCardProps> = ({
   ytLink,
 }) => {
   const [imgSrc, setImgSrc] = useState(img);
-  const {darkMode} = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
   return (
-    <article className={`recipe-card ${darkMode ?'second-background-dark ' : "" }`}>
+    <article
+      className={`recipe-card ${darkMode ? "second-background-dark " : ""}`}
+    >
       <section className="recipe-img-wrapper">
         <img
           src={imgSrc ? imgSrc : fallbackImg}
@@ -52,9 +54,19 @@ const RandomRecipeCard: React.FC<RandomRecipeCardProps> = ({
             </div>
           )}
         </section>
-        <h2  className={` ${darkMode ?'color-font-light ' : "color-font-dark" }`}>{title}</h2>
+        <h2
+          className={` ${darkMode ? "color-font-light " : "color-font-dark"}`}
+        >
+          {title}
+        </h2>
         <div className="recipe-description">
-          <p className={`description-card ${darkMode ?'color-font-light ' : "color-font-dark" }`}>{description}</p>
+          <p
+            className={`description-card ${
+              darkMode ? "color-font-light " : "color-font-dark"
+            }`}
+          >
+            {description}
+          </p>
         </div>
       </section>
     </article>

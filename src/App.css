@@ -18,36 +18,35 @@
 }
 
 h1 {
-  padding-bottom: 0.40em;
+  padding-bottom: 0.4em;
 }
-.background-dark{
+.background-dark {
   background-color: #29292a;
 }
-.background-light{
+.background-light {
   background-color: #ffffff;
 }
-.seconde-background-light{
+.seconde-background-light {
   background-color: #f4f4f4;
 }
-.second-background-dark{
+.second-background-dark {
   background-color: #575759;
 }
-.color-font-dark{
+.color-font-dark {
   color: #504f4f;
 }
-.color-font-light{
+.color-font-light {
   color: #e5e2e2;
 }
-.inverse-color-image{
+.inverse-color-image {
   -webkit-filter: invert(1);
   filter: invert(1);
 }
-.light-color-image{
+.light-color-image {
   -webkit-filter: invert(0.2);
   filter: invert(0.2);
 }
-.grey-color-image{
+.grey-color-image {
   -webkit-filter: invert(0.8);
   filter: invert(0.8);
-
 }

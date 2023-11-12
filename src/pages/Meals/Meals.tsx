@@ -1,12 +1,11 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import RecipeType from "../../constants/RecipeType";
 import SearchRecipes from "../SearchRecipes/SearchRecipes";
 import { useMealsByName } from "../../hooks/meals/useMealsByName";
 
 import "./style.css";
-import {DarkModeContext} from "../../context/DarkModeContext";
-
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 const Meals: React.FC<{}> = () => {
   const storedSearchQuery: string | null = window.sessionStorage.getItem(
@@ -15,9 +14,9 @@ const Meals: React.FC<{}> = () => {
   const savedQuery = storedSearchQuery ? storedSearchQuery : "";
   const [searchInput, setSearchInput] = useState(savedQuery);
   const { data, isLoading, error } = useMealsByName(searchInput);
-  const {darkMode} = useContext(DarkModeContext)
+  const { darkMode } = useContext(DarkModeContext);
   return (
-    <section className={`main ${darkMode ?'background-dark ' : "" }`}>
+    <section className={`main ${darkMode ? "background-dark " : ""}`}>
       <div className="title">
         <h1 className={"title-1 primary-color"}>Meals Page</h1>
         <div className="search-bar">

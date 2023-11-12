@@ -1,7 +1,6 @@
 .container {
   font-family: Arial, sans-serif;
   padding: 20px;
-
 }
 
 .title-1 {
@@ -48,10 +47,10 @@
   transform: scale(1.025);
   cursor: pointer;
 }
-.hover-shadow-light li:hover{
+.hover-shadow-light li:hover {
   box-shadow: 7px 10px 13px 1px rgba(110, 109, 109, 0.4);
 }
-.hover-shadow-dark li:hover{
+.hover-shadow-dark li:hover {
   box-shadow: 7px 10px 18px -4px rgba(70, 68, 68, 0.4);
 }
 

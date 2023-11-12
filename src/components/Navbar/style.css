@@ -15,12 +15,12 @@ nav ul {
   list-style-type: none;
 }
 
-.nav-link a{
+.nav-link a {
   text-decoration: none;
   color: white;
   font-size: x-large;
 }
-.nav-link{
+.nav-link {
   margin: 0.4em;
   transition: transform 0.2s;
 }
@@ -28,6 +28,6 @@ nav ul {
   transform: scale(1.1);
 }
 
-.switch{
+.switch {
   margin-top: 1em;
 }
