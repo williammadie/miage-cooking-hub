@@ -79,7 +79,7 @@
   text-align: justify;
 }
 
-.description-card{
+.description-card {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;

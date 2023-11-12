@@ -6,24 +6,18 @@ import SwitchDarkMode from "../SwitchDakMode/SwitchDarkMode";
 export default function Navbar() {
   return (
     <nav>
-      <ul >
+      <ul>
         <li className={`nav-link `}>
-          <Link to="/">
-            Home
-          </Link>
+          <Link to="/">Home</Link>
         </li>
         <li className={`nav-link `}>
-          <Link  to="/meals">
-            Meals
-          </Link>
+          <Link to="/meals">Meals</Link>
         </li>
         <li className={`nav-link `}>
-          <Link to="/cocktails">
-            Cocktails
-          </Link>
+          <Link to="/cocktails">Cocktails</Link>
         </li>
-        <div className={'switch'}>
-          <SwitchDarkMode ></SwitchDarkMode>
+        <div className={"switch"}>
+          <SwitchDarkMode></SwitchDarkMode>
         </div>
       </ul>
     </nav>
