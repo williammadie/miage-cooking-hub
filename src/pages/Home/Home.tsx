@@ -41,7 +41,7 @@ export default function Home() {
       />
     );
   }
-
+ 
 
   // TODO: add the case where the recipes are found.
   // this should add the results in searchResults variable

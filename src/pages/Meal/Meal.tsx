@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
-
+  
 import "./style.css";
 import { useMealById } from "../../hooks/meals/useMealById";
 import {DarkModeContext} from "../../context/DarkModeContext";

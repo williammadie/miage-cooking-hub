@@ -1,3 +1,4 @@
+
 import React, {useContext} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
@@ -6,6 +7,7 @@ import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
 import "./style.css";
 import { useCocktailById } from "../../hooks/cocktails/useCocktailById";
 import {DarkModeContext} from "../../context/DarkModeContext";
+
 
 export default function Cocktail() {
   const id: string = String(useParams().id);

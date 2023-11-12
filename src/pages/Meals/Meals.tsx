@@ -7,7 +7,8 @@ import { useMealsByName } from "../../hooks/meals/useMealsByName";
 import "./style.css";
 import {DarkModeContext} from "../../context/DarkModeContext";
 
-const Cocktails: React.FC<{}> = () => {
+
+const Meals: React.FC<{}> = () => {
   const storedSearchQuery: string | null = window.sessionStorage.getItem(
     RecipeType.Meal
   );
@@ -37,4 +38,4 @@ const Cocktails: React.FC<{}> = () => {
   );
 };
 
-export default Cocktails;
+export default Meals;
