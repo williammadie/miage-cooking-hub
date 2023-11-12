@@ -1,19 +1,19 @@
-import React, {createContext, useState, ReactNode} from 'react';
+import React, { createContext, useState, ReactNode } from 'react';
 
 interface DarkModeProviderProps {
     children: ReactNode;
 }
 
 const DarkModeContext = createContext<any>(null);
-const keyDarkModeParams = "darkMode";
-function DarkModeProvider({children}: DarkModeProviderProps) {
+const keyDarkModeParams = 'darkMode';
+function DarkModeProvider({ children }: DarkModeProviderProps) {
     const storedValue = window.localStorage.getItem(keyDarkModeParams);
-    const darkModeParams: boolean = storedValue === "true";
+    const darkModeParams: boolean = storedValue === 'true';
     const [darkMode, setDarkMode] = useState<boolean>(darkModeParams);
 
     const toggleDarkMode = () => {
-        window.localStorage.setItem(keyDarkModeParams,String(!darkMode));
-        setDarkMode( !darkMode);
+        window.localStorage.setItem(keyDarkModeParams, String(!darkMode));
+        setDarkMode(!darkMode);
     };
 
     const contextValue = {
@@ -30,4 +30,4 @@ function DarkModeProvider({children}: DarkModeProviderProps) {
     );
 }
 
-export {DarkModeContext, DarkModeProvider};
+export { DarkModeContext, DarkModeProvider };

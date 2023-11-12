@@ -71,16 +71,6 @@ const SwitchDarkMode: React.FC<any> = () => {
             }
             label=""
         />
-        /*  <FormControlLabel
-              control={
-                  <Switch
-                      className="customSwitch"
-                      defaultChecked={darkMode}
-                      onChange={toggleDarkMode}
-                  />
-              }
-              label=""
-          />*/
     );
 }
 export default SwitchDarkMode;
