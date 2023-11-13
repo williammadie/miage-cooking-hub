@@ -4,7 +4,7 @@ import PreviewRecipeCard, { PreviewRecipeCardProps } from "./PreviewRecipeCard";
 import recipeSampleImg from "../../assets/sample-recipe.jpg";
 import { BrowserRouter } from "react-router-dom";
 import { StoryFn } from "@storybook/react";
-import {DarkModeProvider} from "../../context/DarkModeContext";
+import { DarkModeProvider } from "../../context/DarkModeContext";
 
 export default {
   component: PreviewRecipeCard,
@@ -14,11 +14,11 @@ export default {
 const Template: StoryFn<PreviewRecipeCardProps> = (
   args: PreviewRecipeCardProps
 ) => (
-<DarkModeProvider>
-  <BrowserRouter>
-    <PreviewRecipeCard {...args} />
-  </BrowserRouter>
-</DarkModeProvider>
+  <DarkModeProvider>
+    <BrowserRouter>
+      <PreviewRecipeCard {...args} />
+    </BrowserRouter>
+  </DarkModeProvider>
 );
 
 export const Default = Template.bind({});

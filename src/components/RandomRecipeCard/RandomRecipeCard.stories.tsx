@@ -4,7 +4,7 @@ import RandomRecipeCard, { RandomRecipeCardProps } from "./RandomRecipeCard";
 import recipeSampleImg from "../../assets/sample-recipe.jpg";
 import { BrowserRouter } from "react-router-dom";
 import { StoryFn } from "@storybook/react";
-import {DarkModeProvider} from "../../context/DarkModeContext";
+import { DarkModeProvider } from "../../context/DarkModeContext";
 
 export default {
   component: RandomRecipeCard,
@@ -14,11 +14,11 @@ export default {
 const Template: StoryFn<RandomRecipeCardProps> = (
   args: RandomRecipeCardProps
 ) => (
-<DarkModeProvider>
-  <BrowserRouter>
-    <RandomRecipeCard {...args} />
-  </BrowserRouter>
-</DarkModeProvider>
+  <DarkModeProvider>
+    <BrowserRouter>
+      <RandomRecipeCard {...args} />
+    </BrowserRouter>
+  </DarkModeProvider>
 );
 
 export const Default = Template.bind({});
