@@ -1,6 +1,5 @@
 import React from "react";
 
-import recipeSampleImg from "../../assets/sample-recipe.jpg";
 import { BrowserRouter } from "react-router-dom";
 import { StoryFn } from "@storybook/react";
 import { DarkModeProvider } from "../../context/DarkModeContext";
@@ -25,5 +24,6 @@ export const Default = Template.bind({});
 
 Default.args = {
     brandName: "Coca-Cola",
-    nutriscore: "B",
+    genericName: "Boisson gazeuse sucrée",
+    nutriscore: "E",
 };

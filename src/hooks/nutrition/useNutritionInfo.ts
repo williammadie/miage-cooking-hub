@@ -11,6 +11,7 @@ export const useNutritionInfo = (name: string) => {
   const [error, setError] = useState<unknown | null>(null);
 
   const fetchData = async (name: string) => {
+    setIsLoading(true);
     try {
       const response: AxiosResponse = await retrieveRecipes(
         OPEN_FOOD_FACTS.NUTRITION_BY_BRAND,

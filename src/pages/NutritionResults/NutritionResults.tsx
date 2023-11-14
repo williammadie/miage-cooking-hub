@@ -25,7 +25,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
           <Skeleton
             style={{ margin: 10, borderRadius: 15 }}
             variant="rounded"
-            width={400}
+            width={450}
             height={100}
             key={index}
           />
@@ -33,13 +33,18 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
       </section>
     );
   } else if (data) {
+    data.sort((a, b) => a.nutritionScore.localeCompare(b.nutritionScore))
     searchResults = (
       <section className="search-results">
         {data.map((item) => (
           <NutritionInfoCard
             key={item.id}
             brandName={item.brandName}
+            genericName={item.genericName}
             nutriscore={item.nutritionScore}
+            novaIndex={item.novaIndex}
+            openFoodFactsURL={item.openFoodFactsURL}
+            imgURL={item.imgURL}
           ></NutritionInfoCard>
         ))}
       </section>

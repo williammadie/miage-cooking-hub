@@ -15,6 +15,7 @@ export const useCocktailsByName = (name: string) => {
   const [error, setError] = useState<unknown | null>(null);
 
   const fetchData = async (name: string) => {
+    setIsLoading(true);
     try {
       const response: AxiosResponse = await retrieveRecipes(
         buildURL(DATA_DB_PREFIX.COCKTAIL, DATA_DB_ROUTES.RECIPE_BY_NAME),

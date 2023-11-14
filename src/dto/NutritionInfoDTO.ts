@@ -3,6 +3,9 @@ interface NutritionInfoDTO {
   brandName: string;
   genericName: string;
   nutritionScore: string;
+  novaIndex: number;
+  openFoodFactsURL: string;
+  imgURL: string;
 }
 
 export default NutritionInfoDTO;

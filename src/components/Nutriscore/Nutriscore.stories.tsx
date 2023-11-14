@@ -49,3 +49,21 @@ export const E = Template.bind({});
 E.args = {
     scoreValue: "e",
 };
+
+export const UnknownGrade = Template.bind({});
+
+UnknownGrade.args = {
+    scoreValue: "not attributed",
+};
+
+export const EmptyGrade = Template.bind({});
+
+EmptyGrade.args = {
+    scoreValue: "",
+};
+
+export const UndefinedGrade = Template.bind({});
+
+UndefinedGrade.args = {
+    scoreValue: undefined,
+};

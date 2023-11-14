@@ -4,3 +4,7 @@
   height: 75vh;
   align-items: center;
 }
+
+.search-results {
+  padding-bottom: 2em;
+}

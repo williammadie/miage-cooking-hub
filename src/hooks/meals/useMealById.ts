@@ -15,6 +15,7 @@ export const useMealById = (id: string) => {
   const [error, setError] = useState<unknown | null>(null);
 
   const fetchData = async (id: string) => {
+    setIsLoading(true);
     try {
       const response: AxiosResponse = await retrieveFullRecipe(
         buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RECIPE_BY_ID),

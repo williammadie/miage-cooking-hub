@@ -7,6 +7,9 @@ const NutritionInformationMapper = {
       brandName: nutrition.brands,
       genericName: nutrition.generic_name,
       nutritionScore: nutrition.nutriscore_grade,
+      novaIndex: nutrition.nova_group,
+      openFoodFactsURL: nutrition.url,
+      imgURL: nutrition.image_front_small_url,
     };
   },
 
