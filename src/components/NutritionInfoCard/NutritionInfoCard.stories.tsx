@@ -23,7 +23,7 @@ const Template: StoryFn<NutritionInfoCardProps> = (
 export const Default = Template.bind({});
 
 Default.args = {
-    brandName: "Coca-Cola",
-    genericName: "Boisson gazeuse sucrée",
-    nutriscore: "E",
+  brandName: "Coca-Cola",
+  genericName: "Boisson gazeuse sucrée",
+  nutriscore: "E",
 };

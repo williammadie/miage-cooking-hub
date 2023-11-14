@@ -1,36 +1,36 @@
 .novascore-container {
-    height: 3em;
-    width: 2em;
-    background-color: #00823F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FCFBFD;
+  height: 3em;
+  width: 2em;
+  background-color: #00823f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fcfbfd;
 }
 
 .novascore-label {
-    text-transform: capitalize;
-    font-family: Roboto, 'Open Sans', sans-serif;
-    font-size: x-large;
-    font-weight: bold;
+  text-transform: capitalize;
+  font-family: Roboto, "Open Sans", sans-serif;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .N1-label {
-    background-color: #00823F;
+  background-color: #00823f;
 }
 
 .N2-label {
-    background-color: #FFCE09;
+  background-color: #ffce09;
 }
 
 .N3-label {
-    background-color: #FE6700;
+  background-color: #fe6700;
 }
 
 .N4-label {
-    background-color: #FE0000;
+  background-color: #fe0000;
 }
 
 .unknown-label {
-    background-color: #1e88eb;
+  background-color: #1e88eb;
 }

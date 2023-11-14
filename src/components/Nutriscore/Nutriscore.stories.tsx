@@ -10,9 +10,7 @@ export default {
   title: "component/Nutriscore",
 };
 
-const Template: StoryFn<NutriscoreProps> = (
-  args: NutriscoreProps
-) => (
+const Template: StoryFn<NutriscoreProps> = (args: NutriscoreProps) => (
   <DarkModeProvider>
     <BrowserRouter>
       <Nutriscore {...args} />
@@ -23,47 +21,47 @@ const Template: StoryFn<NutriscoreProps> = (
 export const A = Template.bind({});
 
 A.args = {
-    scoreValue: "a",
+  scoreValue: "a",
 };
 
 export const B = Template.bind({});
 
 B.args = {
-    scoreValue: "b",
+  scoreValue: "b",
 };
 
 export const C = Template.bind({});
 
 C.args = {
-    scoreValue: "c",
+  scoreValue: "c",
 };
 
 export const D = Template.bind({});
 
 D.args = {
-    scoreValue: "d",
+  scoreValue: "d",
 };
 
 export const E = Template.bind({});
 
 E.args = {
-    scoreValue: "e",
+  scoreValue: "e",
 };
 
 export const UnknownGrade = Template.bind({});
 
 UnknownGrade.args = {
-    scoreValue: "not attributed",
+  scoreValue: "not attributed",
 };
 
 export const EmptyGrade = Template.bind({});
 
 EmptyGrade.args = {
-    scoreValue: "",
+  scoreValue: "",
 };
 
 export const UndefinedGrade = Template.bind({});
 
 UndefinedGrade.args = {
-    scoreValue: undefined,
+  scoreValue: undefined,
 };

@@ -15,11 +15,18 @@ type NutritionInfoCardProps = {
   imgURL: string;
 };
 
-const NutritionInfoCard: React.FC<NutritionInfoCardProps> = ({brandName, genericName, nutriscore, novaIndex, openFoodFactsURL, imgURL}) => {
-    const { darkMode } = useContext(DarkModeContext);
-    const [imgSrc, setImgSrc] = useState(imgURL);
-    
-    return (
+const NutritionInfoCard: React.FC<NutritionInfoCardProps> = ({
+  brandName,
+  genericName,
+  nutriscore,
+  novaIndex,
+  openFoodFactsURL,
+  imgURL,
+}) => {
+  const { darkMode } = useContext(DarkModeContext);
+  const [imgSrc, setImgSrc] = useState(imgURL);
+
+  return (
     <a href={openFoodFactsURL} target="_blank" rel="noreferrer">
       <article
         className={`nutrition-info-card ${
@@ -34,14 +41,26 @@ const NutritionInfoCard: React.FC<NutritionInfoCardProps> = ({brandName, generic
             onError={() => setImgSrc(fallbackImg)}
           />
         </section>
-        
+
         <section className="product-attributes">
-            <div className="product-brand-container">
-              <p className={`product-brand ${darkMode ? "color-font-light " : "color-font-dark"}`}>{brandName}</p>
-            </div>
-            <div className="product-name-container">
-              <p className={`product-name ${darkMode ? "color-font-light " : "color-font-dark"}`}>{genericName}</p>
-            </div>
+          <div className="product-brand-container">
+            <p
+              className={`product-brand ${
+                darkMode ? "color-font-light " : "color-font-dark"
+              }`}
+            >
+              {brandName}
+            </p>
+          </div>
+          <div className="product-name-container">
+            <p
+              className={`product-name ${
+                darkMode ? "color-font-light " : "color-font-dark"
+              }`}
+            >
+              {genericName}
+            </p>
+          </div>
         </section>
 
         <section className="product-score-container">
@@ -50,11 +69,10 @@ const NutritionInfoCard: React.FC<NutritionInfoCardProps> = ({brandName, generic
         <section className="product-score-container">
           <Novascore scoreValue={novaIndex}></Novascore>
         </section>
-        
       </article>
     </a>
   );
-}
+};
 
 export default NutritionInfoCard;
 export type { NutritionInfoCardProps };

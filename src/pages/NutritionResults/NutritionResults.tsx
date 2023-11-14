@@ -33,7 +33,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
       </section>
     );
   } else if (data !== null && data.length !== 0) {
-    data.sort((a, b) => a.nutritionScore.localeCompare(b.nutritionScore))
+    data.sort((a, b) => a.nutritionScore.localeCompare(b.nutritionScore));
     searchResults = (
       <section className="search-results">
         {data.map((item) => (

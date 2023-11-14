@@ -16,7 +16,7 @@ export default function Navbar() {
         <li className={`nav-link `}>
           <Link to="/cocktails">Cocktails</Link>
         </li>
-        <li className={`nav-link` }>
+        <li className={`nav-link`}>
           <Link to="/nutrition">Nutrition</Link>
         </li>
         <div className={"switch"}>

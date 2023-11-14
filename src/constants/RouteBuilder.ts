@@ -17,7 +17,8 @@ export const DATA_DB_ROUTES = {
 };
 
 export const OPEN_FOOD_FACTS = {
-  NUTRITION_BY_BRAND: "https://world.openfoodfacts.org/api/v2/search?brands_tags=",
+  NUTRITION_BY_BRAND:
+    "https://world.openfoodfacts.org/api/v2/search?brands_tags=",
 };
 
 export function buildURL(api: string, route: string): string {

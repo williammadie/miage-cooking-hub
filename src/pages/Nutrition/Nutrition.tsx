@@ -27,11 +27,7 @@ const Nutrition: React.FC<{}> = () => {
           />
         </div>
       </div>
-      <NutritionResults
-        data={data}
-        isLoading={isLoading}
-        error={error}
-      />
+      <NutritionResults data={data} isLoading={isLoading} error={error} />
     </section>
   );
 };

@@ -10,9 +10,7 @@ export default {
   title: "component/Novascore",
 };
 
-const Template: StoryFn<NovascoreProps> = (
-  args: NovascoreProps
-) => (
+const Template: StoryFn<NovascoreProps> = (args: NovascoreProps) => (
   <DarkModeProvider>
     <BrowserRouter>
       <Novascore {...args} />
@@ -23,35 +21,35 @@ const Template: StoryFn<NovascoreProps> = (
 export const N1 = Template.bind({});
 
 N1.args = {
-    scoreValue: 1,
+  scoreValue: 1,
 };
 
 export const N2 = Template.bind({});
 
 N2.args = {
-    scoreValue: 2,
+  scoreValue: 2,
 };
 
 export const N3 = Template.bind({});
 
 N3.args = {
-    scoreValue: 3,
+  scoreValue: 3,
 };
 
 export const N4 = Template.bind({});
 
 N4.args = {
-    scoreValue: 4,
+  scoreValue: 4,
 };
 
 export const UnknownGrade = Template.bind({});
 
 UnknownGrade.args = {
-    scoreValue: 0,
+  scoreValue: 0,
 };
 
 export const UndefinedGrade = Template.bind({});
 
 UndefinedGrade.args = {
-    scoreValue: undefined,
+  scoreValue: undefined,
 };
