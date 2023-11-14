@@ -1,0 +1,33 @@
+nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  display: flex;
+  background: linear-gradient(60deg, rgb(240, 194, 123), rgb(75, 18, 72));
+  width: 13em;
+  height: 100em;
+}
+
+nav ul {
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+}
+.nav-link {
+  margin: 0.4em;
+  transition: transform 0.2s;
+}
+.nav-link:hover {
+  transform: scale(1.1);
+}
+
+.switch {
+  margin-top: 1em;
+}
