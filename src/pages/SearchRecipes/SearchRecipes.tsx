@@ -25,7 +25,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   const navigate = useNavigate();
   const { darkMode } = useContext(DarkModeContext);
 
-  let searchResults;  
+  let searchResults;
   if (isLoading) {
     searchResults = (
       <section className={"search-results"}>
@@ -59,11 +59,15 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
       : "No recipe found";
     searchResults = (
       <section className="no-recipe-found">
-        <p className={
-          darkMode
-            ? "color-font-light hover-shadow-light"
-            : "color-font-dark hover-shadow-dark"
-        }>{failureInfoMsg}</p>
+        <p
+          className={
+            darkMode
+              ? "color-font-light hover-shadow-light"
+              : "color-font-dark hover-shadow-dark"
+          }
+        >
+          {failureInfoMsg}
+        </p>
       </section>
     );
   }
