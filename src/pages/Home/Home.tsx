@@ -25,7 +25,11 @@ export default function Home() {
       : "No meal found";
     searchResults = (
       <section className="no-recipe-found">
-        <p>{failureInfoMsg}</p>
+        <p className={
+          darkMode
+            ? "color-font-light hover-shadow-light"
+            : "color-font-dark hover-shadow-dark"
+        }>{failureInfoMsg}</p>
       </section>
     );
   }
