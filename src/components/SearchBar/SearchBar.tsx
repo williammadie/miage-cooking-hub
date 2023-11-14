@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import searchBarImg from "../../assets/magnifying-glass.png";
 
 import "./style.css";
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 type SearchBarProps = {
   receiveMeals: (meals: any) => void;
@@ -13,7 +14,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   savedSearchQuery,
 }) => {
   const [searchInput, setSearchInput] = useState("");
-
+  const { darkMode } = useContext(DarkModeContext);
   return (
     <form
       onSubmit={(e) => {
@@ -31,7 +32,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
       <button type="button" onClick={() => receiveMeals(searchInput)}>
         <img
           src={searchBarImg}
-          className="magnifier-img"
+          className={`magnifier-img ${
+            darkMode ? "grey-color-image" : "inverse-color-image"
+          }`}
           alt="magnifying-glass"
         ></img>
       </button>

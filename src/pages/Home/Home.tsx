@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CircularProgress } from "@mui/material";
 import { useRandomMeal } from "../../hooks/meals/useRandomMeal";
 import RandomRecipeCard from "../../components/RandomRecipeCard/RandomRecipeCard";
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 export default function Home() {
   const { data, isLoading, error } = useRandomMeal();
+  const { darkMode } = useContext(DarkModeContext);
 
   if (isLoading) {
     return (
-      <section className="main">
+      <section className={`main ${darkMode ? "background-dark " : ""}`}>
         <div className="loading-wrapper">
           <CircularProgress />
         </div>
@@ -44,9 +46,9 @@ export default function Home() {
   // this should add the results in searchResults variable
 
   return (
-    <section className="main">
+    <section className={`main ${darkMode ? "background-dark " : ""}`}>
       <div className="title">
-        <h1 className={"title-1 primaryColor"}>Home Page</h1>
+        <h1 className={"title-1 primary-color"}>Home Page</h1>
       </div>
       {searchResults}
     </section>

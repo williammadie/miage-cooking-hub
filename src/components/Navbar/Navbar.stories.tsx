@@ -2,6 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import React from "react";
 import Navbar from "./Navbar";
 import { BrowserRouter } from "react-router-dom";
+import { DarkModeProvider } from "../../context/DarkModeContext";
 
 export default {
   component: Navbar,
@@ -9,9 +10,11 @@ export default {
 } as Meta;
 
 const Template: StoryFn = (args) => (
-  <BrowserRouter>
-    <Navbar {...args} />
-  </BrowserRouter>
+  <DarkModeProvider>
+    <BrowserRouter>
+      <Navbar {...args} />
+    </BrowserRouter>
+  </DarkModeProvider>
 );
 
 export const Default = Template.bind({});

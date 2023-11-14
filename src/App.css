@@ -3,10 +3,51 @@
     Ensures page content stays at the right of the navbar and don't go
     below it or under it. 
     */
-  margin-left: 15em;
-  padding: 0em 1em;
+  margin-left: 13em;
+  padding: 0 1em;
+  min-height: 100vh;
+}
+.primary-color {
+  background: linear-gradient(-3deg, #f0c27b, #7c1f77);
+  background-clip: text;
+  color: transparent;
+}
+.primary-color-dark {
+  background: linear-gradient(-3deg, #f0c27b, #801d76);
+  background-clip: text;
+  color: transparent;
 }
 
 h1 {
-  padding-bottom: 0.25em;
+  padding-bottom: 0.4em;
+}
+.background-dark {
+  background-color: #29292a;
+}
+.background-light {
+  background-color: #ffffff;
+}
+.seconde-background-light {
+  background-color: #f4f4f4;
+}
+.second-background-dark {
+  background-color: #575759;
+}
+.color-font-dark {
+  color: #504f4f;
+}
+.color-font-light {
+  color: #e5e2e2;
+}
+.inverse-color-image {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+.light-color-image {
+  -webkit-filter: invert(0.2);
+  filter: invert(0.2);
+}
+.grey-color-image {
+  -webkit-filter: invert(0.8);
+  filter: invert(0.8);
 }

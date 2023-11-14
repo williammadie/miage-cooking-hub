@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import RecipeType from "../../constants/RecipeType";
 import SearchRecipes from "../SearchRecipes/SearchRecipes";
 import { useCocktailsByName } from "../../hooks/cocktails/useCocktailsByName";
 
 import "./style.css";
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 const Cocktails: React.FC<{}> = () => {
   const storedSearchQuery: string | null = window.sessionStorage.getItem(
@@ -14,10 +15,12 @@ const Cocktails: React.FC<{}> = () => {
   const [searchInput, setSearchInput] = useState(savedQuery);
   const { data, isLoading, error } = useCocktailsByName(searchInput);
 
+  const { darkMode } = useContext(DarkModeContext);
+
   return (
-    <section className="main">
+    <section className={`main ${darkMode ? "background-dark " : ""}`}>
       <div className="title">
-        <h1 className={"title-1 primaryColor"}>Cocktails Page</h1>
+        <h1 className={"title-1 primary-color"}>Cocktails Page</h1>
         <div className="search-bar">
           <SearchBar
             receiveMeals={(searchInput) => setSearchInput(searchInput)}

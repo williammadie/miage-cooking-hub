@@ -1,11 +1,11 @@
 import React from "react";
+import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import PreviewRecipeCard from "../../components/PreviewRecipeCard/PreviewRecipeCard";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@mui/material";
 
 import "./style.css";
 import RecipeType from "../../constants/RecipeType";
-import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 
 const NB_SKELETON_LOADER = 18;
 type SearchRecipesProps = {
@@ -22,6 +22,7 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   error,
 }) => {
   const navigate = useNavigate();
+
   let searchResults;
   if (isLoading) {
     searchResults = (

@@ -4,6 +4,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 import FullMealMapper from "../../mappers/FullMealMapper";
 import FullDrinkMapper from "../../mappers/FullDrinkMapper";
+import { DarkModeProvider } from "../../context/DarkModeContext";
 
 export default {
   component: DetailPage,
@@ -11,9 +12,11 @@ export default {
 } as Meta;
 
 const Template: StoryFn<FullRecipe> = (args: FullRecipe) => (
-  <BrowserRouter>
-    <DetailPage {...args} />
-  </BrowserRouter>
+  <DarkModeProvider>
+    <BrowserRouter>
+      <DetailPage {...args} />
+    </BrowserRouter>
+  </DarkModeProvider>
 );
 
 export const Default = Template.bind({});
