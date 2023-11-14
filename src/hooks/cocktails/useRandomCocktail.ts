@@ -10,9 +10,9 @@ import {
 } from "../../constants/RouteBuilder";
 
 export const useRandomCocktail = () => {
-  const [data, setData] = useState<FullRecipeDTO | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<unknown | null>(null);
+  const [dataC, setData] = useState<FullRecipeDTO | null>(null);
+  const [isLoadingC, setIsLoading] = useState(true);
+  const [errorC, setError] = useState<unknown | null>(null);
 
   const fetchData = async () => {
     try {
@@ -31,5 +31,5 @@ export const useRandomCocktail = () => {
     fetchData();
   }, []);
 
-  return { data, isLoading, error };
+  return { dataC, isLoadingC, errorC };
 };
