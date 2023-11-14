@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar/Navbar";
 import React from "react";
 import Meal from "./pages/Meal/Meal";
 import Cocktail from "./pages/Cocktail/Cocktail";
-import RecipeType from "./constants/RecipeType";
 import Cocktails from "./pages/Cocktails/Cocktails";
 import Meals from "./pages/Meals/Meals";
 import { DarkModeProvider } from "./context/DarkModeContext";
