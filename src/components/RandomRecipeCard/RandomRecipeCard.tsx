@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, useContext, useState} from "react";
+import React, { MouseEventHandler, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -21,7 +21,7 @@ const RandomRecipeCard: React.FC<RandomRecipeCardProps> = ({
   img,
   category,
   ytLink,
-    onClickAction,
+  onClickAction,
 }) => {
   const [imgSrc, setImgSrc] = useState(img);
   const { darkMode } = useContext(DarkModeContext);

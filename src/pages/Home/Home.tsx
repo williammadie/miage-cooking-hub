@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import {CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import { useRandomMeal } from "../../hooks/meals/useRandomMeal";
 import RandomRecipeCard from "../../components/RandomRecipeCard/RandomRecipeCard";
 import { DarkModeContext } from "../../context/DarkModeContext";
-import {useRandomCocktail} from "../../hooks/cocktails/useRandomCocktail";
+import { useRandomCocktail } from "../../hooks/cocktails/useRandomCocktail";
 import RecipeType from "../../constants/RecipeType";
 
 import "./style.css";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const { dataM, isLoadingM, errorM } = useRandomMeal();
@@ -40,12 +40,12 @@ export default function Home() {
   let searchResultsC;
   if (!dataC || errorC) {
     const failureInfoMsg = errorC
-        ? "Service unavailable at the moment :("
-        : "No cocktail found";
+      ? "Service unavailable at the moment :("
+      : "No cocktail found";
     searchResultsC = (
-        <section className="no-recipe-found">
-          <p>{failureInfoMsg}</p>
-        </section>
+      <section className="no-recipe-found">
+        <p>{failureInfoMsg}</p>
+      </section>
     );
   }
 
@@ -64,14 +64,14 @@ export default function Home() {
 
   if (dataC) {
     searchResultsC = (
-        <RandomRecipeCard
-            title={dataC.name}
-            description={dataC.instructions}
-            img={dataC.thumbnailUrl}
-            category={dataC.category}
-            ytLink={dataC.youtubeRecipe}
-            onClickAction={() => navigate(`/${RecipeType.Cocktail}/${dataC.id}`)}
-        />
+      <RandomRecipeCard
+        title={dataC.name}
+        description={dataC.instructions}
+        img={dataC.thumbnailUrl}
+        category={dataC.category}
+        ytLink={dataC.youtubeRecipe}
+        onClickAction={() => navigate(`/${RecipeType.Cocktail}/${dataC.id}`)}
+      />
     );
   }
 
@@ -80,12 +80,12 @@ export default function Home() {
       <div className="title">
         <h1 className={"title-1 primary-color"}>Home Page</h1>
       </div>
-        <div className="Remarque">
-            <h1 className="TitreRemarque">Une petite idée de repas ?</h1>
-        </div>
+      <div className="Remarque">
+        <h1 className="TitreRemarque">Une petite idée de repas ?</h1>
+      </div>
       <div className="RandomRecipeCards">
-          <div className="card">{searchResultsM}</div>
-          <div className="card">{searchResultsC}</div>
+        <div className="card">{searchResultsM}</div>
+        <div className="card">{searchResultsC}</div>
       </div>
     </section>
   );
