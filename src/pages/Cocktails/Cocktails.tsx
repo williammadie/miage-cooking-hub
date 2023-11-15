@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import RecipeType from "../../constants/RecipeType";
+import titleImg from "../../assets/fried-egg.png";
 import SearchRecipes from "../SearchRecipes/SearchRecipes";
 import { useCocktailsByName } from "../../hooks/cocktails/useCocktailsByTextQuery";
 import "./style.css";
@@ -20,7 +21,14 @@ const Cocktails: React.FC<{}> = () => {
   return (
     <section className={`main ${darkMode ? "background-dark " : ""}`}>
       <div className="title">
-        <h1 className={"title-1 primary-color"}>Cocktails Page</h1>
+        <h1 className={"title-1 primary-color"}>Cocktails Page
+        <img
+            src={titleImg}
+            className="title-img"
+            alt="fried-egg"
+            style={{ verticalAlign: 'middle' }}
+          ></img>
+        </h1>
         <div className="search-bar">
         <div className="search-switch">
           <SearchBar

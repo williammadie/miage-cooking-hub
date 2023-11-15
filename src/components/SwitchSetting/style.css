@@ -40,5 +40,8 @@
 }
   
 .search-switch-content{
-    margin-bottom: 3px;
+  margin-top: -43px;
+  caret-color: transparent;
+  margin-left: -5px;
 }
+

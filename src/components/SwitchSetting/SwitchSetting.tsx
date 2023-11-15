@@ -1,7 +1,6 @@
 import { styled, Switch, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { DarkModeContext } from "../../context/DarkModeContext";
-import searchSettingImg from "../../assets/settings.png";
 import "./style.css";
 
 type SwitchSettingProps = {
@@ -13,36 +12,31 @@ const AntSwitch = styled(Switch)(() => ({
   }));
 
 const SwitchSetting: React.FC<SwitchSettingProps> = ({ switchStatus }) => {
-  const [checked, setChecked] = useState(true);
+  const [searchByIngredient, setsearchByIngredient] = useState(true);
   const { darkMode } = useContext(DarkModeContext);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newChecked = event.target.checked;
-    setChecked(newChecked);
+    setsearchByIngredient(newChecked);
     switchStatus(newChecked);
   };
 
   return (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-        >
-          <div className = "search-switch-content"style={{ display: 'flex', alignItems: 'center' }}>
+    <form style={{ all: 'unset' }}>
+          <div className = {`search-switch-content ${
+            darkMode
+              ? "color-font-light hover-shadow-light"
+              : "color-font-dark hover-shadow-dark"
+          }`}
+          style={{ display: 'flex', alignItems: 'center' }}
+          >
             <Typography>Recipe</Typography>
-            <AntSwitch defaultChecked inputProps={{ 'aria-label': 'ant design' }} color="secondary"
+            <AntSwitch inputProps={{ 'aria-label': 'ant design' }} color="secondary"
             onChange={handleChange}
-            checked = {checked}
+            checked = {searchByIngredient}
             />
             <Typography className="text-css">Ingredient</Typography>
           </div>
-            <img
-            src={searchSettingImg}
-            className={`magnifier-img ${
-              darkMode ? "grey-color-image" : "inverse-color-image"
-            }`}
-            alt="search-setting"
-          ></img>
-        </form>
+          </form>
       );
 };
 

@@ -22,19 +22,3 @@
   display: 'flex' !important;
 }
 
-.search-switch .search-switch-content {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 1s, opacity 1s;
-}
-.search-switch:hover .search-switch-content {
-  visibility: visible;
-  opacity: 1;
-}
-
-.search-switch:hover img{
-  visibility: hidden;
-  transition: visibility 0s, opacity 0s;
-
-}
-

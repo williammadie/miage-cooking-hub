@@ -8,6 +8,7 @@
   font-weight: bold;
   text-transform: capitalize;
   vertical-align: middle;
+  margin-right: 30px;
 }
 
 .text {
@@ -29,6 +30,10 @@
 .subtitle {
   font-size: 20px;
   font-weight: bold;
+}
+
+.title-img{
+  padding-left: 10px;
 }
 
 .list-instruction {

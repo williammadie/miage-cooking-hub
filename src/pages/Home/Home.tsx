@@ -63,6 +63,8 @@ export default function Home() {
             src={titleImg}
             className="title-img"
             alt="fried-egg"
+            style={{ verticalAlign: 'middle' }}
+
           ></img>
         </h1>
        

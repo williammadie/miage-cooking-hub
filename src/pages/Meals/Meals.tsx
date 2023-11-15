@@ -15,7 +15,7 @@ const Meals: React.FC<{}> = () => {
   const savedQuery = storedSearchQuery ? storedSearchQuery : "";
   const [searchInput, setSearchInput] = useState(savedQuery);
   const [isChecked, setIsChecked ] = useState<boolean>(true);
-  const { data, isLoading, error } = useMealsByName(searchInput, isChecked);
+  const { data, isLoading, error } = useMealsByName(searchInput,isChecked);
 
   const { darkMode } = useContext(DarkModeContext);
   return (
@@ -26,6 +26,7 @@ const Meals: React.FC<{}> = () => {
             src={titleImg}
             className="title-img"
             alt="fried-egg"
+            style={{ verticalAlign: 'middle' }}
           ></img>
         </h1>
         <div className="search-bar">
