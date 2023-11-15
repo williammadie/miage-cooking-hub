@@ -1,7 +1,6 @@
 import React from "react";
 import { Skeleton } from "@mui/material";
 
-import "./style.css";
 import NutritionInfoDTO from "../../dto/NutritionInfoDTO";
 import NutritionInfoCard from "../../components/NutritionInfoCard/NutritionInfoCard";
 

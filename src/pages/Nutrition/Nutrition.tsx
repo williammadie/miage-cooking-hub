@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import RecipeType from "../../constants/RecipeType";
 
-import "./style.css";
 import { DarkModeContext } from "../../context/DarkModeContext";
 import { useNutritionInfo } from "../../hooks/nutrition/useNutritionInfo";
 import NutritionResults from "../NutritionResults/NutritionResults";
