@@ -4,14 +4,8 @@
   padding: 2em;
 }
 
-h1 {
-  padding-bottom: 0px;
-}
-
 .Remarque {
   align-content: center;
-  height: 2em;
-  margin-bottom: 6em;
 }
 
 .TitreRemarque {
@@ -21,4 +15,7 @@ h1 {
   background: linear-gradient(219deg, #f8cd92, #972d92);
   background-clip: text;
   color: transparent;
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
 }

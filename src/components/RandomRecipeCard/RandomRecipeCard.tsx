@@ -5,6 +5,7 @@ import "./style.css";
 import fallbackImg from "../../assets/img-not-found.png";
 import ytLogo from "../../assets/yt-logo.png";
 import { DarkModeContext } from "../../context/DarkModeContext";
+import Category from "../Category/Category";
 
 type RandomRecipeCardProps = {
   title: string;
@@ -40,14 +41,12 @@ const RandomRecipeCard: React.FC<RandomRecipeCardProps> = ({
       </section>
       <section className="recipe-info">
         <section className="recipe-info-row">
-          <div className="recipe-category-wrapper">
-            <div className="recipe-category">
-              <p className="recipe-category-label">{category}</p>
-            </div>
+          <div className="recipe-category-wrapper">            
+            <Category category={category}/>
           </div>
-          {ytLink !== undefined && (
+          {ytLink !== undefined && ytLink !== null && ytLink !== "" && (
             <div className="recipe-yt-wrapper">
-              <Link to={ytLink} target="_about">
+              <Link to={ytLink} target="_blank">
                 <img
                   src={ytLogo}
                   alt="Youtube Recipe"
@@ -57,11 +56,11 @@ const RandomRecipeCard: React.FC<RandomRecipeCardProps> = ({
             </div>
           )}
         </section>
-        <h2
+        <h3
           className={` ${darkMode ? "color-font-light " : "color-font-dark"}`}
         >
           {title}
-        </h2>
+        </h3>
         <div className="recipe-description">
           <p
             className={`description-card ${

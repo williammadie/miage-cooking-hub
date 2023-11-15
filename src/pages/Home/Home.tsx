@@ -57,7 +57,7 @@ export default function Home() {
         img={dataM.thumbnailUrl}
         category={dataM.category}
         ytLink={dataM.youtubeRecipe}
-        onClickAction={() => navigate(`/${RecipeType.Meal}/${dataM.id}`)}
+        onClickAction={() => navigate(`/${RecipeType.Meal}/${dataM.id}`, { state: { lastPage: "home" } })}
       />
     );
   }
@@ -70,7 +70,7 @@ export default function Home() {
         img={dataC.thumbnailUrl}
         category={dataC.category}
         ytLink={dataC.youtubeRecipe}
-        onClickAction={() => navigate(`/${RecipeType.Cocktail}/${dataC.id}`)}
+        onClickAction={() => navigate(`/${RecipeType.Cocktail}/${dataC.id}`,  { state: { lastPage: "home" } })}
       />
     );
   }
@@ -81,7 +81,7 @@ export default function Home() {
         <h1 className={"title-1 primary-color"}>Home Page</h1>
       </div>
       <div className="Remarque">
-        <h1 className="TitreRemarque">Une petite idée de repas ?</h1>
+        <h2 className="TitreRemarque">Do you need some ideas ?</h2>
       </div>
       <div className="RandomRecipeCards">
         <div className="card">{searchResultsM}</div>
