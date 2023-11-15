@@ -14,9 +14,8 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
-      -
-        name: Pull Origin Changes
-        run: git pull ${{ github.action_repository }} ${{ github.head_ref }}
+        with:
+          ref: ${{ github.head_ref }}
       -
         name: Install Packages
         run: yarn --frozen-lockfile
