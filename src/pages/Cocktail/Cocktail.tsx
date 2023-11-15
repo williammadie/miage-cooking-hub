@@ -14,7 +14,7 @@ export default function Cocktail() {
   const { darkMode } = useContext(DarkModeContext);
   const location = useLocation();
   const { state } = location;
-  
+
   if (isLoading) {
     // Afficher un message de chargement tant que les données sont en cours de récupération
     return (
@@ -50,7 +50,9 @@ export default function Cocktail() {
         tags={data.tags}
         source={data.source}
         ingredients={data.ingredients}
-        goBackAction={() => navigate(state.lastPage !== "home" ? `/${state.lastPage}s`: "/")}
+        goBackAction={() =>
+          navigate(state.lastPage !== "home" ? `/${state.lastPage}s` : "/")
+        }
       ></DetailPage>
     </section>
   );

@@ -46,7 +46,11 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
             key={item.id}
             title={item.name}
             img={item.thumbnailUrl}
-            onClickAction={() => navigate(`/${recipeType}/${item.id}`, { state: { lastPage: recipeType } })}
+            onClickAction={() =>
+              navigate(`/${recipeType}/${item.id}`, {
+                state: { lastPage: recipeType },
+              })
+            }
           ></PreviewRecipeCard>
         ))}
       </section>

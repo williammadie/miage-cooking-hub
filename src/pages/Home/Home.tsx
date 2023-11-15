@@ -57,7 +57,11 @@ export default function Home() {
         img={dataM.thumbnailUrl}
         category={dataM.category}
         ytLink={dataM.youtubeRecipe}
-        onClickAction={() => navigate(`/${RecipeType.Meal}/${dataM.id}`, { state: { lastPage: "home" } })}
+        onClickAction={() =>
+          navigate(`/${RecipeType.Meal}/${dataM.id}`, {
+            state: { lastPage: "home" },
+          })
+        }
       />
     );
   }
@@ -70,7 +74,11 @@ export default function Home() {
         img={dataC.thumbnailUrl}
         category={dataC.category}
         ytLink={dataC.youtubeRecipe}
-        onClickAction={() => navigate(`/${RecipeType.Cocktail}/${dataC.id}`,  { state: { lastPage: "home" } })}
+        onClickAction={() =>
+          navigate(`/${RecipeType.Cocktail}/${dataC.id}`, {
+            state: { lastPage: "home" },
+          })
+        }
       />
     );
   }

@@ -41,8 +41,8 @@ const RandomRecipeCard: React.FC<RandomRecipeCardProps> = ({
       </section>
       <section className="recipe-info">
         <section className="recipe-info-row">
-          <div className="recipe-category-wrapper">            
-            <Category category={category}/>
+          <div className="recipe-category-wrapper">
+            <Category category={category} />
           </div>
           {ytLink !== undefined && ytLink !== null && ytLink !== "" && (
             <div className="recipe-yt-wrapper">

@@ -46,7 +46,9 @@ export default function Meal() {
         tags={data.tags}
         source={data.source}
         ingredients={data.ingredients}
-        goBackAction={() => navigate(state.lastPage !== "home" ? `/${state.lastPage}s`: "/")}
+        goBackAction={() =>
+          navigate(state.lastPage !== "home" ? `/${state.lastPage}s` : "/")
+        }
       ></DetailPage>
     </section>
   );
