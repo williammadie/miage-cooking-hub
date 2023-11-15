@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import {CircularProgress, css} from "@mui/material";
+import {CircularProgress } from "@mui/material";
 import { useRandomMeal } from "../../hooks/meals/useRandomMeal";
 import RandomRecipeCard from "../../components/RandomRecipeCard/RandomRecipeCard";
 import { DarkModeContext } from "../../context/DarkModeContext";
