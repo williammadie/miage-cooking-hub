@@ -23,6 +23,7 @@ export const useCocktailsByIngredient = (name: string) => {
         ),
         name
       );
+      console.log("Ingredient cocktail");
       setData(PreviewDrinkMapper.toDtos(response.data.drinks));
     } catch (err) {
       setError(err);
