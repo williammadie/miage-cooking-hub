@@ -16,6 +16,11 @@ export const DATA_DB_ROUTES = {
   RECIPE_BY_MAIN_INGREDIENT: "filter.php?i=",
 };
 
+export const OPEN_FOOD_FACTS = {
+  NUTRITION_BY_BRAND:
+    "https://world.openfoodfacts.org/api/v2/search?brands_tags=",
+};
+
 export function buildURL(api: string, route: string): string {
   return `https://www.${api}.com/api/json/v1/1/${route}`;
 }

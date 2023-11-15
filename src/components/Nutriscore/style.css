@@ -1,0 +1,41 @@
+.nutriscore-container {
+  height: 3em;
+  width: 2em;
+  border-radius: 1em;
+  background-color: #00823f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.nutriscore-label {
+  text-transform: capitalize;
+  font-family: Roboto, "Open Sans", sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.A-label {
+  background-color: #00823f;
+}
+
+.B-label {
+  background-color: #9abd3f;
+}
+
+.C-label {
+  background-color: #f2cd1a;
+}
+
+.D-label {
+  background-color: #d78023;
+}
+
+.E-label {
+  background-color: #c83a22;
+}
+
+.unknown-label {
+  background-color: #1e88eb;
+}
