@@ -2,8 +2,7 @@ import React, { useContext, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import RecipeType from "../../constants/RecipeType";
 import SearchRecipes from "../SearchRecipes/SearchRecipes";
-import { useCocktailsByName } from "../../hooks/cocktails/useCocktailsByName";
-import { useCocktailsByIngredient } from "../../hooks/cocktails/useCocktailsByIngredient";
+import { useCocktailsByName } from "../../hooks/cocktails/useCocktailsByTextQuery";
 import "./style.css";
 import { DarkModeContext } from "../../context/DarkModeContext";
 import SwitchSetting from "../../components/SwitchSetting/SwitchSetting";
@@ -15,7 +14,7 @@ const Cocktails: React.FC<{}> = () => {
   const savedQuery = storedSearchQuery ? storedSearchQuery : "";
   const [searchInput, setSearchInput] = useState(savedQuery);
   const [isChecked, setIsChecked] = useState<boolean>(true);
-  const { data, isLoading, error } = useCocktailsByName(searchInput,isChecked);
+  const { data, isLoading, error } = useCocktailsByName(searchInput, isChecked);
   const { darkMode } = useContext(DarkModeContext);
 
   return (

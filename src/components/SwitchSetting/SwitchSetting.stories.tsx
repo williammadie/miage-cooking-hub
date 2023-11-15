@@ -2,7 +2,6 @@ import React from "react";
 
 import { BrowserRouter } from "react-router-dom";
 import { StoryFn } from "@storybook/react";
-import { FormControlLabel } from "@mui/material";
 import SwitchSetting, { SwitchSettingProps } from "./SwitchSetting";
 
 export default {

@@ -9,13 +9,15 @@ import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import { AxiosResponse } from "axios";
 import PreviewMealMapper from "../../mappers/PreviewMealMapper";
 
-export const useMealsByName = (name: string, isChecked: boolean) => {
+export const useMealsByName = (name: string, searchByIngredient: boolean) => {
   const [data, setData] = useState<PreviewRecipeDTO[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
 
-  const fetchData = async (name: string, isChecked: boolean) => {
-    const route = isChecked? DATA_DB_ROUTES.RECIPE_BY_NAME: DATA_DB_ROUTES.RECIPE_BY_MAIN_INGREDIENT;
+  const fetchData = async (name: string, searchByIngredient: boolean) => {
+    const route = searchByIngredient
+      ? DATA_DB_ROUTES.RECIPE_BY_MAIN_INGREDIENT
+      : DATA_DB_ROUTES.RECIPE_BY_NAME;
     try {
       const response: AxiosResponse = await retrieveRecipes(
         buildURL(DATA_DB_PREFIX.MEAL, route),
@@ -30,8 +32,8 @@ export const useMealsByName = (name: string, isChecked: boolean) => {
   };
 
   useEffect(() => {
-    fetchData(name, isChecked);
-  }, [name]);
+    fetchData(name, searchByIngredient);
+  }, [name, searchByIngredient]);
 
   return { data, isLoading, error };
 };

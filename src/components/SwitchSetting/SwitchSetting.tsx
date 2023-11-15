@@ -13,7 +13,7 @@ const AntSwitch = styled(Switch)(() => ({
   }));
 
 const SwitchSetting: React.FC<SwitchSettingProps> = ({ switchStatus }) => {
-  const [checked, setChecked] = useState(true); 
+  const [checked, setChecked] = useState(true);
   const { darkMode } = useContext(DarkModeContext);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newChecked = event.target.checked;

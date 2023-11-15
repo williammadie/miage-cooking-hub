@@ -2,11 +2,10 @@ import React, { useContext, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import RecipeType from "../../constants/RecipeType";
 import SearchRecipes from "../SearchRecipes/SearchRecipes";
-import { useMealsByName } from "../../hooks/meals/useMealsByName";
+import { useMealsByName } from "../../hooks/meals/useMealsByTextQuery";
 import titleImg from "../../assets/fried-egg.png";
 import "./style.css";
 import { DarkModeContext } from "../../context/DarkModeContext";
-import { useMealsByIngredient } from "../../hooks/meals/useMealsByIngredient";
 import SwitchSetting from "../../components/SwitchSetting/SwitchSetting";
 
 const Meals: React.FC<{}> = () => {
@@ -16,7 +15,7 @@ const Meals: React.FC<{}> = () => {
   const savedQuery = storedSearchQuery ? storedSearchQuery : "";
   const [searchInput, setSearchInput] = useState(savedQuery);
   const [isChecked, setIsChecked ] = useState<boolean>(true);
-  const { data, isLoading, error } = useMealsByName(searchInput,isChecked);
+  const { data, isLoading, error } = useMealsByName(searchInput, isChecked);
 
   const { darkMode } = useContext(DarkModeContext);
   return (
