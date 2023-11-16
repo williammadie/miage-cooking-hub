@@ -23,7 +23,6 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
   error,
   isRecipeSearch,
 }) => {
-
   const navigate = useNavigate();
   const { darkMode } = useContext(DarkModeContext);
 

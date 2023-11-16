@@ -11,7 +11,7 @@ const SwitchDarkMode: React.FC<any> = () => {
     width: 62,
     height: 34,
     padding: 7,
-    caretColor: 'transparent', 
+    caretColor: "transparent",
     "& .MuiSwitch-switchBase": {
       margin: 1,
       padding: 0,

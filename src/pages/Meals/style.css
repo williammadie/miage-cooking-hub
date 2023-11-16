@@ -13,12 +13,11 @@
 
 .search-bar {
   margin-top: 45px;
-  display: 'flex';
+  display: "flex";
   justify-content: space-between;
   align-items: center;
 }
 
-.search-switch{
-  display: 'flex' !important;
+.search-switch {
+  display: "flex" !important;
 }
-
