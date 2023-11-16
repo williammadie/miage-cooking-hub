@@ -21,26 +21,27 @@ const Cocktails: React.FC<{}> = () => {
   return (
     <section className={`main ${darkMode ? "background-dark " : ""}`}>
       <div className="title">
-        <h1 className={"title-1 primary-color"}>Cocktails Page
-        <img
+        <h1 className={"title-1 primary-color"}>
+          Cocktails Page
+          <img
             src={titleImg}
             className="title-img"
             alt="fried-egg"
-            style={{ verticalAlign: 'middle' }}
+            style={{ verticalAlign: "middle" }}
           ></img>
         </h1>
         <div className="search-bar">
-        <div className="search-switch">
-          <SearchBar
-            receiveMeals={(searchInput) => setSearchInput(searchInput)}
-            key={RecipeType.Cocktail}
-            savedSearchQuery={RecipeType.Cocktail}
-          />
+          <div className="search-switch">
+            <SearchBar
+              receiveMeals={(searchInput) => setSearchInput(searchInput)}
+              key={RecipeType.Cocktail}
+              savedSearchQuery={RecipeType.Cocktail}
+            />
           </div>
           <div className="search-switch">
-           <SwitchSetting 
-            switchStatus={(isChecked) => setIsChecked(isChecked)}
-          />
+            <SwitchSetting
+              switchStatus={(isChecked) => setIsChecked(isChecked)}
+            />
           </div>
         </div>
       </div>

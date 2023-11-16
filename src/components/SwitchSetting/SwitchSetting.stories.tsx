@@ -18,7 +18,6 @@ const Template: StoryFn<SwitchSettingProps> = (args: SwitchSettingProps) => (
       </div>
     </BrowserRouter>
   </DarkModeProvider>
-  
 );
 
 export const Default = Template.bind({});

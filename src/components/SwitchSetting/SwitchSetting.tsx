@@ -5,11 +5,11 @@ import "./style.css";
 
 type SwitchSettingProps = {
   switchStatus: (status: boolean) => void;
-};      
+};
 
 const AntSwitch = styled(Switch)(() => ({
-  composes: 'AntSwitch',
-  }));
+  composes: "AntSwitch",
+}));
 
 const SwitchSetting: React.FC<SwitchSettingProps> = ({ switchStatus }) => {
   const [searchByIngredient, setsearchByIngredient] = useState(true);
@@ -21,23 +21,26 @@ const SwitchSetting: React.FC<SwitchSettingProps> = ({ switchStatus }) => {
   };
 
   return (
-    <form style={{ all: 'unset' }}>
-          <div className = {`search-switch-content ${
-            darkMode
-              ? "color-font-light hover-shadow-light"
-              : "color-font-dark hover-shadow-dark"
-          }`}
-          style={{ display: 'flex', alignItems: 'center' }}
-          >
-            <Typography>Recipe</Typography>
-            <AntSwitch inputProps={{ 'aria-label': 'ant design' }} color="secondary"
-            onChange={handleChange}
-            checked = {searchByIngredient}
-            />
-            <Typography className="text-css">Ingredient</Typography>
-          </div>
-          </form>
-      );
+    <form style={{ all: "unset" }}>
+      <div
+        className={`search-switch-content ${
+          darkMode
+            ? "color-font-light hover-shadow-light"
+            : "color-font-dark hover-shadow-dark"
+        }`}
+        style={{ display: "flex", alignItems: "center" }}
+      >
+        <Typography>Recipe</Typography>
+        <AntSwitch
+          inputProps={{ "aria-label": "ant design" }}
+          color="secondary"
+          onChange={handleChange}
+          checked={searchByIngredient}
+        />
+        <Typography className="text-css">Ingredient</Typography>
+      </div>
+    </form>
+  );
 };
 
 export default SwitchSetting;
