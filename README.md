@@ -8,6 +8,24 @@ This project was made in one month by four students.
 
 Our team of four first-year master's students in MIAGE proudly presents a comprehensive platform for culinary enthusiasts. This web application provides users with the ability to explore a vast collection of recipes, including culinary dishes, cocktails, and detailed nutrition information.
 
+## Showcase 
+
+### Homepage
+
+![homepage](/docs/homepage.png)
+
+### Search Results for Cocktails
+
+![cocktail_page](/docs/cocktail_page.png)
+
+### Recipe: Detailed Page
+
+![detailed_page](/docs/detailed_page.png)
+
+### Nutrition Page
+
+![nutrition_page](/docs/nutrition_page.png)
+
 ## Features
 
 ### Culinary Recipes 🍽
