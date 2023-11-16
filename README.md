@@ -1,8 +1,150 @@
-# Getting Started with Create React App
+# 🥦🍔🍚 React Scholar Project: Culinary Hub 🍹🍸🥂
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the documentation for our delightful Culinary Hub built with *React* and *TypeScript*. 🍲🍹
 
-## Available Scripts
+This project was made in one month by four students.
+
+## Project Overview
+
+Our team of four first-year master's students in MIAGE proudly presents a comprehensive platform for culinary enthusiasts. This web application provides users with the ability to explore a vast collection of recipes, including culinary dishes, cocktails, and detailed nutrition information.
+
+## Features
+
+### Culinary Recipes 🍽
+Browse through a diverse range of culinary recipes, carefully curated to cater to various tastes and preferences.
+
+### Cocktail Recipes 🍹
+Discover and shake up your favorite cocktails with our extensive collection of cocktail recipes.
+
+### Nutrition Information 🧁
+Stay informed about the nutritional content of different products from various brands, including [Nutriscore ratings](https://www.santepubliquefrance.fr/determinants-de-sante/nutrition-et-activite-physique/articles/nutri-score) and the [Nova classification](https://fr.openfoodfacts.org/nova).
+
+## Technologies Used 🤖
+
+- **React**: The foundation of our project, facilitating the creation of interactive and dynamic user interfaces.
+- **TypeScript**: Enhancing code quality and providing a more robust development experience.
+- **Components**: Leveraging React's component-based architecture for modular and reusable code.
+- **Hooks**: Utilizing essential React hooks such as `useState`, `useEffect`, `useNavigate`, `useLocation`, and custom hooks for efficient state management and navigation.
+
+## External APIs ⚙️
+
+- [TheMealDB](https://www.themealdb.com/)
+- [TheCocktail](https://www.thecocktaildb.com/)
+- [OpenFood Facts](https://fr.openfoodfacts.org/data)
+
+## Team Members 🏈
+
+- [William Madié](https://github.com/williammadie)
+- [Fabien Rondan](https://github.com/BladeBuru)
+- [Simon Crépin](https://github.com/OrieAYA)
+- [Yewon Kang](https://github.com/YewonKan)
+
+## Project Structure 🏗
+
+```plaintext
+culinary-hub/
+.
+├── jest.config.js
+├── package.json
+├── README.md
+├── src
+│   ├── api
+│   │   └── datadb.ts
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets
+│   │   ├── fried-egg.png
+│   │   ├── goBackIcon.png
+│   │   ├── img-not-found.png
+│   │   ├── magnifying-glass.png
+│   │   ├── sample-recipe.jpg
+│   │   ├── search.png
+│   │   └── yt-logo.png
+│   ├── components
+│   │   ├── Category
+│   │   │   ├── Category.stories.tsx
+│   │   │   ├── Category.tsx
+│   │   │   └── style.css
+│   │   ├── DetailRecipeCard
+│   │   │   ├── DetailRecipeCard.stories.tsx
+│   │   │   ├── DetailRecipeCard.tsx
+│   │   │   └── style.css
+│   │   ├── Navbar
+│   │   │   ├── Navbar.stories.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   └── style.css
+│   │   ├── Novascore
+│   │   │   ├── Novascore.stories.tsx
+│   │   │   ├── Novascore.tsx
+│   │   │   └── style.css
+│   │   ├── Nutriscore
+│   │   ├── NutritionInfoCard
+│   │   ├── PreviewRecipeCard
+│   │   ├── RandomRecipeCard
+│   │   ├── SearchBar
+│   │   ├── SwitchDakMode
+│   │   ├── SwitchSetting
+│   │   └── YouTubeVideo
+│   ├── constants
+│   │   ├── RecipeType.ts
+│   │   └── RouteBuilder.ts
+│   ├── context
+│   │   └── DarkModeContext.tsx
+│   ├── dto
+│   │   ├── FullRecipeDTO.ts
+│   │   └── PreviewRecipeDTO.ts
+│   ├── errors
+│   │   └── NoResultFoundError.ts
+│   ├── hooks
+│   │   ├── cocktails
+│   │   │   ├── useCocktailById.ts
+│   │   │   ├── useCocktailsByName.ts
+│   │   │   ├── useCocktailsByTextQuery.ts
+│   │   │   └── useRandomCocktail.ts
+│   │   ├── meals
+│   │   │   ├── useMealById.ts
+│   │   │   ├── useMealsByName.ts
+│   │   │   ├── useMealsByTextQuery.ts
+│   │   │   └── useRandomMeal.ts
+│   │   └── nutrition
+│   │       └── useNutritionInfo.ts
+│   ├── index.css
+│   ├── index.tsx
+│   ├── mappers
+│   │   ├── FullDrinkMapper.ts
+│   │   ├── FullMealMapper.ts
+│   │   ├── NutritionInformationMappper.ts
+│   │   ├── PreviewDrinkMapper.ts
+│   │   └── PreviewMealMapper.ts
+│   └── pages
+│       ├── Cocktail
+│       │   ├── Cocktail.tsx
+│       │   └── style.css
+│       ├── Cocktails
+│       │   ├── Cocktails.tsx
+│       │   └── style.css
+│       ├── Home
+│       │   ├── Home.tsx
+│       │   └── style.css
+│       ├── Meal
+│       ├── Meals
+│       ├── Nutrition
+│       ├── NutritionResults
+│       └── SearchRecipes
+├── tsconfig.json
+└── yarn.lock
+```
+
+## License 📖
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for exploring our Culinary Hub!
+
+
+## Quickstart 🚀
 
 In the project directory, you can run:
 
@@ -32,33 +174,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
