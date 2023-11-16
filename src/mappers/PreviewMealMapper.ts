@@ -12,7 +12,7 @@ const PreviewMealMapper = {
   toDtos: function (meals: any): PreviewRecipeDTO[] {
     const mealsDtos: PreviewRecipeDTO[] = [];
 
-    if (meals === null) return mealsDtos;
+    if (meals === null || meals === undefined) return mealsDtos;
 
     for (const meal of meals) {
       mealsDtos.push(PreviewMealMapper.toDto(meal));

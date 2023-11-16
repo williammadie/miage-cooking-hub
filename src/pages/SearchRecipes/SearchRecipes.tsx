@@ -5,10 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@mui/material";
 
 import "./style.css";
-// import NoResultFoundError from "../../errors/NoResultFoundError";
 import RecipeType from "../../constants/RecipeType";
 import { DarkModeContext } from "../../context/DarkModeContext";
-// import SwitchSetting from "../../components/SwitchSetting/SwitchSetting";
 
 const NB_SKELETON_LOADER = 18;
 type SearchRecipesProps = {
@@ -52,7 +50,11 @@ const SearchRecipes: React.FC<SearchRecipesProps> = ({
             key={item.id}
             title={item.name}
             img={item.thumbnailUrl}
-            onClickAction={() => navigate(`/${recipeType}/${item.id}`)}
+            onClickAction={() =>
+              navigate(`/${recipeType}/${item.id}`, {
+                state: { lastPage: recipeType },
+              })
+            }
           ></PreviewRecipeCard>
         ))}
       </section>

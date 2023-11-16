@@ -1,3 +1,24 @@
+.RandomRecipeCards {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2em;
+}
+
+.Remarque {
+  align-content: center;
+}
+
+.TitreRemarque {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  background: linear-gradient(219deg, #f8cd92, #972d92);
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+}
 .title-img{
     width: 60px;
 }

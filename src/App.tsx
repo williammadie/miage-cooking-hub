@@ -5,10 +5,10 @@ import Navbar from "./components/Navbar/Navbar";
 import React from "react";
 import Meal from "./pages/Meal/Meal";
 import Cocktail from "./pages/Cocktail/Cocktail";
-import RecipeType from "./constants/RecipeType";
 import Cocktails from "./pages/Cocktails/Cocktails";
 import Meals from "./pages/Meals/Meals";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import Nutrition from "./pages/Nutrition/Nutrition";
 
 function App() {
   return (
@@ -17,10 +17,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/meals" element={<Meals />} key={RecipeType.Meal} />
+          <Route path="/meals" element={<Meals />} />
           <Route path="/cocktails" element={<Cocktails />} />
           <Route path="/meal/:id" element={<Meal />} />
           <Route path="/cocktail/:id" element={<Cocktail />} />
+          <Route path="/nutrition" element={<Nutrition />} />
         </Routes>
       </Router>
     </DarkModeProvider>

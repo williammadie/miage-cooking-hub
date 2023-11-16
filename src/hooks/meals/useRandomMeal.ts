@@ -10,11 +10,12 @@ import {
 import FullMealMapper from "../../mappers/FullMealMapper";
 
 export const useRandomMeal = () => {
-  const [data, setData] = useState<FullRecipeDTO | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<unknown | null>(null);
+  const [dataM, setData] = useState<FullRecipeDTO | null>(null);
+  const [isLoadingM, setIsLoading] = useState(true);
+  const [errorM, setError] = useState<unknown | null>(null);
 
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       const response: AxiosResponse = await retrieveFullRecipe(
         buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RANDOM_RECIPE)
@@ -31,5 +32,5 @@ export const useRandomMeal = () => {
     fetchData();
   }, []);
 
-  return { data, isLoading, error };
+  return { dataM, isLoadingM, errorM };
 };

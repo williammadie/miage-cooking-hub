@@ -9,34 +9,29 @@ import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import { AxiosResponse } from "axios";
 import PreviewDrinkMapper from "../../mappers/PreviewDrinkMapper";
 
-export const useCocktailsByName = (
-  name: string,
-  searchByIngredient: boolean
-) => {
+export const useCocktailsByName = (name: string) => {
   const [data, setData] = useState<PreviewRecipeDTO[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
 
-  const fetchData = async (name: string, searchByIngredient: boolean) => {
-    const route = searchByIngredient
-      ? DATA_DB_ROUTES.RECIPE_BY_MAIN_INGREDIENT
-      : DATA_DB_ROUTES.RECIPE_BY_NAME;
-    name = name === "" && searchByIngredient ? "ice" : name;
+  const fetchData = async (name: string) => {
+    setIsLoading(true);
     try {
       const response: AxiosResponse = await retrieveRecipes(
-        buildURL(DATA_DB_PREFIX.COCKTAIL, route),
+        buildURL(DATA_DB_PREFIX.COCKTAIL, DATA_DB_ROUTES.RECIPE_BY_NAME),
         name
       );
       setData(PreviewDrinkMapper.toDtos(response.data.drinks));
     } catch (err) {
       setError(err);
     }
+
     setIsLoading(false);
   };
 
   useEffect(() => {
-    fetchData(name, searchByIngredient);
-  }, [name, searchByIngredient]);
+    fetchData(name);
+  }, [name]);
 
   return { data, isLoading, error };
 };

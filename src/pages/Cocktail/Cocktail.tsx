@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import DetailPage from "../../components/DetailRecipeCard/DetailRecipeCard";
 
@@ -12,6 +12,8 @@ export default function Cocktail() {
   const { data, isLoading, error } = useCocktailById(id);
   const navigate = useNavigate();
   const { darkMode } = useContext(DarkModeContext);
+  const location = useLocation();
+  const { state } = location;
 
   if (isLoading) {
     // Afficher un message de chargement tant que les données sont en cours de récupération
@@ -47,7 +49,9 @@ export default function Cocktail() {
         tags={data.tags}
         source={data.source}
         ingredients={data.ingredients}
-        goBackAction={() => navigate("/cocktails")}
+        goBackAction={() =>
+          navigate(state.lastPage !== "home" ? `/${state.lastPage}s` : "/")
+        }
       ></DetailPage>
     </section>
   );

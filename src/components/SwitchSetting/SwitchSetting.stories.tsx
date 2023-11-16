@@ -13,7 +13,9 @@ export default {
 const Template: StoryFn<SwitchSettingProps> = (args: SwitchSettingProps) => (
   <DarkModeProvider>
     <BrowserRouter>
-      <SwitchSetting {...args} />
+      <div style={{ paddingTop: "20px" }}>
+        <SwitchSetting {...args} />
+      </div>
     </BrowserRouter>
   </DarkModeProvider>
   
@@ -21,4 +23,6 @@ const Template: StoryFn<SwitchSettingProps> = (args: SwitchSettingProps) => (
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  switchStatus: (isChecked) => console.log("Switch status:", isChecked),
+};
