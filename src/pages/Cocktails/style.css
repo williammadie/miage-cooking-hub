@@ -1,8 +1,9 @@
 .search-results {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .title {
@@ -12,5 +13,11 @@
 }
 
 .search-bar {
-  margin-top: 45px;
+  margin-right: 4%;
+  display: flex !important;
+}
+
+.search-switch {
+  margin-right: 13%;
+  color: aliceblue;
 }

@@ -11,8 +11,7 @@ const PreviewDrinkMapper = {
 
   toDtos: function (drinks: any): PreviewRecipeDTO[] {
     const drinksDtos: PreviewRecipeDTO[] = [];
-
-    if (drinks === null) return drinksDtos;
+    if (drinks === null || drinks === undefined) return drinksDtos;
 
     for (const drink of drinks) {
       drinksDtos.push(PreviewDrinkMapper.toDto(drink));

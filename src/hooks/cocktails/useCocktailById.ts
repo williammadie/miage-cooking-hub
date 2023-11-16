@@ -8,7 +8,6 @@ import { AxiosResponse } from "axios";
 import { retrieveFullRecipe } from "../../api/datadb";
 import FullDrinkMapper from "../../mappers/FullDrinkMapper";
 import FullRecipeDTO from "../../dto/FullRecipeDTO";
-
 export const useCocktailById = (id: string) => {
   const [data, setData] = useState<FullRecipeDTO | null>(null);
   const [isLoading, setIsLoading] = useState(true);

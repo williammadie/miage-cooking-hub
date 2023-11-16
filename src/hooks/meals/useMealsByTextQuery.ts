@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { retrieveRecipes } from "../../api/datadb";
 import {
   DATA_DB_PREFIX,
   DATA_DB_ROUTES,
@@ -6,19 +7,20 @@ import {
 } from "../../constants/RouteBuilder";
 import PreviewRecipeDTO from "../../dto/PreviewRecipeDTO";
 import { AxiosResponse } from "axios";
-import { retrieveRecipes } from "../../api/datadb";
 import PreviewMealMapper from "../../mappers/PreviewMealMapper";
 
-export const useMealsByIngredient = (name: string) => {
+export const useMealsByName = (name: string, searchByIngredient: boolean) => {
   const [data, setData] = useState<PreviewRecipeDTO[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
 
-  const fetchData = async (name: string) => {
-    setIsLoading(true);
+  const fetchData = async (name: string, searchByIngredient: boolean) => {
+    const route = searchByIngredient
+      ? DATA_DB_ROUTES.RECIPE_BY_MAIN_INGREDIENT
+      : DATA_DB_ROUTES.RECIPE_BY_NAME;
     try {
       const response: AxiosResponse = await retrieveRecipes(
-        buildURL(DATA_DB_PREFIX.MEAL, DATA_DB_ROUTES.RECIPE_BY_MAIN_INGREDIENT),
+        buildURL(DATA_DB_PREFIX.MEAL, route),
         name
       );
       setData(PreviewMealMapper.toDtos(response.data.meals));
@@ -30,8 +32,8 @@ export const useMealsByIngredient = (name: string) => {
   };
 
   useEffect(() => {
-    fetchData(name);
-  }, [name]);
+    fetchData(name, searchByIngredient);
+  }, [name, searchByIngredient]);
 
   return { data, isLoading, error };
 };

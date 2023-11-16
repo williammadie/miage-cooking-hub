@@ -36,7 +36,6 @@ export default function Cocktail() {
   }
 
   // Les données sont prêtes, affichez-les
-  console.log(state.lastPage);
   return (
     <section className={`main ${darkMode ? "background-dark " : ""}`}>
       <DetailPage

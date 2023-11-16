@@ -3,10 +3,11 @@ import { CircularProgress } from "@mui/material";
 import { useRandomMeal } from "../../hooks/meals/useRandomMeal";
 import RandomRecipeCard from "../../components/RandomRecipeCard/RandomRecipeCard";
 import { DarkModeContext } from "../../context/DarkModeContext";
+import titleImg from "../../assets/fried-egg.png";
+import "./style.css";
 import { useRandomCocktail } from "../../hooks/cocktails/useRandomCocktail";
 import RecipeType from "../../constants/RecipeType";
 
-import "./style.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -94,7 +95,15 @@ export default function Home() {
   return (
     <section className={`main ${darkMode ? "background-dark " : ""}`}>
       <div className="title">
-        <h1 className={"title-1 primary-color"}>Home Page</h1>
+        <h1 className={"title-1 primary-color"}>
+          Home Page
+          <img
+            src={titleImg}
+            className="title-img"
+            alt="fried-egg"
+            style={{ verticalAlign: "middle" }}
+          ></img>
+        </h1>
       </div>
       <div className="Remarque">
         <h2 className="TitreRemarque">Do you need some ideas ?</h2>

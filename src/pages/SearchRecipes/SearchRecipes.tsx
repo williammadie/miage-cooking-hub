@@ -14,13 +14,14 @@ type SearchRecipesProps = {
   data: PreviewRecipeDTO[] | null;
   isLoading: boolean;
   error: unknown;
+  isRecipeSearch: boolean;
 };
-
 const SearchRecipes: React.FC<SearchRecipesProps> = ({
   recipeType,
   data,
   isLoading,
   error,
+  isRecipeSearch,
 }) => {
   const navigate = useNavigate();
   const { darkMode } = useContext(DarkModeContext);
